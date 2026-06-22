@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plano de Saúde Negou Cobertura? Conheça Seus Direitos | Juiz de Fora</title>
+  <meta name="description" content="Negativa de plano de saúde em Juiz de Fora? Advogada especializada em Direito à Saúde analisa seu caso. Entre em contato pelo WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:      #192A52;
+      --azul-m:    #2B4A8A;
+      --texto:     #1A1A2E;
+      --suave:     #4A5568;
+      --fundo:     #F4F7FB;
+      --branco:    #FFFFFF;
+      --verde:     #1A7A4A;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--texto); background: var(--branco); line-height: 1.6; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+    p { color: var(--suave); }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; border-radius: 6px;
+      font-family: 'Inter', sans-serif; font-size: 0.925rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: all .2s;
+    }
+    .btn-cta  { background: #25D366; color: #fff; border: none; font-size: 1rem; padding: 18px 36px; }
+    .btn-cta:hover { background: #1ea853; transform: scale(1.02); }
+    .btn-sec  { background: transparent; color: var(--azul); border: 2px solid var(--azul); }
+    .btn-sec:hover { background: var(--fundo); }
+
+    /* ── HEADER MÍNIMO ── */
+    .lp-header {
+      background: var(--azul); padding: 16px 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lp-header img { height: 38px; }
+
+    /* ── HERO ── */
+    .lp-hero { background: var(--azul); padding: 64px 0; text-align: center; }
+    .lp-hero .area-tag {
+      display: inline-block; background: rgba(255,255,255,.15); color: #fff;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .lp-hero h1 { color: #fff; font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 20px; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .lp-hero .subtitulo { color: rgba(255,255,255,.8); font-size: 1.05rem; max-width: 560px; margin: 0 auto 36px; }
+    .lp-hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── SITUAÇÕES ── */
+    .situacoes { padding: 72px 0; background: var(--branco); }
+    .situacoes h2 { color: var(--azul); text-align: center; margin-bottom: 48px; }
+    .situacoes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .situacao-card {
+      background: var(--fundo); border-radius: 10px; padding: 24px 20px;
+      border-left: 4px solid var(--azul);
+    }
+    .situacao-card .ico { font-size: 1.5rem; margin-bottom: 12px; }
+    .situacao-card h3 { color: var(--azul); font-size: 0.95rem; margin-bottom: 8px; }
+    .situacao-card p  { font-size: 0.85rem; line-height: 1.65; }
+
+    /* ── CTA PRINCIPAL ── */
+    .cta-principal { background: var(--fundo); padding: 64px 0; text-align: center; }
+    .cta-principal h2 { color: var(--azul); margin-bottom: 14px; }
+    .cta-principal p  { max-width: 480px; margin: 0 auto 32px; }
+    .cta-nota { margin-top: 20px; font-size: 0.75rem; color: var(--suave); }
+
+    /* ── COMO FUNCIONA ── */
+    .processo { padding: 72px 0; background: var(--branco); }
+    .processo h2 { color: var(--azul); text-align: center; margin-bottom: 48px; }
+    .processo-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step { text-align: center; }
+    .step-num {
+      width: 44px; height: 44px; background: var(--azul); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+      margin: 0 auto 16px;
+    }
+    .step h3 { color: var(--azul); font-size: 0.95rem; margin-bottom: 8px; }
+    .step p  { font-size: 0.85rem; line-height: 1.65; }
+
+    /* ── DEPOIMENTO ── */
+    .lp-depoimento { background: var(--azul); padding: 64px 0; text-align: center; }
+    .lp-depoimento blockquote {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,.9);
+      line-height: 1.8; max-width: 700px; margin: 0 auto 24px;
+    }
+    .lp-depoimento .autor { color: rgba(255,255,255,.7); font-size: 0.875rem; }
+
+    /* ── ADVOGADA ── */
+    .advogada { padding: 72px 0; background: var(--branco); }
+    .advogada-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; }
+    .advogada-foto { border-radius: 12px; overflow: hidden; aspect-ratio: 3/4; }
+    .advogada-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .advogada-info h2 { color: var(--azul); margin-bottom: 8px; }
+    .advogada-info .oab { font-size: 0.85rem; color: var(--suave); margin-bottom: 20px; }
+    .advogada-info p { margin-bottom: 14px; line-height: 1.8; }
+
+    /* ── FAQ ── */
+    .faq { padding: 72px 0; background: var(--fundo); }
+    .faq h2 { color: var(--azul); text-align: center; margin-bottom: 40px; }
+    .faq-items { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      background: var(--branco); border-radius: 10px;
+      margin-bottom: 12px; overflow: hidden;
+    }
+    .faq-pergunta {
+      padding: 18px 20px; font-weight: 600; font-size: 0.925rem;
+      color: var(--azul); cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-resposta { padding: 0 20px 18px; font-size: 0.875rem; line-height: 1.75; }
+
+    /* ── CTA FINAL ── */
+    .cta-final { padding: 72px 0; background: var(--azul); text-align: center; }
+    .cta-final h2 { color: #fff; margin-bottom: 16px; }
+    .cta-final p  { color: rgba(255,255,255,.8); max-width: 480px; margin: 0 auto 32px; }
+    .cta-final .nota { color: rgba(255,255,255,.45); font-size: 0.75rem; margin-top: 20px; max-width: 460px; margin-left: auto; margin-right: auto; }
+
+    /* ── FOOTER MÍNIMO ── */
+    .lp-footer { background: #0f1c36; padding: 28px 0; text-align: center; }
+    .lp-footer p { color: rgba(255,255,255,.4); font-size: 0.75rem; line-height: 1.7; }
+
+    /* ── WHATSAPP FIXO ── */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      width: 56px; height: 56px; background: #25D366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4); text-decoration: none;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    @media (max-width: 768px) {
+      .situacoes-grid { grid-template-columns: 1fr; }
+      .processo-steps { grid-template-columns: repeat(2, 1fr); }
+      .advogada-inner { grid-template-columns: 1fr; }
+      .advogada-foto { aspect-ratio: 4/3; max-height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER MÍNIMO (sem nav — não deixa o visitante sair) -->
+  <header class="lp-header">
+    <img
+      src="https://www.advogadojuizdefora.com.br/wp-content/uploads/2018/09/LogoFlaviaMachado_Branco-1.png"
+      alt="Flávia Machado Advogados Associados"
+    />
+  </header>
+
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="container">
+      <span class="area-tag">Direito à Saúde · Juiz de Fora, MG</span>
+      <h1>Seu plano de saúde negou cobertura?<br/>Você pode ter direito à autorização.</h1>
+      <p class="subtitulo">
+        Negativas de tratamento, medicamento ou procedimento podem ser questionadas na Justiça.
+        O escritório analisa seu caso com atenção.
+      </p>
+      <div class="lp-hero-btns">
+        <a href="https://wa.me/5532999885341?text=Ol%C3%A1%2C%20meu%20plano%20de%20sa%C3%BAde%20negou%20cobertura%20e%20gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." class="btn btn-cta">
+          📱 Falar com a advogada
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITUAÇÕES -->
+  <section class="situacoes">
+    <div class="container">
+      <h2>Situações que podemos analisar</h2>
+      <div class="situacoes-grid">
+
+        <div class="situacao-card">
+          <div class="ico">🚫</div>
+          <h3>Negativa de procedimento</h3>
+          <p>Cirurgia, exame, internação ou consulta com especialista negada pelo plano sem justificativa adequada.</p>
+        </div>
+
+        <div class="situacao-card">
+          <div class="ico">💊</div>
+          <h3>Medicamento não coberto</h3>
+          <p>Remédio prescrito pelo médico recusado pelo plano, mesmo sendo necessário ao tratamento.</p>
+        </div>
+
+        <div class="situacao-card">
+          <div class="ico">🏥</div>
+          <h3>Tratamento negado</h3>
+          <p>Quimioterapia, hemodiálise, fisioterapia ou outro tratamento contínuo com cobertura recusada.</p>
+        </div>
+
+        <div class="situacao-card">
+          <div class="ico">🆘</div>
+          <h3>Urgência e emergência</h3>
+          <p>Plano negou atendimento ou internação de urgência, mesmo sendo obrigação legal cobrir.</p>
+        </div>
+
+        <div class="situacao-card">
+          <div class="ico">🔬</div>
+          <h3>Reembolso negado</h3>
+          <p>Você pagou por um procedimento que deveria ser coberto e o plano se recusou a reembolsar.</p>
+        </div>
+
+        <div class="situacao-card">
+          <div class="ico">📋</div>
+          <h3>Cobertura insuficiente</h3>
+          <p>O plano limita dias de internação, sessões de terapia ou quantidade de procedimentos de forma abusiva.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PRINCIPAL -->
+  <section class="cta-principal">
+    <div class="container">
+      <h2>Envie sua situação pelo WhatsApp</h2>
+      <p>
+        Descreva brevemente o que aconteceu. O escritório analisa cada caso com atenção
+        e retorna com uma orientação responsável.
+      </p>
+      <a href="https://wa.me/5532999885341?text=Ol%C3%A1%2C%20meu%20plano%20de%20sa%C3%BAde%20negou%20cobertura%20e%20gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." class="btn btn-cta">
+        📱 Falar pelo WhatsApp agora
+      </a>
+      <p class="cta-nota">Atendimento em Juiz de Fora, MG. Sem compromisso.</p>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="processo">
+    <div class="container">
+      <h2>Como funciona o atendimento</h2>
+      <div class="processo-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Você entra em contato</h3>
+          <p>Pelo WhatsApp ou formulário, descreve o que aconteceu com seu plano de saúde.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>O escritório analisa</h3>
+          <p>A advogada avalia a situação, a documentação disponível e as possibilidades jurídicas.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Você recebe orientação</h3>
+          <p>Com clareza, sem juridiquês — entendendo o que pode ser feito e quais são os próximos passos.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Acompanhamento completo</h3>
+          <p>Se decidir avançar, o escritório conduz o caso com comunicação frequente e transparência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTO -->
+  <section class="lp-depoimento">
+    <div class="container">
+      <blockquote>
+        "A cada evolução do processo ela ligava, explicava. Respondia a todas as mensagens e
+        telefonemas, tirando dúvidas, apaziguando conflitos. Paciente e energicamente agia,
+        sem um descuido ou descaso sequer."
+      </blockquote>
+      <p class="autor">★★★★★ — Valquiria Lopes Delgado, cliente atendida pelo escritório</p>
+    </div>
+  </section>
+
+  <!-- ADVOGADA -->
+  <section class="advogada">
+    <div class="container">
+      <div class="advogada-inner">
+        <div class="advogada-foto">
+          <img
+            src="https://www.advogadojuizdefora.com.br/wp-content/uploads/2022/01/Foto-Flavia-compactada.jpg"
+            alt="Dra. Flávia Vieira Machado Ferreira"
+          />
+        </div>
+        <div class="advogada-info">
+          <h2>Dra. Flávia Vieira Machado Ferreira</h2>
+          <p class="oab">OAB/MG 57.701 — Juiz de Fora, MG</p>
+          <p>
+            Advogada com atuação consolidada em Direito à Saúde, Flávia Machado
+            conduz cada caso com escuta atenta e rigor técnico — sempre buscando
+            a resolução que mais beneficia o cliente, dentro dos limites éticos da profissão.
+          </p>
+          <p>
+            O escritório é reconhecido por clientes que valorizam comunicação clara,
+            pontualidade e compromisso genuíno. Os resultados dependem de cada situação —
+            mas a atenção ao caso é garantida desde o primeiro contato.
+          </p>
+          <a href="https://wa.me/5532999885341" class="btn btn-sec" style="margin-top: 8px;">
+            Fale com o escritório
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq-items">
+
+        <div class="faq-item">
+          <div class="faq-pergunta">O plano pode negar qualquer procedimento?</div>
+          <div class="faq-resposta">
+            Não. A ANS (Agência Nacional de Saúde Suplementar) define uma lista de procedimentos
+            obrigatórios. Negativas que não seguem as normas da ANS podem ser questionadas
+            administrativamente ou na Justiça.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pergunta">Preciso ter a negativa por escrito para buscar auxílio jurídico?</div>
+          <div class="faq-resposta">
+            A negativa por escrito facilita muito o processo, mas não é obrigatória para
+            uma consulta inicial. Registros de ligações, e-mails e mensagens também podem ser úteis.
+            O escritório orienta sobre a documentação necessária em cada caso.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pergunta">É possível conseguir autorização rápida em casos urgentes?</div>
+          <div class="faq-resposta">
+            Em situações de urgência ou emergência, é possível buscar uma tutela de urgência
+            na Justiça, que pode ser concedida em horas ou dias. A celeridade depende da
+            documentação médica disponível e da situação concreta.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pergunta">O atendimento é apenas presencial em Juiz de Fora?</div>
+          <div class="faq-resposta">
+            O escritório tem sede em Juiz de Fora, MG. Entre em contato para verificar
+            as possibilidades de atendimento no seu caso específico.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Seu plano negou. Não aceite sem antes saber seus direitos.</h2>
+      <p>
+        Entre em contato com o escritório e descreva sua situação.
+        A análise é feita com atenção e sem julgamentos.
+      </p>
+      <a href="https://wa.me/5532999885341?text=Ol%C3%A1%2C%20meu%20plano%20de%20sa%C3%BAde%20negou%20cobertura%20e%20gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." class="btn btn-cta">
+        📱 Falar pelo WhatsApp
+      </a>
+      <p class="nota">
+        Este site tem caráter informativo. A análise do caso e a contratação dos serviços
+        dependem de consulta individualizada. Não há garantia de resultado.
+        Flávia Vieira Machado Ferreira — OAB/MG 57.701.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER MÍNIMO -->
+  <footer class="lp-footer">
+    <div class="container">
+      <p>
+        © 2026 Flávia Machado Advogados Associados · Juiz de Fora, MG<br/>
+        Este site tem caráter informativo e não configura captação de clientela conforme normas da OAB.
+      </p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5532999885341" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+</body>
+</html>

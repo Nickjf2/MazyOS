@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #192a52;
+    --gold: #c7a35d;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-navy;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  /* Foco visível para acessibilidade (MASTER §27) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-gold ring-offset-2;
+  }
+
+  ::selection {
+    background: rgba(199, 163, 93, 0.25);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[14px] px-6 py-3.5 text-[15px] font-semibold transition-all duration-200 disabled:opacity-60;
+  }
+  .btn-whatsapp {
+    @apply btn bg-whatsapp text-white shadow-sm hover:bg-whatsapp-dark hover:shadow-md;
+  }
+  .btn-navy {
+    @apply btn bg-navy text-white hover:bg-brand-blue;
+  }
+  .btn-outline {
+    @apply btn border-2 border-navy bg-transparent text-navy hover:bg-soft;
+  }
+  .btn-ghost {
+    @apply btn border-2 border-white/40 bg-transparent text-white hover:border-white hover:bg-white/10;
+  }
+
+  .card {
+    @apply rounded-card border border-line bg-white p-6 shadow-card transition-all duration-200 sm:p-7;
+  }
+  .card-hover {
+    @apply card hover:-translate-y-0.5 hover:border-brand-gold/40 hover:shadow-card-hover;
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed text-muted;
+  }
+
+  .gold-rule {
+    @apply h-px w-12 bg-brand-gold;
+  }
+}
