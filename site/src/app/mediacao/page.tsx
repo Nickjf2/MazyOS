@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HeartHandshake, Wallet, Clock, Users, Briefcase, ShoppingBag, Home, Building2 } from "lucide-react";
+import { HeartHandshake, Wallet, Clock, Users, HeartPulse, ShoppingBag, ScrollText, Building2 } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
@@ -13,7 +13,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 export const metadata: Metadata = pageMeta({
   title: "Mediação de Conflitos em Juiz de Fora | Flávia Machado Advogados",
   description:
-    "Resolução de conflitos por mediação: familiar, patrão/empregado, fornecedor/consumidor e outros. Menos desgaste, menor custo e menor tempo, em Juiz de Fora e online.",
+    "Resolução de conflitos por mediação: familiar, saúde, consumo, inventários e sucessões e empresarial. Menos desgaste, menor custo e menor tempo, em Juiz de Fora e online.",
   path: "/mediacao",
   rawTitle: true,
 });
@@ -24,18 +24,18 @@ const crumbs = [
 ];
 
 const fields = [
-  { icon: Users, title: "Conflitos familiares", text: "Separações, guarda, partilha e acordos com diálogo e menos desgaste." },
-  { icon: Briefcase, title: "Patrão e empregado", text: "Composição de divergências nas relações de trabalho." },
-  { icon: ShoppingBag, title: "Fornecedor e consumidor", text: "Soluções para impasses de consumo sem litígio prolongado." },
-  { icon: Home, title: "Questões patrimoniais", text: "Acordos sobre bens, imóveis e dívidas entre as partes." },
-  { icon: Building2, title: "Relações empresariais", text: "Conflitos entre sócios, parceiros e contratos." },
-  { icon: HeartHandshake, title: "Outras relações", text: "Sempre que houver disposição das partes para o diálogo." },
+  { icon: Users, title: "Conflitos familiares", subtitle: "Diálogo para preservar relações.", text: "Questões envolvendo divórcio, guarda, convivência, alimentos, partilha de bens e demais conflitos familiares." },
+  { icon: HeartPulse, title: "Direito da Saúde", subtitle: "Soluções para conflitos na área da saúde.", text: "Mediação entre pacientes, familiares, profissionais de saúde, clínicas, hospitais e operadoras de planos de saúde." },
+  { icon: ShoppingBag, title: "Relações de consumo", subtitle: "Entendimento antes do litígio.", text: "Busca de soluções consensuais para conflitos entre consumidores e fornecedores de produtos e serviços." },
+  { icon: ScrollText, title: "Inventários e Sucessões", subtitle: "Construindo consensos em momentos delicados.", text: "Mediação em inventários, partilhas, administração de bens e conflitos sucessórios." },
+  { icon: Building2, title: "Relações empresariais", subtitle: "Soluções que preservam negócios.", text: "Conflitos entre sócios, empresas, parceiros comerciais e questões contratuais." },
+  { icon: HeartHandshake, title: "Outros conflitos", subtitle: "Sempre que houver disposição para o diálogo.", text: "A mediação pode ser utilizada em diversas situações nas quais as partes desejam construir uma solução consensual." },
 ];
 
 const advantages = [
-  { icon: HeartHandshake, title: "Menor desgaste", text: "Diálogo no lugar de audiências, conflitos e recursos que, ao longo do tempo, afetam até o estado emocional das partes." },
-  { icon: Wallet, title: "Menor custo", text: "Uma solução negociada costuma custar bem menos do que um processo judicial longo." },
-  { icon: Clock, title: "Menor tempo", text: "Sem a lentidão tradicional do processo, a resolução chega de forma mais rápida e objetiva." },
+  { icon: HeartHandshake, title: "Menor desgaste emocional", subtitle: "Mais diálogo, menos confrontos.", text: "A mediação cria um ambiente de escuta e respeito, reduzindo tensões e evitando o desgaste emocional que processos judiciais costumam gerar." },
+  { icon: Wallet, title: "Menor custo", subtitle: "Economia para todas as partes.", text: "Ao buscar uma solução consensual, é possível evitar despesas elevadas com longas disputas judiciais, perícias e recursos." },
+  { icon: Clock, title: "Solução mais rápida", subtitle: "Resultados em menos tempo.", text: "Enquanto um processo pode levar anos, a mediação permite que as partes construam soluções de forma ágil, eficiente e segura." },
 ];
 
 const faqs = [
@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: "Em quais situações a mediação é indicada?",
-    a: "Em conflitos familiares, relações de trabalho, consumo, questões patrimoniais e empresariais, entre outras — sempre que houver disposição das partes para o diálogo.",
+    a: "Em conflitos familiares, questões de saúde, consumo, inventários e sucessões e relações empresariais, entre outras — sempre que houver disposição das partes para o diálogo.",
   },
   {
     q: "A mediação é sigilosa?",
@@ -81,10 +81,10 @@ export default function MediacaoPage() {
             Resolver sem judicializar, sempre que possível.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-            Somos capacitadas para mediar e prevenir conflitos de forma eficaz e
-            célere, em que as partes se sentem ouvidas e satisfeitas — sem depender
-            de um trâmite processual lento que, muitas vezes, não traz o retorno que
-            se espera.
+            Nem todo conflito precisa terminar em um processo judicial. Por meio da
+            mediação, método moderno e eficiente de resolução de conflitos, ajudamos
+            as partes a construírem soluções consensuais, reduzindo custos, tempo e
+            desgaste emocional.
           </p>
           <div className="mt-9">
             <WhatsAppButton
@@ -102,10 +102,14 @@ export default function MediacaoPage() {
       <section className="section">
         <div className="container-site mx-auto max-w-3xl text-center">
           <p className="text-xl leading-relaxed text-muted">
-            A mediação é um caminho para resolver conflitos com diálogo, preservando
-            relações e tempo. Em vez de uma disputa desgastante, as partes constroem,
-            juntas, uma solução possível — com a orientação de quem conhece o caminho
-            jurídico.
+            Em um ambiente seguro e imparcial, promovemos o diálogo para que todos
+            sejam ouvidos e possam chegar a um acordo satisfatório. A mediação é
+            indicada para conflitos familiares, questões empresariais, disputas entre
+            consumidores e fornecedores, além de diversas outras situações em que o
+            entendimento é possível.
+          </p>
+          <p className="mt-6 font-serif text-2xl text-navy">
+            Mais diálogo. Menos desgaste. Soluções mais rápidas e eficazes.
           </p>
         </div>
       </section>
@@ -119,12 +123,13 @@ export default function MediacaoPage() {
             title="A mediação pode acontecer em diversos conflitos"
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {fields.map(({ icon: Icon, title, text }) => (
+            {fields.map(({ icon: Icon, title, subtitle, text }) => (
               <div key={title} className="card">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-soft text-navy">
                   <Icon className="h-6 w-6 text-brand-gold" aria-hidden />
                 </div>
                 <h3 className="mt-4 font-serif text-lg text-navy">{title}</h3>
+                <p className="mt-1 font-semibold text-navy">{subtitle}</p>
                 <p className="mt-2 text-muted">{text}</p>
               </div>
             ))}
@@ -141,12 +146,13 @@ export default function MediacaoPage() {
             subtitle="Processos judiciais são tradicionalmente desgastantes, com diversas audiências, conflitos e recursos. A mediação oferece um caminho mais leve."
           />
           <div className="grid gap-6 md:grid-cols-3">
-            {advantages.map(({ icon: Icon, title, text }) => (
+            {advantages.map(({ icon: Icon, title, subtitle, text }) => (
               <div key={title} className="card">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-soft text-navy">
                   <Icon className="h-6 w-6 text-brand-gold" aria-hidden />
                 </div>
                 <h3 className="mt-4 font-serif text-xl text-navy">{title}</h3>
+                <p className="mt-1 font-semibold text-navy">{subtitle}</p>
                 <p className="mt-2 leading-relaxed text-muted">{text}</p>
               </div>
             ))}

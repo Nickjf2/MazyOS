@@ -8,6 +8,7 @@ interface Props {
   practiceArea?: string;
   pageType?: string;
   showForm?: boolean;
+  ctaLabel?: string;
 }
 
 export function CTABand({
@@ -17,6 +18,7 @@ export function CTABand({
   practiceArea,
   pageType,
   showForm = true,
+  ctaLabel = "Falar com a equipe",
 }: Props) {
   return (
     <section className="section bg-navy text-white">
@@ -29,7 +31,7 @@ export function CTABand({
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <WhatsAppButton
             context={context}
-            label="Falar com a equipe"
+            label={ctaLabel}
             ctaPosition="cta_band"
             practiceArea={practiceArea}
             pageType={pageType}

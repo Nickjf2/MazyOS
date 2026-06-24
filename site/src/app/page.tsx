@@ -28,24 +28,36 @@ import { site, team } from "@/lib/site";
 
 const homeFaqs = [
   {
-    q: "O escritório atende fora de Juiz de Fora?",
-    a: "Sim. O atendimento é presencial em Juiz de Fora e também online, quando juridicamente viável, para pessoas de outras cidades e estados.",
+    q: "O escritório atende apenas em Juiz de Fora?",
+    a: "Não. O escritório realiza atendimentos presenciais em Juiz de Fora/MG e também presta atendimento online, possibilitando o acompanhamento de clientes em diversas localidades.",
+  },
+  {
+    q: "Como funciona o primeiro atendimento?",
+    a: "No primeiro contato, buscamos compreender a situação apresentada e identificar as necessidades jurídicas do caso. A partir dessa análise inicial, orientamos sobre a documentação necessária e os próximos passos possíveis.",
   },
   {
     q: "O primeiro contato é sigiloso?",
-    a: "Sim. Todo o atendimento é conduzido com sigilo e discrição, desde a primeira mensagem.",
+    a: "Sim. Todas as informações compartilhadas pelos clientes são protegidas pelo sigilo profissional, garantindo privacidade e segurança durante todo o atendimento.",
   },
   {
-    q: "Preciso ter todos os documentos?",
-    a: "Não. Um resumo inicial já permite entender o caminho mais adequado. A equipe orienta quais documentos podem ajudar depois.",
+    q: "Preciso ter todos os documentos para entrar em contato?",
+    a: "Não. Um breve relato da situação já é suficiente para o primeiro atendimento. Caso seja necessária documentação complementar, ela será solicitada posteriormente.",
   },
   {
-    q: "O atendimento pode ser online?",
-    a: "Sim. Você pode ser atendido de forma online, com a mesma atenção e sigilo do atendimento presencial.",
+    q: "O atendimento pode ser realizado online?",
+    a: "Sim. O atendimento online é realizado com a mesma segurança, atenção e qualidade do atendimento presencial, permitindo maior comodidade aos clientes.",
   },
   {
-    q: "Como saber qual área corresponde ao meu caso?",
-    a: "Se tiver dúvida, basta enviar um resumo da situação. A equipe indica a área e os próximos passos possíveis.",
+    q: "Como saber qual área do Direito corresponde ao meu caso?",
+    a: "Não se preocupe com isso. Durante o primeiro contato, nossa equipe analisará a situação apresentada e indicará a área jurídica mais adequada para o seu atendimento.",
+  },
+  {
+    q: "Quanto antes eu procurar orientação jurídica, melhor?",
+    a: "Sim. A orientação jurídica preventiva pode auxiliar na proteção de direitos, na organização de documentos e na adoção de medidas adequadas para cada situação, evitando riscos e prejuízos futuros.",
+  },
+  {
+    q: "O escritório atua apenas em processos judiciais?",
+    a: "Não. Além da atuação judicial, o escritório também presta consultoria jurídica, realiza negociações, mediações, inventários extrajudiciais, planejamento sucessório e outras soluções voltadas à prevenção e resolução de conflitos.",
   },
 ];
 
@@ -68,7 +80,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/80">
               Atendimento personalizado em Direito da Saúde, Família, Sucessões,
-              Direito da Mulher e Direitos LGBTQIA+.
+              Direito da Mulher e Direitos LGBTQIAPN+.
             </p>
             <p className="mt-4 max-w-xl leading-relaxed text-muted">
               Nossa equipe atua com escuta qualificada, técnica jurídica e sigilo
@@ -179,7 +191,7 @@ export default function HomePage() {
             title="Encontre a orientação certa para o seu caso"
             subtitle="Escolha a situação mais próxima do seu caso para encontrar orientações específicas."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <PracticeCard
               icon={HeartPulse}
               title="Plano de saúde negou tratamento ou aumentou muito?"
@@ -203,10 +215,17 @@ export default function HomePage() {
             />
             <PracticeCard
               icon={ShieldCheck}
-              title="Direitos da Mulher e LGBTQIA+"
-              text="Atendimento respeitoso e técnico em demandas sensíveis, familiares, patrimoniais e de proteção."
+              title="Direito da Mulher"
+              text="Atendimento humanizado em questões familiares, patrimoniais, de proteção e enfrentamento à discriminação."
               href="/areas/direito-da-mulher"
-              cta="Ver áreas sensíveis"
+              cta="Ver Direito da Mulher"
+            />
+            <PracticeCard
+              icon={HeartHandshake}
+              title="Direitos LGBTQIAPN+"
+              text="Atendimento respeitoso em união estável, sucessões, retificação de nome e gênero e proteção de direitos."
+              href="/areas/direitos-lgbtqia"
+              cta="Ver Direitos LGBTQIAPN+"
             />
           </div>
         </div>
@@ -243,19 +262,20 @@ export default function HomePage() {
               Quando a saúde não pode esperar
             </span>
             <h2 className="mt-5 text-3xl sm:text-4xl">
-              Direito da Saúde e Plano de Saúde
+              Direito da Saúde e Planos de Saúde
             </h2>
             <div className="gold-rule mt-5" />
             <p className="lede mt-5">
-              Atuação em negativas de cobertura, cirurgias, exames, medicamentos de
-              alto custo, home care, terapias para TEA e reajustes abusivos.
+              Quando o plano de saúde nega um tratamento, medicamento ou
+              procedimento necessário, oferecemos orientação jurídica especializada
+              para proteger o seu direito à saúde.
             </p>
             <div className="mt-7">
               <Link
                 href="/areas/direito-da-saude"
                 className="inline-flex items-center gap-2 font-semibold text-navy hover:text-brand-gold"
               >
-                Ver orientações sobre Direito da Saúde
+                Saiba como podemos ajudar
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -264,10 +284,10 @@ export default function HomePage() {
             {[
               { t: "Negativa de cobertura", href: "/areas/negativa-plano-saude" },
               { t: "Reajuste abusivo", href: "/areas/reajuste-abusivo-plano-saude" },
-              { t: "TEA, ABA e terapias", href: "/areas/tea-aba-plano-saude" },
+              { t: "Autismo (TEA), ABA e terapias", href: "/areas/tea-aba-plano-saude" },
               { t: "Medicamentos de alto custo", href: "/areas/medicamentos-alto-custo" },
               { t: "Home care", href: "/areas/home-care" },
-              { t: "Cirurgias e procedimentos", href: "/areas/negativa-plano-saude" },
+              { t: "Cirurgias, exames e procedimentos", href: "/areas/negativa-plano-saude" },
             ].map(({ t, href }) => (
               <Link
                 key={t}
@@ -288,53 +308,69 @@ export default function HomePage() {
           <SectionHeader
             inverted
             eyebrow="Família e Sucessões"
-            title="Família e sucessões com clareza, sigilo e estratégia"
-            subtitle="Orientação jurídica em divórcio, guarda, pensão, união estável, inventário e planejamento sucessório, com atenção aos aspectos humanos e patrimoniais de cada caso."
+            title="Segurança jurídica para sua família, hoje e no futuro."
+            subtitle="Questões familiares e patrimoniais exigem cuidado, planejamento e segurança jurídica. Oferecemos orientação especializada para proteger direitos, organizar patrimônios e construir soluções para cada fase da vida."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <PracticeCard icon={Scale} title="Divórcio" href="/areas/direito-de-familia" />
-            <PracticeCard icon={Users} title="Guarda e pensão" href="/areas/direito-de-familia" />
-            <PracticeCard icon={ScrollText} title="Inventário" href="/areas/inventario" />
+            <PracticeCard
+              icon={Scale}
+              title="Divórcio e união estável"
+              href="/areas/direito-de-familia"
+              cta="Entenda seus direitos"
+            />
+            <PracticeCard
+              icon={Users}
+              title="Guarda e alimentos"
+              href="/areas/direito-de-familia"
+              cta="Entenda seus direitos"
+            />
+            <PracticeCard
+              icon={ScrollText}
+              title="Inventários e partilhas"
+              href="/areas/inventario"
+              cta="Entenda seus direitos"
+            />
             <PracticeCard
               icon={FileText}
               title="Planejamento sucessório"
               href="/areas/planejamento-sucessorio"
+              cta="Entenda seus direitos"
             />
           </div>
         </div>
       </section>
 
-      {/* BLOCO MULHER E LGBTQIA+ */}
+      {/* BLOCO MULHER E LGBTQIAPN+ */}
       <section className="section">
         <div className="container-site grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="eyebrow bg-woman-soft text-woman-accent">Demandas sensíveis</span>
             <h2 className="mt-5 text-3xl sm:text-4xl">
-              Atendimento jurídico respeitoso para demandas sensíveis
+              Atendimento jurídico humanizado para mulheres e pessoas LGBTQIAPN+
             </h2>
             <div className="gold-rule mt-5" />
             <p className="lede mt-5">
-              Acolhimento, sigilo e técnica em questões relacionadas aos direitos da
-              mulher, família, patrimônio, sucessões, violência, discriminação e
-              direitos LGBTQIA+.
+              Atuação em questões familiares, patrimoniais, sucessórias e situações
+              que envolvam proteção de direitos e enfrentamento à discriminação, com
+              acolhimento, sigilo e técnica.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/areas/direito-da-mulher" className="btn-navy">
                 Direito da Mulher
               </Link>
               <Link href="/areas/direitos-lgbtqia" className="btn-outline">
-                Direitos LGBTQIA+
+                Direitos LGBTQIAPN+
               </Link>
             </div>
           </div>
           <div className="rounded-card border border-line bg-white p-8 shadow-card">
             <p className="font-serif text-xl text-navy">
-              “Você não precisa enfrentar uma situação delicada sem orientação.”
+              Um espaço seguro para buscar orientação jurídica.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
-              O primeiro contato pode ser feito de forma discreta. Você pode enviar
-              apenas um resumo inicial e nossa equipe orientará os próximos passos
-              possíveis.
+              Sabemos que algumas situações exigem sensibilidade, discrição e
+              confiança. Por isso, oferecemos atendimento humanizado, sigiloso e
+              comprometido com a proteção dos seus direitos.
             </p>
           </div>
         </div>
@@ -346,14 +382,14 @@ export default function HomePage() {
           <SectionHeader
             inverted
             eyebrow="Atendimento inicial"
-            title="Como funciona o atendimento inicial"
+            title="O que esperar do primeiro contato"
           />
           <div className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              "Você entra em contato",
-              "A equipe entende a situação",
-              "Indicamos quais documentos podem ajudar",
-              "Orientamos os próximos passos jurídicos",
+              "Você nos conta sua situação",
+              "Analisamos suas necessidades",
+              "Orientamos sobre a documentação",
+              "Apresentamos os próximos passos",
             ].map((step, i) => (
               <div key={step} className="rounded-card border border-line bg-white p-6">
                 <span className="font-serif text-3xl text-brand-gold">
@@ -365,11 +401,12 @@ export default function HomePage() {
           </div>
           <div className="mx-auto mt-8 max-w-2xl text-center">
             <p className="text-white/70">
-              Você não precisa ter todos os documentos no primeiro contato. Um resumo
-              inicial já permite entender o caminho mais adequado.
+              Você não precisa reunir toda a documentação antes de entrar em contato.
+              Um relato inicial da situação já é suficiente para que possamos orientar
+              os primeiros passos.
             </p>
             <div className="mt-6 flex justify-center">
-              <WhatsAppButton label="Enviar mensagem no WhatsApp" ctaPosition="how_it_works" pageType="home" />
+              <WhatsAppButton label="Iniciar atendimento pelo WhatsApp" ctaPosition="how_it_works" pageType="home" />
             </div>
           </div>
         </div>
@@ -407,7 +444,8 @@ export default function HomePage() {
       {/* CTA FINAL */}
       <CTABand
         title="Precisa de orientação jurídica?"
-        text="Envie uma mensagem para a equipe e conte, de forma breve, o que está acontecendo. O primeiro passo é entender sua situação com clareza."
+        text="Estamos à disposição para compreender sua situação e indicar os caminhos jurídicos mais adequados para o seu caso, com atendimento humanizado, sigiloso e personalizado."
+        ctaLabel="Falar com uma advogada"
         pageType="home"
       />
     </>

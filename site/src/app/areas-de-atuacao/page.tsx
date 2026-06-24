@@ -10,7 +10,7 @@ import { areaList } from "@/content/areas";
 export const metadata: Metadata = pageMeta({
   title: "Áreas de Atuação",
   description:
-    "Direito da Saúde, Inventário e Sucessões, Família, Direito da Mulher e Direitos LGBTQIA+. Orientação jurídica clara em Juiz de Fora e online.",
+    "Direito da Saúde, Inventário e Sucessões, Família, Direito da Mulher e Direitos LGBTQIAPN+. Orientação jurídica clara em Juiz de Fora e online.",
   path: "/areas-de-atuacao",
 });
 
@@ -31,7 +31,7 @@ const groups = [
     slugs: ["inventario", "planejamento-sucessorio", "direito-de-familia"],
   },
   {
-    title: "Mulher e LGBTQIA+",
+    title: "Mulher e LGBTQIAPN+",
     slugs: ["direito-da-mulher", "direitos-lgbtqia"],
   },
 ];

@@ -79,7 +79,7 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <WhatsAppButton
                 context={area.slug}
-                label="Falar com a equipe"
+                label={area.ctaLabel ?? "Falar com a equipe"}
                 ctaPosition="hero"
                 practiceArea={area.slug}
                 pageType="landing_page"
@@ -130,6 +130,35 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
                 <div key={it.title} className="card-hover">
                   <h3 className="font-serif text-lg text-navy">{it.title}</h3>
                   {it.text && <p className="mt-2 text-muted">{it.text}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* DIREITO MÉDICO (dois grupos) */}
+      {area.medicalLaw && (
+        <section className="section">
+          <div className="container-site">
+            <SectionHeader
+              eyebrow={area.medicalLaw.eyebrow}
+              title={area.medicalLaw.title}
+              subtitle={area.medicalLaw.subtitle}
+            />
+            <div className="space-y-12">
+              {area.medicalLaw.groups.map((group) => (
+                <div key={group.heading}>
+                  <h3 className="font-serif text-2xl text-navy">{group.heading}</h3>
+                  <p className="mt-2 max-w-3xl leading-relaxed text-muted">{group.lead}</p>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {group.items.map((it) => (
+                      <div key={it.title} className="card-hover">
+                        <h4 className="font-serif text-lg text-navy">{it.title}</h4>
+                        <p className="mt-2 text-muted">{it.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>

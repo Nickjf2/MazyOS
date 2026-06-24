@@ -22,6 +22,8 @@ export interface Area {
   metaDescription: string;
   h1: string;
   subtitle: string;
+  /** label do botão de WhatsApp no hero (default: "Falar com a equipe") */
+  ctaLabel?: string;
   /** texto curto abaixo do CTA do hero */
   heroMicrocopy?: string;
   /** parágrafo introdutório opcional após o hero */
@@ -35,6 +37,17 @@ export interface Area {
     title: string;
     text: string;
     items: { title: string; text?: string }[];
+  };
+  /** seção de Direito Médico com dois grupos (pacientes / profissionais) */
+  medicalLaw?: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    groups: {
+      heading: string;
+      lead: string;
+      items: { title: string; text: string }[];
+    }[];
   };
   /** bloco explicativo opcional */
   explainer?: { title: string; text: string };
@@ -63,51 +76,75 @@ export const areas: Record<string, Area> = {
     metaTitle: "Advogado de Direito da Saúde e Plano de Saúde em Juiz de Fora",
     metaDescription:
       "Orientação jurídica para negativas de cobertura, cirurgias, exames, medicamentos, terapias, home care e reajustes abusivos de plano de saúde em Juiz de Fora e online.",
-    h1: "Orientação jurídica para problemas com plano de saúde.",
+    h1: "Orientação jurídica para garantir o seu direito à saúde.",
     subtitle:
-      "Atuação em negativas de cobertura, cirurgias, exames, medicamentos, terapias, home care e reajustes abusivos.",
-    heroMicrocopy: "Atendimento sigiloso em Juiz de Fora e online.",
+      "Atuação especializada em negativas de cobertura, cirurgias, medicamentos, terapias, home care, reajustes abusivos e demais conflitos com planos de saúde.",
+    ctaLabel: "Analisar meu caso",
+    heroMicrocopy:
+      "Atendimento humanizado e especializado em Direito da Saúde. Presencial em Juiz de Fora e online para todo o país.",
     intro:
-      "Orientamos pacientes e familiares em situações em que o plano de saúde nega cobertura para tratamentos, cirurgias, exames ou medicamentos, e em casos de reajustes que se tornaram difíceis de pagar.",
+      "Atuamos na defesa dos direitos de pacientes e familiares em conflitos com planos de saúde, incluindo negativas de cobertura, fornecimento de medicamentos, terapias, home care, cirurgias, exames e reajustes abusivos.",
     problemsTitle: "Situações que atendemos",
     problems: [
       { title: "Negativa de cobertura" },
-      { title: "Reajuste abusivo" },
-      { title: "TEA, ABA e terapias" },
-      { title: "Medicamentos de alto custo" },
-      { title: "Home care" },
-      { title: "Cirurgias e procedimentos" },
-      { title: "Tratamentos fora do Rol da ANS" },
-      { title: "Próteses e órteses" },
+      { title: "Reajustes abusivos" },
+      { title: "Autismo (TEA), ABA e terapias" },
+      { title: "Medicamentos de alto custo e importados" },
+      { title: "Home Care" },
+      { title: "Cirurgias, exames e procedimentos" },
+      { title: "Cancelamento e exclusão de beneficiários" },
+      { title: "Internação psiquiátrica e saúde mental" },
+      { title: "Tratamentos especializados negados pelo plano" },
     ],
-    spotlight: {
+    medicalLaw: {
       eyebrow: "Direito Médico",
-      title: "Responsabilidade médica e hospitalar",
-      text: "Além das demandas contra planos de saúde, o escritório atua em Direito Médico, tanto na defesa de pacientes quanto na defesa de profissionais e instituições de saúde, sempre com análise técnica e responsabilidade.",
-      items: [
+      title: "Direito Médico e Responsabilidade na Saúde",
+      subtitle:
+        "Questões envolvendo assistência à saúde exigem análise técnica, conhecimento jurídico especializado e avaliação criteriosa das evidências. Atuamos tanto na defesa dos direitos dos pacientes quanto na assessoria e defesa de profissionais e instituições de saúde.",
+      groups: [
         {
-          title: "Defesa do paciente",
-          text: "Orientação em casos de erro médico, falha no atendimento e dano ao paciente.",
+          heading: "Para pacientes e familiares",
+          lead: "Seus direitos foram violados durante um tratamento? Analisamos situações envolvendo possíveis falhas na prestação de serviços de saúde, sempre com avaliação técnica de prontuários, documentos e demais evidências do caso.",
+          items: [
+            {
+              title: "Erro médico e hospitalar",
+              text: "Análise de situações que envolvam possíveis falhas em procedimentos, tratamentos, diagnósticos ou atendimento hospitalar.",
+            },
+            {
+              title: "Indenizações por danos à saúde",
+              text: "Atuação em pedidos de reparação por danos materiais, morais e estéticos decorrentes de atendimentos e procedimentos médicos.",
+            },
+            {
+              title: "Falha na assistência e no atendimento",
+              text: "Avaliação de casos relacionados a atrasos, omissões, falhas de acompanhamento e outras situações que possam gerar prejuízos ao paciente.",
+            },
+            {
+              title: "Análise de prontuários e documentos médicos",
+              text: "Estudo técnico da documentação médica para identificação de direitos e viabilidade jurídica da demanda.",
+            },
+          ],
         },
         {
-          title: "Defesa do médico",
-          text: "Acompanhamento de profissionais em processos éticos, cíveis e perante o Conselho.",
-        },
-        {
-          title: "Erro médico",
-          text: "Análise técnica de condutas, laudos e prontuários para apurar responsabilidade.",
-        },
-        {
-          title: "Defesa de hospitais e clínicas",
-          text: "Atuação preventiva e contenciosa para instituições de saúde.",
-        },
-        {
-          title: "Responsabilidade civil na saúde",
-          text: "Avaliação de pedidos de indenização por danos relacionados a tratamentos.",
-        },
-        {
-          title: "Consentimento e prontuário",
-          text: "Orientação sobre documentação, termos de consentimento e boas práticas.",
+          heading: "Para médicos, clínicas e hospitais",
+          lead: "Defesa jurídica estratégica para profissionais e instituições de saúde, com atuação preventiva e contenciosa voltada à proteção da atividade profissional e à gestão de riscos jurídicos na área da saúde.",
+          items: [
+            {
+              title: "Defesa de médicos e profissionais da saúde",
+              text: "Acompanhamento em processos judiciais, procedimentos éticos, sindicâncias e demandas indenizatórias.",
+            },
+            {
+              title: "Defesa de hospitais e clínicas",
+              text: "Assessoria jurídica para instituições de saúde em ações de responsabilidade civil, gestão de riscos e litígios.",
+            },
+            {
+              title: "Consentimento informado e documentação médica",
+              text: "Orientação sobre prontuários, termos de consentimento e boas práticas para maior segurança jurídica.",
+            },
+            {
+              title: "Responsabilidade civil na saúde",
+              text: "Atuação na defesa de demandas indenizatórias envolvendo alegações de erro médico e responsabilidade hospitalar.",
+            },
+          ],
         },
       ],
     },
@@ -123,10 +160,10 @@ export const areas: Record<string, Area> = {
       items: [
         "Prescrição ou relatório médico",
         "Negativa da operadora",
-        "Carteirinha do plano",
-        "Contrato",
+        "Carteirinha do plano e contrato",
         "Exames e laudos",
         "Comprovantes de pagamento",
+        "Prontuário médico",
       ],
     },
     faqs: [
@@ -136,7 +173,7 @@ export const areas: Record<string, Area> = {
       },
       {
         q: "Em casos de urgência, é possível conseguir uma decisão rápida da Justiça?",
-        a: "Em situações de urgência ou risco à saúde, a via judicial pode ser analisada como alternativa para buscar uma decisão rápida (tutela de urgência). Não é possível garantir o resultado, que depende da análise dos documentos e do caso concreto, mas a urgência costuma ser tratada com prioridade.",
+        a: "Sim. Em situações de risco à saúde ou de necessidade imediata de tratamento, é possível ajuizar ação com pedido de tutela de urgência (liminar) para que o plano de saúde seja obrigado a autorizar e fornecer a cobertura devida. Quando presentes os requisitos legais e a documentação médica adequada, o Poder Judiciário pode determinar o cumprimento da obrigação em prazo reduzido, sob pena de multa e demais medidas cabíveis em caso de descumprimento. A viabilidade da medida depende da análise individual de cada caso.",
       },
       {
         q: "Preciso ter a negativa do plano por escrito para buscar orientação?",
@@ -644,23 +681,25 @@ export const areas: Record<string, Area> = {
     badge: "Direito da Mulher",
     metaTitle: "Advogada para Direito da Mulher em Juiz de Fora | Flávia Machado",
     metaDescription:
-      "Atuação jurídica com escuta qualificada em direitos da mulher: questões familiares, patrimoniais, de proteção e discriminação. Atendimento sigiloso.",
-    h1: "Atuação jurídica com escuta qualificada em direitos da mulher.",
+      "Atendimento jurídico humanizado para mulheres: questões familiares, patrimoniais, sucessórias, proteção de direitos e enfrentamento à discriminação. Atendimento sigiloso em Juiz de Fora e online.",
+    h1: "Atendimento jurídico humanizado para mulheres.",
     subtitle:
-      "Questões familiares, patrimoniais, de proteção e discriminação exigem acolhimento, técnica e estratégia.",
-    heroMicrocopy: "O primeiro contato pode ser feito de forma discreta e sigilosa.",
+      "Um espaço seguro para orientação e defesa dos seus direitos. Orientação jurídica com acolhimento, respeito e segurança para questões familiares, patrimoniais, sucessórias, de proteção de direitos e enfrentamento à discriminação.",
+    ctaLabel: "Falar com uma advogada",
+    heroMicrocopy:
+      "Atendimento realizado com absoluto sigilo, respeito à sua história e atenção às particularidades de cada caso.",
     intro:
-      "O primeiro contato pode ser feito de forma discreta. Você pode enviar apenas um resumo inicial e nossa equipe orientará os próximos passos possíveis.",
+      "Você será ouvido(a) com respeito e sem julgamentos. Nosso compromisso é oferecer orientação jurídica segura, acolhedora e adequada às suas necessidades.",
     problemsTitle: "Situações que atendemos",
     problems: [
       { title: "Divórcio em contexto sensível" },
-      { title: "Guarda e proteção dos filhos" },
-      { title: "Medidas protetivas" },
-      { title: "Violência doméstica" },
+      { title: "Guarda e convivência familiar" },
+      { title: "Pensão alimentícia" },
+      { title: "Proteção da autonomia e dos direitos" },
       { title: "Patrimônio e autonomia financeira" },
-      { title: "Pensão" },
-      { title: "Discriminação e assédio" },
-      { title: "Orientação preventiva" },
+      { title: "União estável e direitos familiares" },
+      { title: "Discriminação e violação de direitos" },
+      { title: "Orientação preventiva e mediação" },
     ],
     steps: [
       "Você envia um resumo inicial, com sigilo",
@@ -683,24 +722,32 @@ export const areas: Record<string, Area> = {
     },
     faqs: [
       {
-        q: "O primeiro contato é sigiloso?",
-        a: "Sim. Todo o atendimento é conduzido com sigilo e discrição.",
+        q: "O atendimento é realizado de forma sigilosa?",
+        a: "Sim. Todas as informações compartilhadas durante o atendimento são protegidas pelo sigilo profissional, garantindo privacidade, respeito e segurança para que você possa expor sua situação com tranquilidade.",
       },
       {
-        q: "Posso buscar orientação antes de tomar uma decisão?",
-        a: "Sim. Você pode buscar orientação para entender seus direitos e as alternativas, sem compromisso de tomar uma decisão imediata.",
+        q: "Posso buscar orientação jurídica antes de tomar uma decisão?",
+        a: "Sim. Muitas situações familiares e patrimoniais podem ser melhor conduzidas quando há orientação jurídica prévia. O acompanhamento adequado auxilia na compreensão dos direitos, deveres e possíveis consequências de cada decisão.",
       },
       {
-        q: "Preciso ter boletim de ocorrência?",
-        a: "Não é obrigatório para o primeiro contato. A equipe orienta sobre os documentos conforme cada situação.",
+        q: "Como funciona o divórcio quando há filhos ou patrimônio em comum?",
+        a: "Cada caso possui particularidades. Questões relacionadas à guarda, convivência familiar, pensão alimentícia e partilha de bens podem ser resolvidas de forma consensual ou judicial, sempre observando a proteção dos direitos envolvidos.",
       },
       {
-        q: "Atendem casos familiares e patrimoniais?",
-        a: "Sim. A atuação abrange questões familiares, patrimoniais, de proteção e de discriminação.",
+        q: "Como funciona a pensão alimentícia?",
+        a: "A fixação da pensão alimentícia considera as necessidades de quem recebe e a capacidade financeira de quem paga. O valor é definido de acordo com as circunstâncias específicas de cada família.",
       },
       {
-        q: "O atendimento pode ser online?",
-        a: "Sim. O atendimento pode ser feito de forma online, com sigilo.",
+        q: "É possível regularizar questões relacionadas à união estável?",
+        a: "Sim. A união estável pode ser reconhecida, formalizada ou dissolvida judicialmente ou extrajudicialmente, conforme as particularidades do caso, produzindo efeitos patrimoniais e sucessórios.",
+      },
+      {
+        q: "O que fazer em situações de discriminação ou violação de direitos?",
+        a: "Cada situação deve ser analisada individualmente. Dependendo do caso, podem ser adotadas medidas administrativas ou judiciais para proteger direitos e buscar a reparação dos prejuízos sofridos.",
+      },
+      {
+        q: "O atendimento pode ser realizado online?",
+        a: "Sim. O escritório realiza atendimentos presenciais e online, permitindo que clientes de diferentes localidades recebam orientação jurídica com conforto, praticidade e segurança.",
       },
     ],
     ...COMMON_FINAL,
@@ -709,11 +756,11 @@ export const areas: Record<string, Area> = {
   "direitos-lgbtqia": {
     slug: "direitos-lgbtqia",
     theme: "lgbt",
-    badge: "Direitos LGBTQIA+",
-    metaTitle: "Advocacia para Direitos LGBTQIA+ em Juiz de Fora | Flávia Machado",
+    badge: "Direitos LGBTQIAPN+",
+    metaTitle: "Advocacia para Direitos LGBTQIAPN+ em Juiz de Fora | Flávia Machado",
     metaDescription:
-      "Atendimento jurídico respeitoso para pessoas e famílias LGBTQIA+: união estável, casamento, adoção, sucessões, retificação de nome e gênero. Sigilo total.",
-    h1: "Atendimento jurídico respeitoso para pessoas e famílias LGBTQIA+.",
+      "Atendimento jurídico respeitoso para pessoas e famílias LGBTQIAPN+: união estável, casamento, adoção, sucessões, retificação de nome e gênero. Sigilo total.",
+    h1: "Atendimento jurídico respeitoso para pessoas e famílias LGBTQIAPN+.",
     subtitle:
       "Orientação em família, sucessões, união estável, planejamento patrimonial, discriminação e direitos civis, com confidencialidade e linguagem clara.",
     heroMicrocopy: "Atendimento confidencial em Juiz de Fora e online.",
@@ -754,19 +801,35 @@ export const areas: Record<string, Area> = {
     faqs: [
       {
         q: "O atendimento é confidencial?",
-        a: "Sim. Todo o atendimento é conduzido com confidencialidade e respeito.",
+        a: "Sim. Todo o atendimento é conduzido com confidencialidade e respeito. As informações compartilhadas são protegidas pelo sigilo profissional, garantindo privacidade e segurança.",
       },
       {
-        q: "Como funciona a união estável homoafetiva?",
-        a: "A união estável homoafetiva é reconhecida e gera direitos patrimoniais e sucessórios. A equipe orienta sobre formalização e proteção.",
+        q: "Pessoas LGBTQIAPN+ possuem os mesmos direitos em relações familiares e patrimoniais?",
+        a: "Sim. A legislação brasileira assegura proteção jurídica às relações familiares e patrimoniais da população LGBTQIAPN+, incluindo união estável, casamento, partilha de bens, sucessão, guarda e demais direitos reconhecidos pelo ordenamento jurídico.",
       },
       {
-        q: "Como funciona a retificação de nome e gênero?",
-        a: "A retificação de nome e gênero pode ser feita por via administrativa em cartório ou judicial, conforme o caso. A equipe orienta o caminho mais adequado.",
+        q: "É possível formalizar uma união estável entre pessoas do mesmo sexo?",
+        a: "Sim. A união estável homoafetiva possui reconhecimento jurídico e produz os mesmos efeitos patrimoniais e sucessórios aplicáveis às demais uniões estáveis, garantindo direitos e deveres às partes envolvidas.",
       },
       {
-        q: "O atendimento pode ser online?",
-        a: "Sim. O atendimento pode ser feito de forma online, com sigilo, para pessoas de outras cidades.",
+        q: "Casais LGBTQIAPN+ possuem direitos sucessórios?",
+        a: "Sim. O companheiro ou cônjuge possui direitos sucessórios nos termos da legislação vigente, podendo participar da herança e da partilha de bens, observadas as particularidades de cada caso.",
+      },
+      {
+        q: "É possível alterar nome e gênero nos documentos?",
+        a: "Sim. A legislação e a jurisprudência brasileiras permitem a retificação de nome e gênero diretamente no registro civil, observados os requisitos legais aplicáveis a cada situação.",
+      },
+      {
+        q: "É possível realizar planejamento patrimonial e sucessório para casais LGBTQIAPN+?",
+        a: "Sim. O planejamento sucessório é uma ferramenta importante para organizar o patrimônio, reduzir conflitos futuros e garantir maior segurança jurídica à família, independentemente da orientação sexual ou identidade de gênero dos envolvidos.",
+      },
+      {
+        q: "O que fazer em situações de discriminação em razão da orientação sexual ou identidade de gênero?",
+        a: "Situações de discriminação podem gerar consequências jurídicas nas esferas cível, administrativa e, em determinadas hipóteses, criminal. A análise individualizada do caso é importante para identificar as medidas cabíveis para proteção dos direitos da pessoa afetada.",
+      },
+      {
+        q: "O atendimento pode ser realizado online?",
+        a: "Sim. O escritório realiza atendimentos presenciais e online, permitindo que clientes de diferentes localidades recebam orientação jurídica com conforto, praticidade e segurança.",
       },
     ],
     ...COMMON_FINAL,

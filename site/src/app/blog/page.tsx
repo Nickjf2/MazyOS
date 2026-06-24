@@ -9,7 +9,7 @@ import { posts } from "@/content/posts";
 export const metadata: Metadata = pageMeta({
   title: "Blog e Conteúdo Jurídico",
   description:
-    "Artigos e orientações sobre plano de saúde, inventário, família, direito da mulher e direitos LGBTQIA+. Conteúdo informativo do escritório Flávia Machado.",
+    "Artigos e orientações sobre plano de saúde, inventário, família, direito da mulher e direitos LGBTQIAPN+. Conteúdo informativo do escritório Flávia Machado.",
   path: "/blog",
 });
 

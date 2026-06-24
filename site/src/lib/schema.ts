@@ -26,7 +26,7 @@ export function legalServiceSchema() {
       "Inventário e Sucessões",
       "Direito de Família",
       "Direito da Mulher",
-      "Direitos LGBTQIA+",
+      "Direitos LGBTQIAPN+",
     ],
   };
 }

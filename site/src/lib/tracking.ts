@@ -1,7 +1,7 @@
 "use client";
 
 // Camada fina de tracking (MASTER §22). Eventos via dataLayer/gtag.
-// Não personaliza anúncios para dados sensíveis (saúde, LGBTQIA+).
+// Não personaliza anúncios para dados sensíveis (saúde, LGBTQIAPN+).
 
 type EventName =
   | "whatsapp_click"

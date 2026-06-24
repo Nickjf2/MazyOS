@@ -31,7 +31,7 @@ const areaOptions = [
   "Inventário e Sucessões",
   "Direito de Família",
   "Direito da Mulher",
-  "Direitos LGBTQIA+",
+  "Direitos LGBTQIAPN+",
   "Outro / Não sei",
 ];
 

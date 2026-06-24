@@ -8,7 +8,7 @@ export const site = {
   domain: "advogadojuizdefora.com.br",
   positioning: "Orientação jurídica clara para decisões urgentes e delicadas.",
   subPositioning:
-    "Atendimento em Juiz de Fora e online nas áreas de Direito da Saúde, Família, Sucessões, Direito da Mulher e Direitos LGBTQIA+.",
+    "Atendimento em Juiz de Fora e online nas áreas de Direito da Saúde, Família, Sucessões, Direito da Mulher e Direitos LGBTQIAPN+.",
   city: "Juiz de Fora",
   region: "MG",
   // Logos em /public. Enquanto o arquivo não existir, o header mostra o wordmark.
@@ -57,7 +57,7 @@ export const team = [
     oab: "OAB/MG 167.831",
     experience: "Mais de 10 anos de experiência",
     bio: "Advogada com atuação em Direito da Saúde e ações judiciais relacionadas a tratamentos, cirurgias, medicamentos e terapias negadas.",
-    photo: "/equipe/marina-vermelho.jpg", // Dra. Marina (morena)
+    photo: "/equipe/marina-vermelho-2.jpg", // Dra. Marina (morena)
   },
 ] as const;
 
@@ -67,7 +67,7 @@ export const mainNav = [
   { label: "Família", href: "/areas/direito-de-familia" },
   { label: "Sucessões", href: "/areas/inventario" },
   { label: "Mulher", href: "/areas/direito-da-mulher" },
-  { label: "LGBTQIA+", href: "/areas/direitos-lgbtqia" },
+  { label: "LGBTQIAPN+", href: "/areas/direitos-lgbtqia" },
   { label: "Mediação", href: "/mediacao" },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contato" },

@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "Sobre o Escritório",
   description:
-    "Conheça o escritório Flávia Machado Advogados Associados: atuação técnica e humanizada em Direito da Saúde, Família, Sucessões, Direito da Mulher e LGBTQIA+, em Juiz de Fora.",
+    "Conheça o escritório Flávia Machado Advogados Associados: atuação técnica e humanizada em Direito da Saúde, Família, Sucessões, Direito da Mulher e LGBTQIAPN+, em Juiz de Fora.",
   path: "/sobre-o-escritorio",
 });
 

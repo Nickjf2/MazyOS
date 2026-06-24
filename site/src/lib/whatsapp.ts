@@ -30,7 +30,7 @@ const messages: Record<string, string> = {
   "direito-da-mulher":
     "Olá, vim pelo site do escritório, na área de Direito da Mulher, e gostaria de uma orientação sigilosa.",
   "direitos-lgbtqia":
-    "Olá, vim pelo site do escritório, na área de Direitos LGBTQIA+, e gostaria de orientação inicial.",
+    "Olá, vim pelo site do escritório, na área de Direitos LGBTQIAPN+, e gostaria de orientação inicial.",
 };
 
 export type WhatsAppContext = keyof typeof messages;

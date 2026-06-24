@@ -63,7 +63,7 @@ export const posts: Post[] = [
   {
     slug: "uniao-estavel-homoafetiva-direitos-patrimoniais",
     title: "União estável homoafetiva: direitos patrimoniais",
-    category: "Direitos LGBTQIA+",
+    category: "Direitos LGBTQIAPN+",
     date: "2026-04-15",
     excerpt:
       "A união estável homoafetiva é reconhecida e gera direitos. Entenda como funciona a proteção patrimonial e sucessória do casal.",
