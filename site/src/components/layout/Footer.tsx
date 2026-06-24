@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { site, team, mainNav } from "@/lib/site";
-import { whatsappLink } from "@/lib/whatsapp";
 
 export function Footer() {
   return (
@@ -51,40 +50,31 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" />
               <span>{site.addressFull}</span>
             </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-brand-gold" />
-              <span>{site.whatsappDisplay}</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <MessageCircle className="h-4 w-4 shrink-0 text-brand-gold" />
-              <a href={whatsappLink("geral")} className="hover:text-brand-gold">
-                WhatsApp
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-brand-gold" />
-              <a href={`mailto:${site.email}`} className="hover:text-brand-gold">
-                {site.email}
-              </a>
-            </li>
-            <li className="mt-4 border-t border-white/10 pt-4 text-xs uppercase tracking-wide text-white/50">
-              {site.marina.name}
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-brand-gold" />
-              <a
-                href={`https://wa.me/${site.marina.whatsappNumber}`}
-                className="hover:text-brand-gold"
-              >
-                {site.marina.whatsappDisplay}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0 text-brand-gold" />
-              <a href={`mailto:${site.marina.email}`} className="hover:text-brand-gold">
-                {site.marina.email}
-              </a>
-            </li>
+            {[site.flavia, site.marina].map((adv) => (
+              <li key={adv.email} className="pt-1">
+                <p className="text-xs uppercase tracking-wide text-white/50">
+                  {adv.name}
+                </p>
+                <span className="mt-2 flex items-center gap-2">
+                  <Phone className="h-4 w-4 shrink-0 text-brand-gold" />
+                  <a
+                    href={`https://wa.me/${adv.whatsappNumber}`}
+                    className="hover:text-brand-gold"
+                  >
+                    {adv.whatsappDisplay}
+                  </a>
+                </span>
+                <span className="mt-1.5 flex items-center gap-2">
+                  <Mail className="h-4 w-4 shrink-0 text-brand-gold" />
+                  <a
+                    href={`mailto:${adv.email}`}
+                    className="hover:text-brand-gold"
+                  >
+                    {adv.email}
+                  </a>
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
 

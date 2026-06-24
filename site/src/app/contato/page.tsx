@@ -62,15 +62,23 @@ export default function ContatoPage() {
                 <li className="flex items-start gap-3">
                   <MessageCircle className="mt-0.5 h-5 w-5 text-brand-gold" />
                   <div>
-                    <p className="font-semibold text-navy">WhatsApp</p>
-                    <p className="text-muted">{site.whatsappDisplay}</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Mail className="mt-0.5 h-5 w-5 text-brand-gold" />
-                  <div>
-                    <p className="font-semibold text-navy">E-mail</p>
-                    <p className="text-muted">{site.email}</p>
+                    <p className="font-semibold text-navy">{site.flavia.name}</p>
+                    <p className="text-muted">
+                      <a
+                        href={`https://wa.me/${site.flavia.whatsappNumber}`}
+                        className="hover:text-brand-gold"
+                      >
+                        {site.flavia.whatsappDisplay}
+                      </a>
+                    </p>
+                    <p className="text-muted">
+                      <a
+                        href={`mailto:${site.flavia.email}`}
+                        className="hover:text-brand-gold"
+                      >
+                        {site.flavia.email}
+                      </a>
+                    </p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 border-t border-line pt-5">

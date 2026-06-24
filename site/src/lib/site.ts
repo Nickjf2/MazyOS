@@ -14,10 +14,17 @@ export const site = {
   // Logos em /public. Enquanto o arquivo não existir, o header mostra o wordmark.
   logo: "/logo-horizontal.png", // logo horizontal (navy) — usada no header branco
   logoMono: "/logo-fm.png", // monograma FM
-  whatsappNumber: "5532999885341",
-  whatsappDisplay: "(32) 99988-5341",
+  // Número usado nos botões de WhatsApp do site (Dra. Flávia)
+  whatsappNumber: "5532999872593",
+  whatsappDisplay: "(32) 99987-2593",
   email: "flaviaadv@flaviamachado.com.br",
-  // Contato direto da Dra. Marina (além do contato principal do escritório)
+  // Contato direto das advogadas (exibido onde aparecem formas de contato)
+  flavia: {
+    name: "Dra. Flávia Machado",
+    whatsappNumber: "5532999872593",
+    whatsappDisplay: "(32) 99987-2593",
+    email: "flaviaadv@flaviamachado.com.br",
+  },
   marina: {
     name: "Dra. Marina Brinati",
     whatsappNumber: "5532984575885",
