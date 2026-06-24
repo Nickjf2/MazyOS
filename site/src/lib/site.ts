@@ -17,6 +17,13 @@ export const site = {
   whatsappNumber: "5532999885341",
   whatsappDisplay: "(32) 99988-5341",
   email: "flaviaadv@flaviamachado.com.br",
+  // Contato direto da Dra. Marina (além do contato principal do escritório)
+  marina: {
+    name: "Dra. Marina Brinati",
+    whatsappNumber: "5532984575885",
+    whatsappDisplay: "(32) 98457-5885",
+    email: "marinabrinati@hotmail.com",
+  },
   instagram: "https://instagram.com/flaviamachadoadvocacia", // confirmar handle
   address: {
     street: "Av. Barão do Rio Branco, 2555 - sala 1305",
@@ -33,7 +40,7 @@ export const site = {
     "https://www.google.com/maps/search/?api=1&query=Fl%C3%A1via+Machado+Advogados+Associados+Av.+Bar%C3%A3o+do+Rio+Branco+2555+Juiz+de+Fora",
   mapsEmbedUrl:
     "https://maps.google.com/maps?q=Fl%C3%A1via+Machado+Advogados+Associados,+Av.+Bar%C3%A3o+do+Rio+Branco,+2555,+Centro,+Juiz+de+Fora,+MG&output=embed&hl=pt-BR&z=16",
-  hours: "Segunda a sexta, das 8h às 18h",
+  hours: "Segunda a sexta, das 9h às 18h",
   trustBar:
     "Atendimento em Juiz de Fora e online • contato sigiloso • orientação jurídica clara",
   compliance:

@@ -48,7 +48,7 @@ export function localBusinessSchema() {
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
-    openingHours: "Mo-Fr 08:00-18:00",
+    openingHours: "Mo-Fr 09:00-18:00",
   };
 }
 

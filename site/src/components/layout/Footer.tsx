@@ -67,6 +67,24 @@ export function Footer() {
                 {site.email}
               </a>
             </li>
+            <li className="mt-4 border-t border-white/10 pt-4 text-xs uppercase tracking-wide text-white/50">
+              {site.marina.name}
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 shrink-0 text-brand-gold" />
+              <a
+                href={`https://wa.me/${site.marina.whatsappNumber}`}
+                className="hover:text-brand-gold"
+              >
+                {site.marina.whatsappDisplay}
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 shrink-0 text-brand-gold" />
+              <a href={`mailto:${site.marina.email}`} className="hover:text-brand-gold">
+                {site.marina.email}
+              </a>
+            </li>
           </ul>
         </div>
 

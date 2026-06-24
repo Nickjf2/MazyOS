@@ -73,6 +73,28 @@ export default function ContatoPage() {
                     <p className="text-muted">{site.email}</p>
                   </div>
                 </li>
+                <li className="flex items-start gap-3 border-t border-line pt-5">
+                  <MessageCircle className="mt-0.5 h-5 w-5 text-brand-gold" />
+                  <div>
+                    <p className="font-semibold text-navy">{site.marina.name}</p>
+                    <p className="text-muted">
+                      <a
+                        href={`https://wa.me/${site.marina.whatsappNumber}`}
+                        className="hover:text-brand-gold"
+                      >
+                        {site.marina.whatsappDisplay}
+                      </a>
+                    </p>
+                    <p className="text-muted">
+                      <a
+                        href={`mailto:${site.marina.email}`}
+                        className="hover:text-brand-gold"
+                      >
+                        {site.marina.email}
+                      </a>
+                    </p>
+                  </div>
+                </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-5 w-5 text-brand-gold" />
                   <div>

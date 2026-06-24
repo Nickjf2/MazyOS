@@ -41,8 +41,8 @@ export default function BlogPage() {
             Conteúdo e orientações jurídicas
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/80">
-            Artigos informativos sobre temas que impactam a vida de pacientes,
-            famílias e pessoas em situações jurídicas delicadas.
+            Artigos, notícias e informações jurídicas produzidos para ajudar você a
+            compreender seus direitos e tomar decisões com mais segurança e clareza.
           </p>
         </div>
       </section>
