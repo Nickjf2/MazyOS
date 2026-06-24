@@ -15,14 +15,14 @@ export const site = {
   logo: "/logo-horizontal.png", // logo horizontal (navy) — usada no header branco
   logoMono: "/logo-fm.png", // monograma FM
   // Número usado nos botões de WhatsApp do site (Dra. Flávia)
-  whatsappNumber: "5532999872593",
-  whatsappDisplay: "(32) 99987-2593",
+  whatsappNumber: "5532999885341",
+  whatsappDisplay: "(32) 99988-5341",
   email: "flaviaadv@flaviamachado.com.br",
   // Contato direto das advogadas (exibido onde aparecem formas de contato)
   flavia: {
     name: "Dra. Flávia Machado",
-    whatsappNumber: "5532999872593",
-    whatsappDisplay: "(32) 99987-2593",
+    whatsappNumber: "5532999885341",
+    whatsappDisplay: "(32) 99988-5341",
     email: "flaviaadv@flaviamachado.com.br",
   },
   marina: {
