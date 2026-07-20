@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Banknote,
   Building2,
@@ -222,8 +223,8 @@ export default function InventarioSucessoesPage() {
       {/* SEÇÃO 1 — HERO */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-gold/10 blur-3xl" />
-        <div className="container-site relative py-16 lg:py-24">
-          <div className="max-w-3xl">
+        <div className="container-site relative grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
+          <div className="lg:col-span-7">
             <span className="eyebrow bg-white/10 text-brand-gold">
               Inventário e Sucessões
             </span>
@@ -255,6 +256,34 @@ export default function InventarioSucessoesPage() {
             <p className="mt-6 text-sm text-white/60">
               Atendimento em {site.city} e região, presencial e também online.
             </p>
+          </div>
+
+          {/* Retrato da equipe — rosto e confiança logo no hero */}
+          <div className="self-center lg:col-span-5">
+            <div className="relative mx-auto max-w-xl lg:max-w-none">
+              <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
+              <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
+                <Image
+                  src="/equipe/equipe-duas.jpg"
+                  alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
+                  width={1500}
+                  height={1001}
+                  priority
+                  className="aspect-[3/2] h-full w-full object-cover object-center"
+                />
+              </div>
+              <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-line bg-white/95 px-5 py-3.5 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)]">
+                <p className="font-serif text-lg leading-tight text-navy">
+                  Nós podemos te ajudar.
+                </p>
+                <p className="mt-1 text-sm font-semibold text-navy/80">
+                  Dra. Flávia e Dra. Marina
+                </p>
+                <p className="mt-0.5 text-xs text-muted">
+                  Flávia Machado Advocacia · {site.city}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
