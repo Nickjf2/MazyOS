@@ -231,6 +231,9 @@ export default function InventarioSucessoesPage() {
             <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
               Precisa fazer um inventário e não sabe por onde começar?
             </h1>
+            <p className="mt-5 font-serif text-2xl text-brand-gold sm:text-3xl">
+              Nós podemos te ajudar.
+            </p>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
               Orientação jurídica para inventário judicial ou em cartório, partilha
               de bens, ITCD e regularização da herança em Juiz de Fora e região.
@@ -262,13 +265,6 @@ export default function InventarioSucessoesPage() {
           <div className="self-center lg:col-span-5">
             <div className="relative mx-auto max-w-xl lg:max-w-none">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
-
-              {/* Resposta à pergunta do título */}
-              <div className="absolute -top-5 left-4 z-10 rounded-2xl border border-brand-gold/30 bg-white px-5 py-3 shadow-lg sm:left-6">
-                <p className="font-serif text-lg leading-tight text-navy">
-                  Nós podemos te ajudar.
-                </p>
-              </div>
 
               <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
                 <Image
