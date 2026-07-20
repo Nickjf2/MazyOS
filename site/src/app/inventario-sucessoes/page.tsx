@@ -262,6 +262,14 @@ export default function InventarioSucessoesPage() {
           <div className="self-center lg:col-span-5">
             <div className="relative mx-auto max-w-xl lg:max-w-none">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
+
+              {/* Resposta à pergunta do título */}
+              <div className="absolute -top-5 left-4 z-10 rounded-2xl border border-brand-gold/30 bg-white px-5 py-3 shadow-lg sm:left-6">
+                <p className="font-serif text-lg leading-tight text-navy">
+                  Nós podemos te ajudar.
+                </p>
+              </div>
+
               <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
                 <Image
                   src="/equipe/equipe-duas.jpg"
@@ -274,9 +282,6 @@ export default function InventarioSucessoesPage() {
               </div>
               <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-line bg-white/95 px-5 py-3.5 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)]">
                 <p className="font-serif text-lg leading-tight text-navy">
-                  Nós podemos te ajudar.
-                </p>
-                <p className="mt-1 text-sm font-semibold text-navy/80">
                   Dra. Flávia e Dra. Marina
                 </p>
                 <p className="mt-0.5 text-xs text-muted">
