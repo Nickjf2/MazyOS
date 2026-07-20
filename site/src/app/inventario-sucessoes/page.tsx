@@ -24,6 +24,7 @@ import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { HowItWorksSteps } from "@/components/ui/HowItWorksSteps";
 import { TeamCard } from "@/components/ui/TeamCard";
 import { CTABand } from "@/components/ui/CTABand";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { team, site } from "@/lib/site";
 
 const PAGE_TYPE = "landing_page";
@@ -35,6 +36,9 @@ export const metadata: Metadata = pageMeta({
     "Orientação jurídica para inventário judicial e extrajudicial, partilha de bens, ITCD, herança e regularização patrimonial em Juiz de Fora.",
   path: "/inventario-sucessoes",
   rawTitle: true,
+  // Página exclusiva de campanha (Google Ads): fora da busca orgânica para não
+  // competir com /areas/inventario.
+  noindex: true,
 });
 
 const crumbs = [
@@ -197,6 +201,23 @@ export default function InventarioSucessoesPage() {
       <SchemaMarkup
         schema={[legalServiceSchema(), faqSchema(faqs), breadcrumbSchema(crumbs)]}
       />
+
+      {/* BARRA DE MARCA — sem navegação (landing de campanha) */}
+      <div className="border-b border-line bg-white">
+        <div className="container-site flex h-[68px] items-center justify-between gap-4">
+          <BrandLogo src={site.logo} variant="dark" imgClassName="h-9 sm:h-11" />
+          <div className="hidden sm:block">
+            <WhatsAppButton
+              context={AREA}
+              label="Falar com a equipe"
+              ctaPosition="topo"
+              practiceArea={AREA}
+              pageType={PAGE_TYPE}
+              className="px-5 py-2.5 text-sm"
+            />
+          </div>
+        </div>
+      </div>
 
       {/* SEÇÃO 1 — HERO */}
       <section className="relative overflow-hidden bg-navy text-white">

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { HideOnLanding } from "@/components/layout/HideOnLanding";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { legalServiceSchema, localBusinessSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -50,7 +51,9 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
       <body>
         <SchemaMarkup schema={[legalServiceSchema(), localBusinessSchema()]} />
-        <Header />
+        <HideOnLanding>
+          <Header />
+        </HideOnLanding>
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />

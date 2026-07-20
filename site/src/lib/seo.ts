@@ -7,6 +7,8 @@ interface PageMetaInput {
   path: string;
   /** título já completo, sem sufixo do escritório */
   rawTitle?: boolean;
+  /** landing pages de campanha ficam fora da busca orgânica (só tráfego pago) */
+  noindex?: boolean;
 }
 
 export function pageMeta({
@@ -14,6 +16,7 @@ export function pageMeta({
   description,
   path,
   rawTitle,
+  noindex,
 }: PageMetaInput): Metadata {
   const fullTitle = rawTitle ? title : `${title} | ${site.name}`;
   const url = `${site.url}${path}`;
@@ -21,6 +24,7 @@ export function pageMeta({
     title: fullTitle,
     description,
     alternates: { canonical: url },
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: fullTitle,
       description,
