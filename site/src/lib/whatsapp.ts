@@ -23,6 +23,15 @@ const messages: Record<string, string> = {
     "Olá, vim pelo site do escritório, na área de Home Care, e gostaria de orientação inicial.",
   inventario:
     "Olá, vim pelo site do escritório, na área de Inventário e Sucessões, e gostaria de orientação inicial.",
+  // Landing page de campanha — Inventário e Sucessões
+  "inventario-sucessoes":
+    "Olá! Vim pela página de Inventário e Sucessões e gostaria de entender como posso regularizar uma herança.",
+  "inventario-conflito":
+    "Olá! Estou com um inventário em que os herdeiros não estão de acordo e gostaria de orientação.",
+  "inventario-imovel":
+    "Olá! Há um imóvel ainda registrado no nome de uma pessoa falecida e gostaria de saber como regularizar.",
+  "inventario-atrasado":
+    "Olá! O falecimento aconteceu há algum tempo e o inventário ainda não foi feito. Gostaria de entender os próximos passos.",
   "planejamento-sucessorio":
     "Olá, vim pelo site do escritório, na área de Planejamento Sucessório, e gostaria de orientação inicial.",
   "direito-de-familia":
