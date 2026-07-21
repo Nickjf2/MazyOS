@@ -10,6 +10,7 @@ import {
   Gem,
   Home,
   Landmark,
+  Phone as PhoneIcon,
   Scale,
   ScrollText,
   ShieldCheck,
@@ -21,6 +22,7 @@ import { faqSchema, breadcrumbSchema, legalServiceSchema } from "@/lib/schema";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { PhoneButton } from "@/components/ui/PhoneButton";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { HowItWorksSteps } from "@/components/ui/HowItWorksSteps";
 import { TeamCard } from "@/components/ui/TeamCard";
@@ -207,15 +209,25 @@ export default function InventarioSucessoesPage() {
       <div className="border-b border-line bg-white">
         <div className="container-site flex h-[68px] items-center justify-between gap-4">
           <BrandLogo src={site.logo} variant="dark" imgClassName="h-9 sm:h-11" />
-          <div className="hidden sm:block">
-            <WhatsAppButton
-              context={AREA}
-              label="Falar com a equipe"
-              ctaPosition="topo"
-              practiceArea={AREA}
-              pageType={PAGE_TYPE}
-              className="px-5 py-2.5 text-sm"
-            />
+          <div className="flex items-center gap-3">
+            {/* No celular o destaque é ligar; no desktop, o WhatsApp */}
+            <a
+              href={`tel:+${site.whatsappNumber}`}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-brand-gold sm:hidden"
+            >
+              <PhoneIcon className="h-[18px] w-[18px]" aria-hidden />
+              Ligar
+            </a>
+            <div className="hidden sm:block">
+              <WhatsAppButton
+                context={AREA}
+                label="Falar com a equipe"
+                ctaPosition="topo"
+                practiceArea={AREA}
+                pageType={PAGE_TYPE}
+                className="px-5 py-2.5 text-sm"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -256,7 +268,17 @@ export default function InventarioSucessoesPage() {
               </a>
             </div>
 
-            <p className="mt-6 text-sm text-white/60">
+            <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60">
+              <span>Prefere falar por telefone?</span>
+              <PhoneButton
+                variant="link"
+                ctaPosition="hero"
+                practiceArea={AREA}
+                pageType={PAGE_TYPE}
+                className="text-sm"
+              />
+            </p>
+            <p className="mt-3 text-sm text-white/60">
               Atendimento em {site.city} e região, presencial e também online.
             </p>
           </div>
@@ -464,7 +486,7 @@ export default function InventarioSucessoesPage() {
             steps={etapas}
             note="Você não precisa reunir todos os documentos antes do primeiro contato. Um relato inicial da situação já permite orientar os primeiros passos."
           />
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <WhatsAppButton
               context="inventario-imovel"
               label="Falar com a equipe pelo WhatsApp"
@@ -472,6 +494,13 @@ export default function InventarioSucessoesPage() {
               practiceArea={AREA}
               pageType={PAGE_TYPE}
             />
+            <a
+              href={`tel:+${site.whatsappNumber}`}
+              className="btn-outline"
+            >
+              <PhoneIcon className="h-[18px] w-[18px]" aria-hidden />
+              Ligar {site.whatsappDisplay}
+            </a>
           </div>
         </div>
       </section>
