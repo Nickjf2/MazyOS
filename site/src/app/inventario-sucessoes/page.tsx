@@ -251,7 +251,7 @@ export default function InventarioSucessoesPage() {
                 practiceArea={AREA}
                 pageType={PAGE_TYPE}
               />
-              <a href="#como-funciona" className="btn-outline">
+              <a href="#como-funciona" className="btn-ghost">
                 Como funciona o atendimento
               </a>
             </div>

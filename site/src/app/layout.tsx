@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HideOnLanding } from "@/components/layout/HideOnLanding";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
+import { Analytics } from "@/components/tracking/Analytics";
 import { legalServiceSchema, localBusinessSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
       <body>
+        <Analytics />
         <SchemaMarkup schema={[legalServiceSchema(), localBusinessSchema()]} />
         <HideOnLanding>
           <Header />
