@@ -23,6 +23,7 @@ import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { PhoneButton } from "@/components/ui/PhoneButton";
+import { LeadForm } from "@/components/forms/LeadForm";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { HowItWorksSteps } from "@/components/ui/HowItWorksSteps";
 import { TeamCard } from "@/components/ui/TeamCard";
@@ -360,6 +361,35 @@ export default function InventarioSucessoesPage() {
             Mesmo quando o falecimento aconteceu há muitos anos, a regularização
             continua sendo possível. O que muda são os impactos a serem analisados.
           </p>
+        </div>
+      </section>
+
+      {/* FORMULÁRIO — captura de contato sem depender do WhatsApp */}
+      <section className="section">
+        <div className="container-site grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold">
+              Fale com a equipe
+            </p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Prefere que a gente entre em contato?
+            </h2>
+            <div className="gold-rule mt-5" />
+            <p className="lede mt-5">
+              Deixe seu nome e WhatsApp com um resumo da situação. A equipe retorna
+              para entender o caso e indicar os próximos passos.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted">
+              Você não precisa reunir documentos nem saber termos jurídicos para
+              esse primeiro contato.
+            </p>
+          </div>
+          <LeadForm
+            origem="lp-inventario-sucessoes"
+            practiceArea={AREA}
+            pageType={PAGE_TYPE}
+            whatsappContext={AREA}
+          />
         </div>
       </section>
 
