@@ -48,6 +48,11 @@ export const site = {
   mapsEmbedUrl:
     "https://maps.google.com/maps?q=Fl%C3%A1via+Machado+Advogados+Associados,+Av.+Bar%C3%A3o+do+Rio+Branco,+2555,+Centro,+Juiz+de+Fora,+MG&output=embed&hl=pt-BR&z=16",
   hours: "Segunda a sexta, das 9h às 18h",
+  // Medição. Estes IDs são públicos (aparecem no código da página).
+  analytics: {
+    ga4: "G-13MLE1G8LQ",
+    googleAds: "", // AW-XXXXXXXXX — preencher quando a conversão do Ads for criada
+  },
   trustBar:
     "Atendimento em Juiz de Fora e online • contato sigiloso • orientação jurídica clara",
   compliance:
