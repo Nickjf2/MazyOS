@@ -11,7 +11,8 @@ interface Props {
   ctaPosition?: string;
   practiceArea?: string;
   pageType?: string;
-  variant?: "whatsapp" | "ghost";
+  /** whatsapp = verde | ghost = sobre fundo escuro | outline = sobre fundo claro */
+  variant?: "whatsapp" | "ghost" | "outline";
   className?: string;
 }
 
@@ -29,7 +30,14 @@ export function WhatsAppButton({
       href={whatsappLink(context)}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(variant === "ghost" ? "btn-ghost" : "btn-whatsapp", className)}
+      className={cn(
+        variant === "ghost"
+          ? "btn-ghost"
+          : variant === "outline"
+            ? "btn-outline"
+            : "btn-whatsapp",
+        className,
+      )}
       onClick={() =>
         trackEvent("whatsapp_click", {
           practice_area: practiceArea,

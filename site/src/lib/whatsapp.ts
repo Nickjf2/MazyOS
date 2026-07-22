@@ -32,6 +32,15 @@ const messages: Record<string, string> = {
     "Olá! Há um imóvel ainda registrado no nome de uma pessoa falecida e gostaria de saber como regularizar.",
   "inventario-atrasado":
     "Olá! O falecimento aconteceu há algum tempo e o inventário ainda não foi feito. Gostaria de entender os próximos passos.",
+  // Landing page de campanha — Direito do Consumidor
+  "direito-do-consumidor":
+    "Olá! Vim pela página de Direito do Consumidor e gostaria que meu caso fosse analisado.",
+  "consumidor-banco":
+    "Olá! Estou com um problema envolvendo banco, cobrança ou golpe financeiro e gostaria de orientação.",
+  "consumidor-compra":
+    "Olá! Tive um problema com uma compra ou com um produto e gostaria de saber quais são os meus direitos.",
+  "consumidor-voo":
+    "Olá! Tive um problema com voo atrasado, cancelado ou bagagem extraviada e gostaria de orientação.",
   "planejamento-sucessorio":
     "Olá, vim pelo site do escritório, na área de Planejamento Sucessório, e gostaria de orientação inicial.",
   "direito-de-familia":
