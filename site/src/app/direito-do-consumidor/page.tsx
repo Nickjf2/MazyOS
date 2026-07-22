@@ -410,22 +410,35 @@ export default function DireitoDoConsumidorPage() {
               />
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { icon: Plane, t: "Voo atrasado" },
-              { icon: ShieldAlert, t: "Voo cancelado" },
-              { icon: Luggage, t: "Bagagem extraviada" },
-              { icon: Banknote, t: "Reembolso negado" },
-            ].map(({ icon: Icon, t }) => (
-              <div
-                key={t}
-                className="flex items-center gap-3 rounded-card border border-white/15 bg-white/5 px-5 py-4"
-              >
-                <Icon className="h-6 w-6 shrink-0 text-brand-gold" aria-hidden />
-                <span className="font-medium text-white">{t}</span>
-              </div>
-            ))}
+          <div className="relative">
+            <div className="pointer-events-none absolute -left-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
+            <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
+              <Image
+                src="/lp/atraso-voo.jpg"
+                alt="Passageiro aguardando no aeroporto ao lado da mala, após atraso de voo"
+                width={800}
+                height={533}
+                className="aspect-[3/2] h-full w-full object-cover object-center"
+              />
+            </div>
           </div>
+        </div>
+
+        <div className="container-site mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: Plane, t: "Voo atrasado" },
+            { icon: ShieldAlert, t: "Voo cancelado" },
+            { icon: Luggage, t: "Bagagem extraviada" },
+            { icon: Banknote, t: "Reembolso negado" },
+          ].map(({ icon: Icon, t }) => (
+            <div
+              key={t}
+              className="flex items-center gap-3 rounded-card border border-white/15 bg-white/5 px-5 py-4"
+            >
+              <Icon className="h-6 w-6 shrink-0 text-brand-gold" aria-hidden />
+              <span className="font-medium text-white">{t}</span>
+            </div>
+          ))}
         </div>
       </section>
 
