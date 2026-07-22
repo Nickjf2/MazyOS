@@ -393,6 +393,7 @@ export default function InventarioSucessoesPage() {
             practiceArea={AREA}
             pageType={PAGE_TYPE}
             whatsappContext={AREA}
+            exemploRelato="Ex.: meu pai faleceu e o imóvel ainda está no nome dele."
           />
         </div>
       </section>

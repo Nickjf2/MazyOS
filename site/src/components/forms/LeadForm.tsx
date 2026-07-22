@@ -14,6 +14,8 @@ interface Props {
   practiceArea?: string;
   pageType?: string;
   whatsappContext?: string;
+  /** exemplo mostrado no campo de relato — específico de cada landing page */
+  exemploRelato?: string;
 }
 
 const inputCls =
@@ -25,6 +27,7 @@ export function LeadForm({
   practiceArea,
   pageType,
   whatsappContext = "geral",
+  exemploRelato = "Ex.: conte em poucas palavras o que aconteceu.",
 }: Props) {
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
@@ -127,7 +130,7 @@ export function LeadForm({
           name="mensagem"
           rows={3}
           className={inputCls}
-          placeholder="Ex.: meu pai faleceu e o imóvel ainda está no nome dele."
+          placeholder={exemploRelato}
         />
       </div>
 

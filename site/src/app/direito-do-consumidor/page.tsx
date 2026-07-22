@@ -313,6 +313,7 @@ export default function DireitoDoConsumidorPage() {
             practiceArea={AREA}
             pageType={PAGE_TYPE}
             whatsappContext={AREA}
+            exemploRelato="Ex.: comprei um produto que não chegou e a loja não resolve."
           />
         </div>
       </section>
