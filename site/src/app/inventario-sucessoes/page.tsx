@@ -52,10 +52,10 @@ const crumbs = [
 
 /** Seção 2 — situações reconhecíveis pelo visitante */
 const situacoes = [
-  "Perdeu um familiar e não sabe por onde começar",
-  "O imóvel ainda está registrado no nome do falecido",
+  "Perdeu um familiar e está abalado com a situação",
+  "O imóvel está em nome do falecido ou de terceiros",
   "Um herdeiro não concorda com a partilha",
-  "O inventário está atrasado ou parado",
+  "O inventário está atrasado ou paralisado",
   "A conta bancária foi bloqueada após o falecimento",
   "Existe um testamento",
   "Há herdeiro menor de idade ou incapaz",
@@ -242,18 +242,19 @@ export default function InventarioSucessoesPage() {
               Inventário e Sucessões
             </span>
             <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
-              Precisa fazer um inventário e não sabe por onde começar?
+              Precisa dar entrada no inventário e não sabe por onde começar?
             </h1>
             <p className="mt-5 font-serif text-2xl text-brand-gold sm:text-3xl">
               Nós podemos te ajudar.
             </p>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
               Orientação jurídica para inventário judicial ou em cartório, partilha
-              de bens, ITCD e regularização da herança em Juiz de Fora e região.
+              de bens, ITCD e regularização da herança, com atendimento em todo o
+              Brasil.
             </p>
             <p className="mt-4 max-w-2xl leading-relaxed text-white/65">
-              Atendimento jurídico para organizar documentos, herdeiros, bens e o
-              caminho mais adequado para a regularização da sucessão.
+              Organizamos documentos, herdeiros e bens para conduzir a regularização
+              de forma tranquila e transparente.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -280,7 +281,7 @@ export default function InventarioSucessoesPage() {
               />
             </p>
             <p className="mt-3 text-sm text-white/60">
-              Atendimento em {site.city} e região, presencial e também online.
+              Atendimento presencial em {site.city} e online para todo o Brasil.
             </p>
           </div>
 
