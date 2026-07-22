@@ -28,6 +28,7 @@ import { HowItWorksSteps } from "@/components/ui/HowItWorksSteps";
 import { TeamCard } from "@/components/ui/TeamCard";
 import { CTABand } from "@/components/ui/CTABand";
 import { BrandLogo } from "@/components/layout/BrandLogo";
+import { TrustStrip } from "@/components/ui/TrustStrip";
 import { team, site } from "@/lib/site";
 
 const PAGE_TYPE = "landing_page";
@@ -232,6 +233,9 @@ export default function DireitoDoConsumidorPage() {
           </div>
         </div>
       </section>
+
+      {/* CREDENCIAIS */}
+      <TrustStrip />
 
       {/* SITUAÇÕES */}
       <section className="section">

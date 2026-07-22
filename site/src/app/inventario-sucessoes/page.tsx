@@ -29,6 +29,7 @@ import { HowItWorksSteps } from "@/components/ui/HowItWorksSteps";
 import { TeamCard } from "@/components/ui/TeamCard";
 import { CTABand } from "@/components/ui/CTABand";
 import { BrandLogo } from "@/components/layout/BrandLogo";
+import { TrustStrip } from "@/components/ui/TrustStrip";
 import { team, site } from "@/lib/site";
 
 const PAGE_TYPE = "landing_page";
@@ -57,8 +58,7 @@ const situacoes = [
   "Um herdeiro não concorda com a partilha",
   "O inventário está atrasado ou paralisado",
   "A conta bancária foi bloqueada após o falecimento",
-  "Existe um testamento",
-  "Há herdeiro menor de idade ou incapaz",
+  "Existe testamento ou herdeiro menor de idade",
   "Apareceu outro bem depois do inventário",
   "A família precisa vender ou transferir um imóvel",
   "Existem bens rurais, empresa ou participações",
@@ -312,6 +312,9 @@ export default function InventarioSucessoesPage() {
           </div>
         </div>
       </section>
+
+      {/* CREDENCIAIS */}
+      <TrustStrip />
 
       {/* SEÇÃO 2 — SITUAÇÕES */}
       <section className="section">
