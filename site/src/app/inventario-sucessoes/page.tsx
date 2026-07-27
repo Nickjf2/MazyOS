@@ -238,10 +238,11 @@ export default function InventarioSucessoesPage() {
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="container-site relative grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
           <div className="lg:col-span-7">
-            <span className="eyebrow bg-white/10 text-brand-gold">
+            <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
+              <span className="h-px w-8 bg-brand-gold/50" aria-hidden />
               Inventário e Sucessões
-            </span>
-            <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
+            </p>
+            <h1 className="mt-5 text-4xl font-bold text-white sm:text-5xl">
               Precisa dar entrada no inventário e não sabe por onde começar?
             </h1>
             <p className="mt-5 font-serif text-2xl text-brand-gold sm:text-3xl">

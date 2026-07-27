@@ -163,10 +163,11 @@ export default function DireitoDoConsumidorPage() {
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="container-site relative grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
           <div className="lg:col-span-7">
-            <span className="eyebrow bg-white/10 text-brand-gold">
+            <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
+              <span className="h-px w-8 bg-brand-gold/50" aria-hidden />
               Direito do Consumidor
-            </span>
-            <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
+            </p>
+            <h1 className="mt-5 text-4xl font-bold text-white sm:text-5xl">
               Teve problemas com uma compra, banco, companhia aérea ou outro
               serviço?
             </h1>
@@ -389,10 +390,11 @@ export default function DireitoDoConsumidorPage() {
       <section className="section bg-navy">
         <div className="container-site grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <span className="eyebrow bg-white/10 text-brand-gold">
+            <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
+              <span className="h-px w-8 bg-brand-gold/50" aria-hidden />
               Transporte aéreo
-            </span>
-            <h2 className="mt-5 text-3xl text-white sm:text-4xl">
+            </p>
+            <h2 className="mt-4 text-3xl text-white sm:text-4xl">
               Problemas com voo e bagagem
             </h2>
             <div className="gold-rule mt-5" />
