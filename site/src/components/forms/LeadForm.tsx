@@ -41,6 +41,7 @@ export function LeadForm({
     const nome = String(dados.get("nome") ?? "").trim();
     const whatsapp = String(dados.get("whatsapp") ?? "").trim();
     const mensagem = String(dados.get("mensagem") ?? "").trim();
+    const website = String(dados.get("website") ?? "").trim();
 
     if (!nome || !whatsapp) {
       setErro("Preencha seu nome e WhatsApp para que possamos retornar.");
@@ -52,7 +53,7 @@ export function LeadForm({
       const resposta = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, whatsapp, mensagem, origem }),
+        body: JSON.stringify({ nome, whatsapp, mensagem, origem, website }),
       });
       if (!resposta.ok) throw new Error("falha");
       trackEvent("generate_lead", {
@@ -131,6 +132,17 @@ export function LeadForm({
           rows={3}
           className={inputCls}
           placeholder={exemploRelato}
+        />
+      </div>
+
+      {/* Campo-armadilha para robôs de spam. Invisível e fora da navegação. */}
+      <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor={`lead-website-${origem}`}>Não preencha este campo</label>
+        <input
+          id={`lead-website-${origem}`}
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
         />
       </div>
 

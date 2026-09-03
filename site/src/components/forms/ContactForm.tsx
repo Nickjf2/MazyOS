@@ -5,11 +5,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle2, MessageCircle } from "lucide-react";
-import { whatsappLink } from "@/lib/whatsapp";
+import { site } from "@/lib/site";
 import { trackEvent } from "@/lib/tracking";
 
 // Formulário curto e de baixa fricção (MASTER §21).
 // Coleta o mínimo necessário; não pede dados sensíveis no 1º contato.
+//
+// O envio registra o lead em /api/lead ANTES de oferecer o WhatsApp. Assim o
+// contato fica guardado mesmo que a pessoa não conclua a conversa — antes
+// disso, quem não abrisse o WhatsApp sumia sem deixar registro.
 
 const schema = z.object({
   nome: z.string().min(2, "Informe seu nome."),
@@ -17,6 +21,8 @@ const schema = z.object({
   cidade: z.string().min(2, "Informe sua cidade."),
   area: z.string().min(1, "Selecione uma área."),
   mensagem: z.string().min(5, "Conte brevemente o que está acontecendo."),
+  // Campo-armadilha: fica escondido, então só robô preenche.
+  website: z.string().max(0).optional(),
   consent: z.literal(true, {
     errorMap: () => ({ message: "É necessário autorizar o contato." }),
   }),
@@ -42,6 +48,7 @@ const errCls = "mt-1 text-xs text-reajuste-accent";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [whatsUrl, setWhatsUrl] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -49,15 +56,38 @@ export function ContactForm() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    // Sem backend configurado: encaminha um resumo para o WhatsApp do escritório.
     trackEvent("generate_lead", {
       practice_area: data.area,
       page_type: "contato",
       cta_position: "form",
     });
+
+    // 1) Guarda o lead. Falha de rede não bloqueia o atendimento: a pessoa
+    //    segue para o WhatsApp de qualquer forma.
+    try {
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: data.nome,
+          whatsapp: data.whatsapp,
+          cidade: data.cidade,
+          area: data.area,
+          mensagem: data.mensagem,
+          origem: "site/contato",
+          website: data.website ?? "",
+        }),
+      });
+    } catch {
+      // segue o fluxo
+    }
+
+    // 2) Prepara o WhatsApp com o resumo já escrito.
     const resumo = `Olá, sou ${data.nome} (${data.cidade}). Área: ${data.area}. ${data.mensagem}`;
-    const url = `https://wa.me/5532999885341?text=${encodeURIComponent(resumo)}`;
+    const url = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(resumo)}`;
+    setWhatsUrl(url);
     setSent(true);
+    // Se o navegador bloquear a janela, o botão da tela seguinte resolve.
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -65,13 +95,14 @@ export function ContactForm() {
     return (
       <div className="rounded-card border border-line bg-soft p-8 text-center">
         <CheckCircle2 className="mx-auto h-12 w-12 text-whatsapp" />
-        <h3 className="mt-4 font-serif text-2xl text-navy">Mensagem preparada</h3>
+        <h3 className="mt-4 font-serif text-2xl text-navy">Recebemos seu contato</h3>
         <p className="mt-2 text-muted">
-          Abrimos o WhatsApp com um resumo do seu contato. Se a janela não abrir,
-          fale com a equipe pelo botão abaixo.
+          A equipe já tem seus dados e vai retornar pelo WhatsApp informado. Se
+          preferir falar agora, abra a conversa pelo botão abaixo — a mensagem já
+          vai com o resumo que você escreveu.
         </p>
         <a
-          href={whatsappLink("geral")}
+          href={whatsUrl ?? `https://wa.me/${site.whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp mt-6"
@@ -146,6 +177,12 @@ export function ContactForm() {
           {...register("mensagem")}
         />
         {errors.mensagem && <p className={errCls}>{errors.mensagem.message}</p>}
+      </div>
+
+      {/* Campo-armadilha para robôs de spam. Invisível e fora da navegação. */}
+      <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Não preencha este campo</label>
+        <input id="website" tabIndex={-1} autoComplete="off" {...register("website")} />
       </div>
 
       <div className="mt-5 flex items-start gap-3">
