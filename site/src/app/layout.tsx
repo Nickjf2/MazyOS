@@ -7,6 +7,7 @@ import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { HideOnLanding } from "@/components/layout/HideOnLanding";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { Analytics } from "@/components/tracking/Analytics";
+import { CookieConsent } from "@/components/tracking/CookieConsent";
 import { legalServiceSchema, localBusinessSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -59,6 +60,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <CookieConsent />
       </body>
     </html>
   );
