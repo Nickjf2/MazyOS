@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/tracking";
@@ -30,6 +30,8 @@ export function LeadForm({
   exemploRelato = "Ex.: conte em poucas palavras o que aconteceu.",
 }: Props) {
   const [enviando, setEnviando] = useState(false);
+  // Ver ContactForm: o onFocus do formulário borbulha de cada campo.
+  const inicioRegistrado = useRef(false);
   const [enviado, setEnviado] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
 
@@ -96,7 +98,11 @@ export function LeadForm({
   return (
     <form
       onSubmit={onSubmit}
-      onFocus={() => trackEvent("form_start", { page_type: pageType })}
+      onFocus={() => {
+        if (inicioRegistrado.current) return;
+        inicioRegistrado.current = true;
+        trackEvent("form_start", { page_type: pageType });
+      }}
       className="rounded-card border border-line bg-white p-6 shadow-card sm:p-8"
       noValidate
     >

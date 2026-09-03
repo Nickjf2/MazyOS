@@ -54,7 +54,24 @@ export const site = {
   // Medição. Estes IDs são públicos (aparecem no código da página).
   analytics: {
     ga4: "G-13MLE1G8LQ",
-    googleAds: "", // AW-XXXXXXXXX — preencher quando a conversão do Ads for criada
+    // AW-XXXXXXXXX — ID de conversão da conta do Google Ads.
+    googleAds: "",
+    // Rótulos de cada ação de conversão criada na conta, no formato "AbC-D_efGhIj".
+    // Enquanto vazios, o site segue medindo no GA4 e nada é enviado ao Ads.
+    //
+    // Como pegar: Google Ads > Metas > Conversões > abrir a ação > "Configurar
+    // a tag" > "Instalar a tag manualmente". O send_to vem como
+    // "AW-123456789/AbC-D_efGhIj" — aqui vai só a parte depois da barra.
+    adsLabels: {
+      /** Lead – Formulário (principal) */
+      formulario: "",
+      /** Lead – WhatsApp (principal) */
+      whatsapp: "",
+      /** Lead – Telefone (principal) */
+      telefone: "",
+      /** Micro – Início de formulário (secundária) */
+      inicioFormulario: "",
+    },
   },
   trustBar:
     "Atendimento em Juiz de Fora e online • contato sigiloso • orientação jurídica clara",

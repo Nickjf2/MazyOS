@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -48,6 +48,9 @@ const errCls = "mt-1 text-xs text-reajuste-accent";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  // O onFocus do <form> borbulha de todo campo. Sem trava, "começou a
+  // preencher" era contado uma vez por campo visitado.
+  const inicioRegistrado = useRef(false);
   const [whatsUrl, setWhatsUrl] = useState<string | null>(null);
   const {
     register,
@@ -56,16 +59,11 @@ export function ContactForm() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    trackEvent("generate_lead", {
-      practice_area: data.area,
-      page_type: "contato",
-      cta_position: "form",
-    });
-
     // 1) Guarda o lead. Falha de rede não bloqueia o atendimento: a pessoa
     //    segue para o WhatsApp de qualquer forma.
+    let registrado = false;
     try {
-      await fetch("/api/lead", {
+      const r = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -78,9 +76,19 @@ export function ContactForm() {
           website: data.website ?? "",
         }),
       });
+      registrado = r.ok;
     } catch {
       // segue o fluxo
     }
+
+    // O evento de lead só vale depois que o contato existe de fato — seja
+    // gravado no servidor, seja encaminhado ao WhatsApp. Disparar no clique
+    // do botão contaria envio que falhou como conversão.
+    trackEvent("generate_lead", {
+      practice_area: data.area,
+      page_type: "contato",
+      cta_position: registrado ? "form" : "form_fallback_whatsapp",
+    });
 
     // 2) Prepara o WhatsApp com o resumo já escrito.
     const resumo = `Olá, sou ${data.nome} (${data.cidade}). Área: ${data.area}. ${data.mensagem}`;
@@ -116,7 +124,11 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      onFocus={() => trackEvent("form_start", { page_type: "contato" })}
+      onFocus={() => {
+        if (inicioRegistrado.current) return;
+        inicioRegistrado.current = true;
+        trackEvent("form_start", { page_type: "contato" });
+      }}
       className="rounded-card border border-line bg-white p-6 shadow-card sm:p-8"
       noValidate
     >

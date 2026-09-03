@@ -4,6 +4,8 @@ import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { PhoneButton } from "@/components/ui/PhoneButton";
+import { EmailLink } from "@/components/ui/EmailLink";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
@@ -49,12 +51,20 @@ export default function ContatoPage() {
             <div className="rounded-card border border-line bg-soft p-7">
               <h2 className="font-serif text-2xl text-navy">Outras formas de contato</h2>
 
-              <div className="mt-6">
+              <div className="mt-6 space-y-3">
                 <WhatsAppButton
                   label="Conversar no WhatsApp"
                   ctaPosition="contato_sidebar"
                   pageType="contato"
                   className="w-full"
+                />
+                {/* Ligar é o canal preferido de parte do público — e até aqui
+                    só existia nas landing pages de campanha. */}
+                <PhoneButton
+                  label={`Ligar para ${site.whatsappDisplay}`}
+                  ctaPosition="contato_sidebar"
+                  pageType="contato"
+                  className="w-full justify-center"
                 />
               </div>
 
@@ -72,12 +82,12 @@ export default function ContatoPage() {
                       </a>
                     </p>
                     <p className="text-muted">
-                      <a
-                        href={`mailto:${site.flavia.email}`}
+                      <EmailLink
+                        email={site.flavia.email}
+                        ctaPosition="contato_sidebar"
+                        pageType="contato"
                         className="hover:text-brand-gold"
-                      >
-                        {site.flavia.email}
-                      </a>
+                      />
                     </p>
                   </div>
                 </li>
@@ -94,12 +104,12 @@ export default function ContatoPage() {
                       </a>
                     </p>
                     <p className="text-muted">
-                      <a
-                        href={`mailto:${site.marina.email}`}
+                      <EmailLink
+                        email={site.marina.email}
+                        ctaPosition="contato_sidebar"
+                        pageType="contato"
                         className="hover:text-brand-gold"
-                      >
-                        {site.marina.email}
-                      </a>
+                      />
                     </p>
                   </div>
                 </li>

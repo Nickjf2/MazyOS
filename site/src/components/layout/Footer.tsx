@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { site, team, mainNav } from "@/lib/site";
+import { EmailLink } from "@/components/ui/EmailLink";
 
 export function Footer() {
   return (
@@ -66,12 +67,12 @@ export function Footer() {
                 </span>
                 <span className="mt-1.5 flex items-center gap-2">
                   <Mail className="h-4 w-4 shrink-0 text-brand-gold" />
-                  <a
-                    href={`mailto:${adv.email}`}
+                  <EmailLink
+                    email={adv.email}
+                    ctaPosition="rodape"
+                    pageType="global"
                     className="hover:text-brand-gold"
-                  >
-                    {adv.email}
-                  </a>
+                  />
                 </span>
               </li>
             ))}
