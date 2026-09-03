@@ -68,8 +68,34 @@ const nextConfig = {
     ];
   },
   async redirects() {
-    // Preservar URLs antigas já indexadas (ver MASTER doc §8.2)
+    // Migração do WordPress/Joomla anteriores (ver MASTER §8.2).
+    //
+    // URLs levantadas no Wayback Machine e conferidas em produção. Aqui ficam
+    // SOMENTE as que têm substituto claro: índice antigo para índice novo,
+    // área antiga para a área equivalente, ficha de advogada para a página
+    // onde a bio dela passou a viver.
+    //
+    // Critério deliberado: preservar autoridade NÃO justifica destino
+    // irrelevante. Conteúdo removido sem equivalente fica em 404 — é o sinal
+    // correto para o Google e honesto para quem chega. Um redirect temático
+    // frouxo vira soft 404 e ainda frustra a visita.
+    //
+    // Em 404 de propósito:
+    //   - Serviços encerrados (Trabalhista, Empresarial, Civil, FGTS): mandar
+    //     para /areas-de-atuacao seria fingir que ainda atendemos.
+    //   - Os 12 posts e as 7 tags do blog antigo: os textos não existem mais.
+    //     Se algum for reescrito, aí sim criar o 301 para o artigo novo.
+    //   - /feed/ e /comments/feed/: são RSS, não HTML.
+    //   - /wp-*, /xmlrpc.php: internas do WordPress.
+    //
+    // Aguardando decisão (ver auditoria):
+    //   - /bethania-senra-e-padua e /ana-carolina-machado-moraes-grimaldi
+    //     dependem de confirmação da Dra. Flávia.
+    //
+    // O Next normaliza a barra final antes de aplicar o redirect, então
+    // /pagina/ chega como /pagina e o encadeamento resolve em 2 saltos.
     return [
+      // Áreas com equivalente direto no site novo.
       {
         source: "/negativas-do-plano-de-saude",
         destination: "/areas/negativa-plano-saude",
@@ -78,6 +104,126 @@ const nextConfig = {
       {
         source: "/direito-da-mulher",
         destination: "/areas/direito-da-mulher",
+        permanent: true,
+      },
+      {
+        source: "/direito-de-familia-divorcio-alimentos-guarda-adocao-interdicao",
+        destination: "/areas/direito-de-familia",
+        permanent: true,
+      },
+      {
+        source: "/direito-medico",
+        destination: "/areas/direito-da-saude",
+        permanent: true,
+      },
+      {
+        source: "/direitos-dos-lgbt",
+        destination: "/areas/direitos-lgbtqia",
+        permanent: true,
+      },
+      {
+        source: "/direitos-dos-lgbtqia-e-alteracao-de-nome",
+        destination: "/areas/direitos-lgbtqia",
+        permanent: true,
+      },
+      // Liberados agora que /areas/direito-do-consumidor existe. Antes o único
+      // destino possível era a landing page de campanha, que é noindex —
+      // redirecionar URL indexada para página bloqueada joga a autoridade fora.
+      {
+        source: "/direitos-do-consumidor",
+        destination: "/areas/direito-do-consumidor",
+        permanent: true,
+      },
+      {
+        source: "/direitos-do-consumidor.html",
+        destination: "/areas/direito-do-consumidor",
+        permanent: true,
+      },
+      // A página cobre atraso, cancelamento e bagagem.
+      {
+        source: "/voos",
+        destination: "/areas/direito-do-consumidor",
+        permanent: true,
+      },
+
+      // Equipe: índices antigos e fichas de quem continua no escritório.
+      // As fichas viraram cards na página de equipe — o conteúdo mudou de lugar,
+      // não deixou de existir.
+      {
+        source: "/advogados-em-juiz-de-fora",
+        destination: "/equipe",
+        permanent: true,
+      },
+      {
+        source: "/nossa-equipe",
+        destination: "/equipe",
+        permanent: true,
+      },
+      {
+        source: "/nossa-equipe-de-advogados",
+        destination: "/equipe",
+        permanent: true,
+      },
+      {
+        source: "/flavia-machado",
+        destination: "/equipe",
+        permanent: true,
+      },
+      {
+        source: "/nossa-equipe/flavia-machado",
+        destination: "/equipe",
+        permanent: true,
+      },
+      {
+        source: "/marina-de-assis-siqueira-brinati",
+        destination: "/equipe",
+        permanent: true,
+      },
+      {
+        source: "/nossa-equipe/marina-de-assis-siqueira-brinati",
+        destination: "/equipe",
+        permanent: true,
+      },
+
+      // Páginas do site pré-WordPress: índice antigo para índice novo.
+      {
+        source: "/quem-somos.html",
+        destination: "/sobre-o-escritorio",
+        permanent: true,
+      },
+      {
+        source: "/advocacia.html",
+        destination: "/sobre-o-escritorio",
+        permanent: true,
+      },
+      {
+        source: "/2-uncategorised/1-nossa-empresa.html",
+        destination: "/sobre-o-escritorio",
+        permanent: true,
+      },
+      {
+        source: "/servicos.html",
+        destination: "/areas-de-atuacao",
+        permanent: true,
+      },
+      {
+        source: "/contato.html",
+        destination: "/contato",
+        permanent: true,
+      },
+      {
+        source: "/noticias.html",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/my-blog",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/category/novidades",
+        destination: "/blog",
         permanent: true,
       },
     ];
