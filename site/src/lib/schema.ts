@@ -36,7 +36,7 @@ export function localBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "Attorney",
     name: site.name,
-    image: `${site.url}/og-default.jpg`,
+    image: `${site.url}${site.ogImage}`,
     url: site.url,
     telephone: `+${site.whatsappNumber}`,
     priceRange: "$$",

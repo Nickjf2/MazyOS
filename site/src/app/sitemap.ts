@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sobre-o-escritorio",
     "/equipe",
     "/areas-de-atuacao",
+    "/mediacao",
     "/blog",
     "/contato",
     "/politica-de-privacidade",

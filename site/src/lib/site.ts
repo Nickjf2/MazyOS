@@ -14,6 +14,9 @@ export const site = {
   // Logos em /public. Enquanto o arquivo não existir, o header mostra o wordmark.
   logo: "/logo-horizontal.png", // logo horizontal (navy) — usada no header branco
   logoMono: "/logo-fm.png", // monograma FM
+  // Imagem exibida quando um link do site é compartilhado (WhatsApp, redes, e-mail).
+  // Gerada por marketing/conteudo/_engine/render-og.js — 1200x630.
+  ogImage: "/og-default.jpg",
   // Número usado nos botões de WhatsApp do site (Dra. Flávia)
   whatsappNumber: "5532999885341",
   whatsappDisplay: "(32) 99988-5341",

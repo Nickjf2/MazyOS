@@ -24,7 +24,18 @@ import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { CTABand } from "@/components/ui/CTABand";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { faqSchema } from "@/lib/schema";
+import { pageMeta } from "@/lib/seo";
 import { site, team } from "@/lib/site";
+import type { Metadata } from "next";
+
+// A home precisa da própria metadata: sem isso ela fica sem canonical e sem
+// nenhuma tag de compartilhamento — justamente a página mais divulgada.
+export const metadata: Metadata = pageMeta({
+  title: `${site.name} | Advocacia em ${site.city}`,
+  description: site.subPositioning,
+  path: "/",
+  rawTitle: true,
+});
 
 const homeFaqs = [
   {

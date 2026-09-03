@@ -5,7 +5,7 @@ interface PageMetaInput {
   title: string;
   description: string;
   path: string;
-  /** título já completo, sem sufixo do escritório */
+  /** título já escrito por inteiro — o nome do escritório não é acrescentado */
   rawTitle?: boolean;
   /** landing pages de campanha ficam fora da busca orgânica (só tráfego pago) */
   noindex?: boolean;
@@ -20,8 +20,17 @@ export function pageMeta({
 }: PageMetaInput): Metadata {
   const fullTitle = rawTitle ? title : `${title} | ${site.name}`;
   const url = `${site.url}${path}`;
+  const ogImage = {
+    url: site.ogImage,
+    width: 1200,
+    height: 630,
+    alt: site.name,
+  };
   return {
-    title: fullTitle,
+    // "absolute" impede que o template de título do layout acrescente o nome do
+    // escritório de novo — antes disso, páginas como /contato e /blog saíam com
+    // o sufixo duplicado no resultado de busca.
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical: url },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
@@ -32,11 +41,13 @@ export function pageMeta({
       siteName: site.name,
       locale: "pt_BR",
       type: "website",
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [site.ogImage],
     },
   };
 }
