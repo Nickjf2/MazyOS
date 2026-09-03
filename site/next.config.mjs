@@ -23,7 +23,9 @@ const nextConfig = {
       // As fontes são servidas pelo próprio site (next/font).
       "font-src 'self' data: https://fonts.gstatic.com",
       "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.google.com.br https://googleads.g.doubleclick.net https://maps.gstatic.com https://*.googleapis.com",
-      "connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net",
+      // O GA4 alterna entre vários hosts de coleta conforme a região e a versão
+      // do gtag. Faltando um deles, a medição some sem erro visível.
+      "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://www.google.com.br https://*.g.doubleclick.net",
       // Mapa do escritório na página de contato.
       "frame-src https://maps.google.com https://www.google.com https://td.doubleclick.net",
       "frame-ancestors 'self'",

@@ -22,6 +22,7 @@ import { PracticeCard } from "@/components/ui/PracticeCard";
 import { TeamCard } from "@/components/ui/TeamCard";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { CTABand } from "@/components/ui/CTABand";
+import { GoogleReviews } from "@/components/ui/GoogleReviews";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { faqSchema } from "@/lib/schema";
 import { pageMeta } from "@/lib/seo";
@@ -444,8 +445,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* AVALIAÇÕES DO GOOGLE */}
       <section className="section bg-soft">
+        <GoogleReviews />
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
         <div className="container-site">
           <SectionHeader eyebrow="Dúvidas frequentes" title="Perguntas frequentes" />
           <FAQAccordion items={homeFaqs} practiceArea="home" />
