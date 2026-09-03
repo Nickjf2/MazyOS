@@ -23,11 +23,13 @@
 4. Direito do Consumidor — foco em planos de saúde
 5. Direitos LGBTQIA+
 
-## Equipe (confirmada pelo site atual)
+## Equipe (confirmada)
 
 - Dra. Flávia Vieira Machado Ferreira — OAB/MG 57.701
 - Marina de Assis Siqueira Brinati — OAB/MG 167.831
-- Bethania Senra e Pádua — OAB/MG 100.900
+
+> Bethania Senra e Pádua (OAB/MG 100.900) não faz mais parte da equipe (confirmado em 02/09/2026).
+> O site já exibe apenas Flávia e Marina — não há ajuste pendente.
 
 ## Canais de contato
 
