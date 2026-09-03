@@ -32,7 +32,9 @@ import { TrustStrip } from "@/components/ui/TrustStrip";
 import { team, site } from "@/lib/site";
 
 const PAGE_TYPE = "landing_page";
-const AREA = "direito-do-consumidor";
+// Contexto do WhatsApp desta landing page. Separado do slug da área orgânica
+// /areas/direito-do-consumidor para distinguir anúncio de busca.
+const AREA = "lp-direito-do-consumidor";
 
 export const metadata: Metadata = pageMeta({
   title: "Advogado de Direito do Consumidor em Juiz de Fora | Flávia Machado",

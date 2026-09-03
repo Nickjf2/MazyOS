@@ -7,7 +7,8 @@ export type ThemeKey =
   | "woman"
   | "lgbt"
   | "succession"
-  | "family";
+  | "family"
+  | "consumer";
 
 export interface AreaFaq {
   q: string;
@@ -607,6 +608,140 @@ export const areas: Record<string, Area> = {
       {
         q: "O atendimento pode ser online?",
         a: "Sim. O atendimento pode ser feito de forma online, com sigilo.",
+      },
+    ],
+    ...COMMON_FINAL,
+  },
+
+  // Página orgânica de Direito do Consumidor.
+  //
+  // Diferente da landing page /direito-do-consumidor, que é de campanha e fica
+  // noindex: aquela atende quem chegou por anúncio já sabendo do problema;
+  // esta atende quem está pesquisando para entender o que fazer. Os textos não
+  // se repetem — conteúdo duplicado prejudicaria as duas.
+  //
+  // O bloco de prazos e a distinção entre vício e defeito são o miolo
+  // informativo, e é o que a landing page não tem.
+  "direito-do-consumidor": {
+    slug: "direito-do-consumidor",
+    theme: "consumer",
+    badge: "Direito do Consumidor",
+    metaTitle: "Advogado de Direito do Consumidor em Juiz de Fora",
+    metaDescription:
+      "Cobrança indevida, produto com defeito, negativação, golpe bancário ou problema com voo? Entenda seus direitos e os caminhos possíveis. Atendimento em Juiz de Fora e online.",
+    h1: "Orientação jurídica para quem teve prejuízo como consumidor",
+    subtitle:
+      "Problemas de consumo costumam começar pequenos e virar desgaste. Entender o que a lei garante é o primeiro passo para decidir o que fazer.",
+    heroMicrocopy: "Atendimento em Juiz de Fora e online.",
+    intro:
+      "O Código de Defesa do Consumidor parte de um reconhecimento simples: quem compra está em posição mais frágil que quem vende. Daí decorrem prazos, garantias e responsabilidades que nem sempre são informados no momento da compra — e que continuam valendo mesmo quando a empresa afirma o contrário.",
+    problemsTitle: "Situações que costumam chegar ao escritório",
+    problems: [
+      {
+        title: "Cobrança que você não reconhece",
+        text: "Valores lançados na fatura, serviço que ninguém contratou, mensalidade que continua depois do cancelamento.",
+      },
+      {
+        title: "Produto ou serviço com defeito",
+        text: "O problema apareceu dentro da garantia, a assistência não resolveu, ou o conserto se arrasta sem prazo.",
+      },
+      {
+        title: "Nome negativado indevidamente",
+        text: "Inscrição em cadastro de inadimplentes por dívida paga, já quitada ou que nunca existiu.",
+      },
+      {
+        title: "Golpe bancário ou por PIX",
+        text: "Transferência feita sob fraude, conta invadida, empréstimo contratado em seu nome sem autorização.",
+      },
+      {
+        title: "Compra online que não chegou",
+        text: "Prazo estourado, entrega nunca realizada, loja que não responde ou some depois do pagamento.",
+      },
+      {
+        title: "Problema com voo ou bagagem",
+        text: "Atraso longo, cancelamento sem reacomodação, overbooking, bagagem extraviada ou danificada.",
+      },
+    ],
+    explainer: {
+      title: "Vício e defeito não são a mesma coisa",
+      text: "Vício é quando o produto ou serviço não funciona como deveria: a geladeira que não gela, o serviço mal executado, o item que veio diferente do anunciado. Defeito é quando esse problema causa um dano além do próprio produto — um curto-circuito que provoca um incêndio, por exemplo. A distinção importa porque cada situação segue prazos e caminhos diferentes, e é uma das primeiras coisas verificadas na análise do caso.",
+    },
+    spotlight: {
+      eyebrow: "Prazos",
+      title: "Quanto tempo você tem para reclamar",
+      text: "Os prazos do Código de Defesa do Consumidor são curtos e contam a partir de momentos específicos. Perder o prazo dificulta a discussão, por isso vale buscar orientação assim que o problema aparece.",
+      items: [
+        {
+          title: "30 dias — produtos e serviços não duráveis",
+          text: "Alimentos, hospedagem, serviços de execução imediata. O prazo começa na entrega ou no término do serviço.",
+        },
+        {
+          title: "90 dias — produtos e serviços duráveis",
+          text: "Eletrodomésticos, veículos, móveis, obras. Mesma contagem: da entrega ou do fim da execução.",
+        },
+        {
+          title: "Vício oculto: conta de quando aparece",
+          text: "Quando o problema não podia ser percebido no início, o prazo começa no momento em que ele se manifesta, não na data da compra.",
+        },
+        {
+          title: "5 anos — quando houve dano além do produto",
+          text: "Para reparação de danos causados por fato do produto ou do serviço, o prazo é maior e conta do conhecimento do dano e de quem o causou.",
+        },
+      ],
+    },
+    steps: [
+      "Registre a reclamação na empresa e guarde o número de protocolo",
+      "Reúna nota fiscal, contrato e as conversas que já teve",
+      "Se não houver solução, o Procon é um caminho possível antes da via judicial",
+      "Persistindo o impasse, o caso é analisado para indicar os próximos passos",
+    ],
+    stepsNote:
+      "Nem todo caso precisa virar processo. Quando existe caminho para resolver diretamente com a empresa, ele é avaliado primeiro.",
+    documents: {
+      title: "Documentos que auxiliam na análise",
+      note: "Você não precisa ter tudo. Um relato inicial já permite orientar os primeiros passos.",
+      items: [
+        "Nota fiscal ou comprovante de compra",
+        "Contrato e termos do serviço",
+        "Números de protocolo das reclamações",
+        "Prints de conversas, e-mails e mensagens",
+        "Extrato ou fatura com a cobrança questionada",
+        "Boletim de ocorrência, em casos de golpe ou fraude",
+        "Cartão de embarque e comprovantes de gastos, em problemas com voo",
+      ],
+    },
+    faqs: [
+      {
+        q: "Quanto tempo tenho para reclamar de um produto com defeito?",
+        a: "Em regra, 30 dias para produtos e serviços não duráveis e 90 dias para duráveis, contados da entrega ou do término do serviço. Quando o problema é oculto e só aparece depois, o prazo começa a contar da data em que ele se manifesta. Como a contagem varia conforme o caso, vale confirmar a situação específica.",
+      },
+      {
+        q: "Preciso ir ao Procon antes de procurar um advogado?",
+        a: "Não é obrigatório. O Procon é um caminho útil e gratuito, e em muitos casos resolve. Mas nada impede buscar orientação jurídica antes, durante ou depois — inclusive para entender se vale a pena tentar a via administrativa primeiro.",
+      },
+      {
+        q: "Fui cobrado por algo que não contratei. O que posso fazer?",
+        a: "O primeiro passo é registrar a contestação junto à empresa e guardar o protocolo. Cobranças indevidas podem gerar direito à devolução do que foi pago, e a legislação prevê situações em que essa devolução é feita em valor superior ao cobrado. A análise do caso indica o caminho aplicável.",
+      },
+      {
+        q: "Toda negativação indevida gera indenização?",
+        a: "Não necessariamente. A jurisprudência entende que, havendo outras inscrições legítimas e anteriores em nome da mesma pessoa, a indenização por dano moral pode não ser devida — ainda que a negativação questionada seja irregular. Por isso a situação cadastral completa é verificada antes de qualquer conclusão.",
+      },
+      {
+        q: "O banco responde por golpe que sofri?",
+        a: "Depende de como o golpe aconteceu. Há entendimento consolidado sobre a responsabilidade das instituições financeiras por fraudes ligadas à falha do próprio serviço. Quando houve participação da vítima na operação, a discussão é mais complexa e a análise depende dos detalhes de cada caso.",
+      },
+      {
+        q: "Meu voo atrasou muito. Tenho algum direito?",
+        a: "A regulação do setor aéreo prevê assistência ao passageiro conforme o tempo de espera, além de reacomodação ou reembolso em determinadas situações. Prejuízos concretos comprovados também podem ser discutidos. O tempo de atraso e o que foi oferecido pela companhia são as primeiras informações analisadas.",
+      },
+      {
+        q: "Vale a pena acionar a Justiça por um valor baixo?",
+        a: "Essa é uma decisão sua, e depende do prejuízo, do tempo envolvido e do desgaste. Parte dos casos de consumo tramita nos Juizados Especiais, com procedimento mais simples. A orientação inicial serve justamente para você decidir com clareza, sem compromisso.",
+      },
+      {
+        q: "O atendimento pode ser feito de outra cidade?",
+        a: "Sim. O atendimento é presencial em Juiz de Fora e também online, por videochamada e troca de documentos, para quem está em outra cidade.",
       },
     ],
     ...COMMON_FINAL,

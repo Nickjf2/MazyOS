@@ -33,6 +33,9 @@ const config: Config = {
         woman: { soft: "#F7EAF2", accent: "#9B3E6D" },
         lgbt: { soft: "#F1F4FF", accent: "#6D5DF6" },
         succession: { soft: "#F5F1E8", accent: "#C7A35D" },
+        // Direito do Consumidor: verde-azulado sóbrio, sem competir com o
+        // verde do WhatsApp nem com o azul institucional.
+        consumer: { soft: "#E9F1EF", accent: "#2F6B5E" },
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],

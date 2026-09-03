@@ -33,7 +33,10 @@ const messages: Record<string, string> = {
   "inventario-atrasado":
     "Olá! O falecimento aconteceu há algum tempo e o inventário ainda não foi feito. Gostaria de entender os próximos passos.",
   // Landing page de campanha — Direito do Consumidor
-  "direito-do-consumidor":
+  // Campanha (landing page). Prefixo lp- para não colidir com o slug da área
+  // orgânica — assim dá para saber, pelo texto que chega no WhatsApp, se a
+  // pessoa veio do anúncio ou da busca.
+  "lp-direito-do-consumidor":
     "Olá! Vim pela página de Direito do Consumidor e gostaria que meu caso fosse analisado.",
   "consumidor-banco":
     "Olá! Estou com um problema envolvendo banco, cobrança ou golpe financeiro e gostaria de orientação.",
@@ -41,6 +44,8 @@ const messages: Record<string, string> = {
     "Olá! Tive um problema com uma compra ou com um produto e gostaria de saber quais são os meus direitos.",
   "consumidor-voo":
     "Olá! Tive um problema com voo atrasado, cancelado ou bagagem extraviada e gostaria de orientação.",
+  "direito-do-consumidor":
+    "Olá, vim pelo site do escritório, na área de Direito do Consumidor, e gostaria de orientação inicial.",
   "planejamento-sucessorio":
     "Olá, vim pelo site do escritório, na área de Planejamento Sucessório, e gostaria de orientação inicial.",
   "direito-de-familia":

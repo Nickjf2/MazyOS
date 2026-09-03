@@ -22,6 +22,7 @@ const themeStyles: Record<ThemeKey, { soft: string; eyebrow: string }> = {
   lgbt: { soft: "bg-lgbt-soft", eyebrow: "text-lgbt-accent" },
   succession: { soft: "bg-succession-soft", eyebrow: "text-succession-accent" },
   family: { soft: "bg-soft", eyebrow: "text-navy" },
+  consumer: { soft: "bg-consumer-soft", eyebrow: "text-consumer-accent" },
 };
 
 export function generateStaticParams() {
