@@ -28,23 +28,28 @@ export function generateStaticParams() {
   return areaList.map((a) => ({ slug: a.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const area = getArea(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const area = getArea(slug);
   if (!area) return {};
   return pageMeta({
     title: area.metaTitle,
     description: area.metaDescription,
     path: `/areas/${area.slug}`,
-    rawTitle: true,
   });
 }
 
-export default function AreaPage({ params }: { params: { slug: string } }) {
-  const area = areas[params.slug];
+export default async function AreaPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const area = areas[slug];
   if (!area) notFound();
 
   const theme = themeStyles[area.theme];
