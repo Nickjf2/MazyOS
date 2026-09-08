@@ -942,7 +942,7 @@ export const areas: Record<string, Area> = {
       "Orientação em família, sucessões, união estável, planejamento patrimonial, discriminação e direitos civis, com confidencialidade e linguagem clara.",
     heroImage: "/imagens-areas/direitos-lgbtqia/hero-isometrico.png",
     heroImageAlt:
-      "Advogada entrega um documento a um casal, com um cartório ao fundo.",
+      "Advogada apresenta um documento a um casal; sobre a mesa, documentos de identidade e alianças, e ao fundo a recepção de um cartório.",
     heroMicrocopy: "Atendimento confidencial em Juiz de Fora e online.",
     intro:
       "Atuação respeitosa, confidencial e tecnicamente sólida em demandas sensíveis. No primeiro contato pedimos apenas o essencial — você não precisa compartilhar detalhes íntimos.",
