@@ -55,7 +55,7 @@ export const site = {
   analytics: {
     ga4: "G-13MLE1G8LQ",
     // AW-XXXXXXXXX — ID de conversão da conta do Google Ads.
-    googleAds: "",
+    googleAds: "AW-18144539824",
     // Rótulos de cada ação de conversão criada na conta, no formato "AbC-D_efGhIj".
     // Enquanto vazios, o site segue medindo no GA4 e nada é enviado ao Ads.
     //
@@ -64,13 +64,13 @@ export const site = {
     // "AW-123456789/AbC-D_efGhIj" — aqui vai só a parte depois da barra.
     adsLabels: {
       /** Lead – Formulário (principal) */
-      formulario: "",
+      formulario: "g15MCLmexvEcELDp_stD",
       /** Lead – WhatsApp (principal) */
-      whatsapp: "",
+      whatsapp: "natVCI_5vfEcELDp_stD",
       /** Lead – Telefone (principal) */
-      telefone: "",
+      telefone: "3ExWCOnWvvEcELDp_stD",
       /** Micro – Início de formulário (secundária) */
-      inicioFormulario: "",
+      inicioFormulario: "QKWcCLaPv_EcELDp_stD",
     },
   },
   trustBar:
