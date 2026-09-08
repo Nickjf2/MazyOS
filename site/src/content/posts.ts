@@ -13,6 +13,62 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "plano-negou-medicamento-de-alto-custo",
+    title: "Plano negou medicamento de alto custo: por onde começar",
+    category: "Plano de Saúde",
+    date: "2026-09-08",
+    excerpt:
+      "Medicamento caro, importado ou fora do rol da ANS: entenda os motivos mais comuns da recusa e o que pode ser reunido para uma análise.",
+    relatedArea: "medicamentos-alto-custo",
+    body: [
+      "Poucas notícias assustam tanto quanto a de que o medicamento indicado pelo médico não será custeado pelo plano. Quando o tratamento é contínuo ou urgente, a preocupação com o custo se soma à preocupação com a saúde.",
+      "As recusas costumam vir por alguns motivos recorrentes: o medicamento não constar no Rol da ANS, ser prescrito para uso diferente daquele previsto na bula, ser de uso domiciliar, ou ainda não ter registro na Anvisa. Cada um desses fundamentos tem um tratamento jurídico diferente, e é por isso que a negativa por escrito é tão importante.",
+      "Desde a Lei 14.454/2022, o rol da ANS deixou de ser tratado como uma lista fechada em toda e qualquer hipótese. A norma passou a admitir a cobertura de tratamentos fora do rol quando presentes determinados requisitos, como a prescrição fundamentada do médico assistente e a existência de comprovação científica de eficácia. Isso não significa que toda negativa seja indevida — significa que ela pode ser analisada.",
+      "Há também situações com regra própria. Medicamentos antineoplásicos de uso oral domiciliar, por exemplo, têm previsão específica de cobertura na legislação. Já os medicamentos sem registro na Anvisa seguem um caminho mais restrito, com entendimento consolidado nos tribunais superiores sobre quando o fornecimento pode ser exigido.",
+      "Para uma análise, costumam ajudar: o relatório médico fundamentado — indicando o diagnóstico, o medicamento, a posologia e por que outras alternativas não servem —, a prescrição, a negativa da operadora por escrito, os exames relacionados, o contrato e a carteirinha.",
+      "Quando há risco concreto de agravamento pela demora, o pedido de urgência pode ser avaliado. Cada caso, porém, depende da situação clínica, do contrato e da fundamentação médica.",
+      "Se você recebeu uma negativa, guarde tudo por escrito e busque orientação. Entender o motivo da recusa já é meio caminho para saber o que fazer.",
+    ],
+  },
+  {
+    slug: "reajuste-por-faixa-etaria-quando-pode-ser-questionado",
+    title: "Reajuste por faixa etária: quando pode ser questionado?",
+    category: "Plano de Saúde",
+    date: "2026-09-08",
+    excerpt:
+      "Mudar de faixa etária pode aumentar a mensalidade legalmente. Mas existem limites — e é neles que mora a discussão.",
+    relatedArea: "reajuste-abusivo-plano-saude",
+    body: [
+      "Poucos aumentos causam tanto susto quanto o que vem junto com o aniversário. A mensalidade que cabia no orçamento passa a não caber, e a dúvida é sempre a mesma: isso pode?",
+      "A resposta curta é que o reajuste por faixa etária é permitido. A resposta útil é que ele não é livre — existem limites, e é justamente aí que a discussão acontece.",
+      "O primeiro limite é a idade. O Estatuto do Idoso veda o aumento da mensalidade em razão da idade a partir dos 60 anos. Reajustes aplicados depois dessa faixa, sob o rótulo de faixa etária, costumam ser questionados.",
+      "O segundo limite é a estrutura do próprio reajuste. A regulação da ANS organiza os contratos em dez faixas etárias e impõe travas à variação entre elas: o valor da última faixa não pode ser desproporcional em relação ao da primeira, e os aumentos não podem se concentrar nas faixas mais avançadas. Quando o desenho do contrato concentra o peso no fim da vida do beneficiário, há o que analisar.",
+      "O terceiro ponto é a transparência. Os tribunais superiores têm entendido que o reajuste por faixa etária é válido quando previsto em contrato de forma clara, com percentuais informados desde o início e sem valores desarrazoados. Aumento aplicado sem previsão expressa, ou em percentual que não se explica, é diferente de aumento previsto e proporcional.",
+      "Contratos coletivos e por adesão seguem lógica própria e também podem ser analisados, considerando suas particularidades.",
+      "Para avaliar, costumam ajudar: os boletos antes e depois do aumento, o contrato, a tabela de faixas etárias, o comunicado de reajuste e os comprovantes de pagamento.",
+      "Antes de parar de pagar, vale entender o caso. A interrupção pode gerar consequências contratuais, e existem caminhos para discutir o valor sem correr esse risco.",
+    ],
+  },
+  {
+    slug: "itcd-em-minas-gerais-prazo-e-custo-do-atraso",
+    title: "ITCD em Minas Gerais: o imposto do inventário e o custo de atrasar",
+    category: "Inventário",
+    date: "2026-09-08",
+    excerpt:
+      "Antes de transferir os bens aos herdeiros é preciso acertar o ITCD. Entenda o que é o imposto, quem paga e por que a demora costuma sair cara.",
+    relatedArea: "inventario",
+    body: [
+      "Todo inventário passa por um imposto estadual: o ITCD, sigla para Imposto sobre Transmissão Causa Mortis e Doação. Ele incide sobre a herança e sobre as doações, e sem a sua quitação os bens não são transferidos para o nome dos herdeiros.",
+      "Em Minas Gerais o imposto é regulado por lei estadual própria e a alíquota é de 5% sobre o valor dos bens transmitidos. O cálculo considera a avaliação dos bens, o que faz diferença quando há imóveis, participações societárias ou aplicações financeiras no espólio.",
+      "O ponto que costuma pegar as famílias de surpresa é o prazo. A abertura do inventário tem prazo previsto na legislação processual, e o recolhimento do imposto tem prazo próprio na legislação estadual. Perder esses prazos não impede o inventário, mas encarece: a legislação mineira prevê multa sobre o imposto devido em caso de atraso, e prevê também desconto para o recolhimento feito com antecedência. Ou seja, o mesmo patrimônio custa valores diferentes conforme a data.",
+      "Há ainda um efeito silencioso da demora. Enquanto o inventário não é concluído, os bens permanecem em nome de quem faleceu. Não é possível vender o imóvel, transferir o veículo, movimentar contas ou regularizar a posse. Despesas continuam correndo, e a base de cálculo do imposto pode ser atualizada.",
+      "O inventário pode ser judicial ou extrajudicial. O extrajudicial, feito em cartório, é possível quando há consenso entre os herdeiros, todos são maiores e capazes e não há testamento — e costuma ser mais rápido. Em ambos os caminhos é necessário o acompanhamento de advogado.",
+      "Existem hipóteses de isenção e de redução previstas na legislação, que dependem do tipo de bem, do valor e da situação dos herdeiros. Vale verificar antes de recolher, porque nem sempre elas são informadas.",
+      "Para começar, costumam ser úteis: a certidão de óbito, os documentos dos herdeiros e do falecido, a documentação dos bens, certidões negativas, extratos bancários e, havendo testamento, o próprio testamento.",
+      "Se o falecimento é recente, a orientação inicial ajuda a organizar a ordem das providências. Se já se passou algum tempo, ainda assim vale entender a situação: quanto antes o caminho é definido, menor tende a ser o custo.",
+    ],
+  },
+  {
     slug: "plano-de-saude-negou-cirurgia-o-que-fazer",
     title: "O que fazer quando o plano de saúde nega uma cirurgia?",
     category: "Plano de Saúde",
