@@ -13,8 +13,13 @@ interface Props {
   ctaPosition?: string;
   practiceArea?: string;
   pageType?: string;
-  /** "ghost" = botão sobre fundo escuro | "link" = link discreto */
-  variant?: "ghost" | "link";
+  /**
+   * "ghost"   = botão sobre fundo escuro
+   * "link"    = link discreto sobre fundo escuro
+   * "outline" = botão contornado sobre fundo claro
+   * "plain"   = link de texto sobre fundo claro (barra de marca)
+   */
+  variant?: "ghost" | "link" | "outline" | "plain";
   className?: string;
 }
 
@@ -32,9 +37,12 @@ export function PhoneButton({
     <a
       href={`tel:+${site.whatsappNumber}`}
       className={cn(
-        variant === "ghost"
-          ? "btn-ghost"
-          : "inline-flex items-center gap-2 font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline",
+        variant === "ghost" && "btn-ghost",
+        variant === "outline" && "btn-outline",
+        variant === "link" &&
+          "inline-flex items-center gap-2 font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline",
+        variant === "plain" &&
+          "inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-brand-gold",
         className,
       )}
       onClick={() =>

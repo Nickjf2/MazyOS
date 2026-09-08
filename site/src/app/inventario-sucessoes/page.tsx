@@ -36,9 +36,10 @@ const PAGE_TYPE = "landing_page";
 const AREA = "inventario-sucessoes";
 
 export const metadata: Metadata = pageMeta({
-  title: "Advogado para Inventário em Juiz de Fora | Flávia Machado",
+  title:
+    "Advogado para Inventário, Partilha e Testamento em Juiz de Fora | Flávia Machado",
   description:
-    "Orientação jurídica para inventário judicial e extrajudicial, partilha de bens, ITCD, herança e regularização patrimonial em Juiz de Fora.",
+    "Orientação jurídica em inventário judicial ou em cartório, partilha de bens, testamento e planejamento sucessório. Atendimento em Juiz de Fora e online.",
   path: "/inventario-sucessoes",
   rawTitle: true,
   // Página exclusiva de campanha (Google Ads): fora da busca orgânica para não
@@ -52,16 +53,51 @@ const crumbs = [
 ];
 
 /** Seção 2 — situações reconhecíveis pelo visitante */
-const situacoes = [
-  "Perdeu um familiar e está abalado com a situação",
-  "O imóvel está em nome do falecido ou de terceiros",
-  "Um herdeiro não concorda com a partilha",
-  "O inventário está atrasado ou paralisado",
-  "A conta bancária foi bloqueada após o falecimento",
-  "Existe testamento ou herdeiro menor de idade",
-  "Apareceu outro bem depois do inventário",
-  "A família precisa vender ou transferir um imóvel",
-  "Existem bens rurais, empresa ou participações",
+/**
+ * Situações agrupadas pelos quatro assuntos da campanha. O agrupamento existe
+ * para o visitante se reconhecer rápido: quem chega buscando "testamento" não
+ * deve precisar ler a coluna de inventário para saber que o escritório atende.
+ */
+const gruposSituacoes = [
+  {
+    titulo: "Inventário",
+    itens: [
+      "Falecimento recente e ninguém sabe por onde começar",
+      "Inventário atrasado ou paralisado há tempo",
+      "Imóvel ainda no nome de quem faleceu",
+      "Conta bancária bloqueada após o falecimento",
+      "Bens rurais, empresa ou participações no espólio",
+      "Dúvida entre o caminho judicial e o cartório",
+    ],
+  },
+  {
+    titulo: "Partilha",
+    itens: [
+      "Herdeiros não chegam a acordo sobre a divisão",
+      "Imóvel que não dá para dividir entre todos",
+      "Um herdeiro ocupa o bem sozinho",
+      "Partilha combinada, mas nunca formalizada",
+      "Apareceu um bem depois de encerrado o inventário",
+    ],
+  },
+  {
+    titulo: "Testamento",
+    itens: [
+      "Existe testamento e a família não sabe como proceder",
+      "Vontade de deixar a sucessão organizada em vida",
+      "Dúvida sobre a validade de um testamento existente",
+      "Necessidade de entender os limites que a lei impõe",
+    ],
+  },
+  {
+    titulo: "Planejamento sucessório",
+    itens: [
+      "Organizar o patrimônio antes que o problema apareça",
+      "Sucessão de empresa ou negócio familiar",
+      "Prevenir conflito entre herdeiros",
+      "Entender quais caminhos existem para o seu caso",
+    ],
+  },
 ];
 
 /** Seção 3 — como o escritório atua */
@@ -194,6 +230,18 @@ const faqs = [
     a: "A situação deve ser analisada considerando a posse, a administração do espólio, as despesas, eventuais aluguéis e os direitos dos demais herdeiros.",
   },
   {
+    q: "O testamento evita o inventário?",
+    a: "Não. Mesmo havendo testamento, o inventário continua necessário para transferir os bens aos herdeiros. O testamento orienta como a divisão deve ser feita, dentro dos limites que a lei estabelece.",
+  },
+  {
+    q: "Posso deixar meus bens para quem eu quiser?",
+    a: "Em parte. A legislação reserva uma parcela da herança aos herdeiros necessários, e a outra parcela pode ser destinada livremente. A análise da composição familiar e patrimonial indica qual é essa margem em cada caso.",
+  },
+  {
+    q: "É possível organizar a sucessão antes do falecimento?",
+    a: "Sim. Existem caminhos como doação com reserva de usufruto, testamento e ajustes societários em empresas familiares. Cada um tem efeitos próprios, inclusive tributários, e a escolha depende da situação concreta — não há solução única.",
+  },
+  {
     q: "Não temos dinheiro para pagar o imposto. Existe solução?",
     a: "É necessário analisar a composição do patrimônio, as regras tributárias e as possibilidades jurídicas aplicáveis ao caso. Existem caminhos que podem ser avaliados conforme a situação.",
   },
@@ -212,13 +260,14 @@ export default function InventarioSucessoesPage() {
           <BrandLogo src={site.logo} variant="dark" imgClassName="h-9 sm:h-11" />
           <div className="flex items-center gap-3">
             {/* No celular o destaque é ligar; no desktop, o WhatsApp */}
-            <a
-              href={`tel:+${site.whatsappNumber}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-brand-gold sm:hidden"
-            >
-              <PhoneIcon className="h-[18px] w-[18px]" aria-hidden />
-              Ligar
-            </a>
+            <PhoneButton
+              variant="plain"
+              label="Ligar"
+              ctaPosition="barra_marca"
+              practiceArea={AREA}
+              pageType={PAGE_TYPE}
+              className="sm:hidden"
+            />
             <div className="hidden sm:block">
               <WhatsAppButton
                 context={AREA}
@@ -240,18 +289,18 @@ export default function InventarioSucessoesPage() {
           <div className="lg:col-span-7">
             <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               <span className="h-px w-8 bg-brand-gold/50" aria-hidden />
-              Inventário e Sucessões
+              Inventário, Partilha e Testamento
             </p>
             <h1 className="mt-5 text-4xl font-bold text-white sm:text-5xl">
-              Precisa dar entrada no inventário e não sabe por onde começar?
+              Precisa resolver inventário, partilha ou testamento?
             </h1>
             <p className="mt-5 font-serif text-2xl text-brand-gold sm:text-3xl">
               Nós podemos te ajudar.
             </p>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-              Orientação jurídica para inventário judicial ou em cartório, partilha
-              de bens, ITCD e regularização da herança, com atendimento em todo o
-              Brasil.
+              O escritório atua em inventários judiciais e em cartório, partilha de
+              bens, testamentos e planejamento sucessório, com atendimento em Juiz
+              de Fora e também online.
             </p>
             <p className="mt-4 max-w-2xl leading-relaxed text-white/65">
               Organizamos documentos, herdeiros e bens para conduzir a regularização
@@ -322,17 +371,27 @@ export default function InventarioSucessoesPage() {
         <div className="container-site">
           <SectionHeader
             eyebrow="Talvez você se reconheça aqui"
-            title="Você está passando por alguma destas situações?"
+            title="Qual destas situações se aproxima do seu caso?"
             subtitle="São as circunstâncias mais comuns entre as famílias que procuram o escritório. Se alguma delas parece com a sua, há um caminho jurídico possível."
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {situacoes.map((s) => (
-              <div key={s} className="card flex items-start gap-3">
-                <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-gold"
-                  aria-hidden
-                />
-                <p className="text-ink">{s}</p>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {gruposSituacoes.map((grupo) => (
+              <div key={grupo.titulo} className="card flex flex-col">
+                <h3 className="font-serif text-xl text-navy">{grupo.titulo}</h3>
+                <div className="gold-rule mt-3" />
+                <ul className="mt-5 flex flex-1 flex-col gap-3">
+                  {grupo.itens.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle2
+                        className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold"
+                        aria-hidden
+                      />
+                      <span className="text-sm leading-relaxed text-ink">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -510,6 +569,64 @@ export default function InventarioSucessoesPage() {
         </div>
       </section>
 
+      {/* TESTAMENTO E PLANEJAMENTO — os dois assuntos da campanha que a
+          página cobria apenas de passagem. Sem afirmar que testamento dispensa
+          inventário e sem prometer economia tributária. */}
+      <section className="section">
+        <div className="container-site">
+          <SectionHeader
+            eyebrow="Organizar em vida"
+            title="Testamento e planejamento sucessório"
+            subtitle="Nem toda sucessão começa depois de um falecimento. Parte das famílias procura o escritório para deixar as coisas organizadas antes."
+          />
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+            <div className="card flex flex-col">
+              <ScrollText className="h-7 w-7 text-brand-gold" aria-hidden />
+              <h3 className="mt-4 font-serif text-2xl text-navy">Testamento</h3>
+              <div className="gold-rule mt-3" />
+              <p className="mt-5 leading-relaxed text-muted">
+                O testamento é a forma de registrar como a pessoa deseja que seu
+                patrimônio seja destinado. Ele não afasta o inventário, que continua
+                necessário — o que ele faz é orientar a divisão dentro do que a lei
+                permite.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted">
+                A legislação reserva uma parte da herança aos herdeiros necessários,
+                e o testamento dispõe sobre a parcela disponível. Por isso a análise
+                começa pela composição da família e do patrimônio, antes da redação.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted">
+                Também é possível analisar um testamento já existente, quando há
+                dúvida sobre sua validade ou sobre como cumpri-lo.
+              </p>
+            </div>
+
+            <div className="card flex flex-col">
+              <ShieldCheck className="h-7 w-7 text-brand-gold" aria-hidden />
+              <h3 className="mt-4 font-serif text-2xl text-navy">
+                Planejamento sucessório
+              </h3>
+              <div className="gold-rule mt-3" />
+              <p className="mt-5 leading-relaxed text-muted">
+                Planejar a sucessão é organizar, em vida, como o patrimônio será
+                transmitido. O objetivo é reduzir a chance de conflito entre quem
+                fica e evitar que a família precise decidir tudo no pior momento.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted">
+                Os caminhos variam conforme o caso: doação com reserva de usufruto,
+                testamento, pacto antenupcial, ajustes societários em negócios
+                familiares. Nenhum deles serve para toda situação, e a escolha
+                depende da composição da família e dos bens.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted">
+                A análise é individual. O que funciona para uma família pode ser
+                inadequado para outra, inclusive do ponto de vista tributário.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SEÇÃO 6 — COMO FUNCIONA */}
       <section id="como-funciona" className="section bg-soft">
         <div className="container-site">
@@ -530,13 +647,13 @@ export default function InventarioSucessoesPage() {
               practiceArea={AREA}
               pageType={PAGE_TYPE}
             />
-            <a
-              href={`tel:+${site.whatsappNumber}`}
-              className="btn-outline"
-            >
-              <PhoneIcon className="h-[18px] w-[18px]" aria-hidden />
-              Ligar {site.whatsappDisplay}
-            </a>
+            <PhoneButton
+              variant="outline"
+              label={`Ligar ${site.whatsappDisplay}`}
+              ctaPosition="como_funciona"
+              practiceArea={AREA}
+              pageType={PAGE_TYPE}
+            />
           </div>
         </div>
       </section>
@@ -564,6 +681,49 @@ export default function InventarioSucessoesPage() {
             {team.map((t) => (
               <TeamCard key={t.oab} {...t} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LOCALIZAÇÃO — a landing não trazia endereço. Escritório com endereço
+          visível conta na avaliação de experiência da página no Google Ads, e
+          resolve a dúvida de quem prefere atendimento presencial. */}
+      <section className="section">
+        <div className="container-site">
+          <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-2">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold">
+                Onde estamos
+              </p>
+              <h2 className="mt-3 text-3xl sm:text-4xl">
+                Atendimento presencial e online
+              </h2>
+              <div className="gold-rule mt-5" />
+              <p className="mt-6 font-semibold text-navy">{site.name}</p>
+              <p className="mt-1 leading-relaxed text-muted">{site.addressFull}</p>
+              <p className="mt-4 leading-relaxed text-muted">{site.hours}</p>
+              <p className="mt-4 leading-relaxed text-muted">
+                Para quem está em outra cidade, o acompanhamento é feito por
+                videochamada e envio de documentos.
+              </p>
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block font-semibold text-navy hover:text-brand-gold"
+              >
+                Ver no mapa &rarr;
+              </a>
+            </div>
+            <div className="overflow-hidden rounded-card border border-line shadow-card">
+              <iframe
+                src={site.mapsEmbedUrl}
+                title={`Localização de ${site.name}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[320px] w-full border-0"
+              />
+            </div>
           </div>
         </div>
       </section>
