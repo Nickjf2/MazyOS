@@ -23,6 +23,15 @@ export interface Area {
   metaDescription: string;
   h1: string;
   subtitle: string;
+  /** ilustração isométrica do hero, em /public/imagens-areas/<slug>/ */
+  heroImage?: string;
+  heroImageAlt?: string;
+  /**
+   * Enquadramento da ilustração (object-position). Só preencher quando a
+   * composição fugir do padrão — as imagens em geral têm o vazio à esquerda e
+   * a cena à direita, e o default já cuida disso.
+   */
+  heroObjectPosition?: string;
   /** label do botão de WhatsApp no hero (default: "Falar com a equipe") */
   ctaLabel?: string;
   /** texto curto abaixo do CTA do hero */
@@ -80,6 +89,9 @@ export const areas: Record<string, Area> = {
     h1: "Orientação jurídica para garantir o seu direito à saúde.",
     subtitle:
       "Atuação especializada em negativas de cobertura, cirurgias, medicamentos, terapias, home care, reajustes abusivos e demais conflitos com planos de saúde.",
+    heroImage: "/imagens-areas/direito-da-saude/hero-isometrico.png",
+    heroImageAlt:
+      "Advogada e cliente conferem documentos à mesa, com um hospital ao fundo.",
     ctaLabel: "Analisar meu caso",
     heroMicrocopy:
       "Atendimento humanizado e especializado em Direito da Saúde. Presencial em Juiz de Fora e online para todo o país.",
@@ -206,6 +218,9 @@ export const areas: Record<string, Area> = {
     h1: "Plano de saúde negou seu tratamento?",
     subtitle:
       "Negativas de cirurgia, exames, internações, medicamentos ou terapias podem ser analisadas juridicamente.",
+    heroImage: "/imagens-areas/negativa-plano-saude/hero-isometrico.png",
+    heroImageAlt:
+      "Advogada entrega um documento a um cliente diante de um balcão de atendimento fechado.",
     heroMicrocopy: "Atendimento sigiloso em Juiz de Fora e online.",
     problemsTitle: "Situações atendidas",
     problems: [
@@ -271,6 +286,9 @@ export const areas: Record<string, Area> = {
     h1: "Seu plano de saúde aumentou muito a mensalidade?",
     subtitle:
       "Em algumas situações, reajustes por faixa etária, contratos antigos ou aumentos sucessivos podem ser analisados juridicamente.",
+    heroImage: "/imagens-areas/reajuste-abusivo-plano-saude/hero-isometrico.png",
+    heroImageAlt:
+      "Advogada e cliente comparam papéis, ao lado de um calendário e de um gráfico de barras em alta.",
     heroMicrocopy: "Atendimento sigiloso em Juiz de Fora e online.",
     problemsTitle: "Quando procurar orientação",
     problems: [
@@ -336,6 +354,9 @@ export const areas: Record<string, Area> = {
     h1: "O plano limitou ou negou terapias para TEA?",
     subtitle:
       "A negativa ou limitação de sessões de ABA, fonoaudiologia, terapia ocupacional, fisioterapia e outras terapias pode ser analisada juridicamente.",
+    heroImage: "/imagens-areas/tea-aba-plano-saude/hero-isometrico.png",
+    heroImageAlt:
+      "Criança e responsável em uma sala de terapia infantil, com blocos, bolas de equilíbrio e uma advogada à mesa.",
     heroMicrocopy: "Atendimento acolhedor e sigiloso, em Juiz de Fora e online.",
     intro:
       "Sabemos o quanto cada sessão de terapia faz diferença no desenvolvimento. Orientamos famílias, mães, pais e responsáveis quando o plano de saúde limita ou nega o tratamento indicado.",
@@ -397,6 +418,9 @@ export const areas: Record<string, Area> = {
     h1: "O plano negou um medicamento de alto custo?",
     subtitle:
       "Negativas de medicamentos de alto custo, oncológicos e de uso contínuo podem ser analisadas juridicamente.",
+    heroImage: "/imagens-areas/medicamentos-alto-custo/hero-isometrico.png",
+    heroImageAlt:
+      "Advogada e cliente à mesa, com uma caixa de medicamento em destaque e prateleiras de farmácia ao fundo.",
     heroMicrocopy: "Atendimento sigiloso em Juiz de Fora e online.",
     problemsTitle: "Situações que atendemos",
     problems: [
@@ -451,6 +475,9 @@ export const areas: Record<string, Area> = {
     h1: "O plano negou o home care?",
     subtitle:
       "Negativas de internação domiciliar, cuidados contínuos e home care prescritos podem ser analisadas juridicamente.",
+    heroImage: "/imagens-areas/home-care/hero-isometrico.png",
+    heroImageAlt:
+      "Reunião à mesa ligada por um caminho a um quarto doméstico com cama hospitalar.",
     heroMicrocopy: "Atendimento sigiloso em Juiz de Fora e online.",
     problemsTitle: "Situações que atendemos",
     problems: [
@@ -501,6 +528,9 @@ export const areas: Record<string, Area> = {
     h1: "Precisa iniciar ou organizar um inventário?",
     subtitle:
       "Orientação jurídica para inventário judicial, extrajudicial, partilha de bens e planejamento sucessório.",
+    heroImage: "/imagens-areas/inventario/hero-isometrico.png",
+    heroImageAlt:
+      "Família reunida em uma mesa redonda com uma advogada, com uma casa ao fundo.",
     heroMicrocopy: "Atendimento em Juiz de Fora e online.",
     intro:
       "Organização jurídica para partilha de bens, inventários e proteção patrimonial familiar, com atenção aos aspectos humanos e patrimoniais de cada caso.",
@@ -568,6 +598,9 @@ export const areas: Record<string, Area> = {
     h1: "Planejamento sucessório com clareza e segurança.",
     subtitle:
       "Organização jurídica em vida para proteger o patrimônio e a família, com testamento, doação e estratégias de sucessão.",
+    heroImage: "/imagens-areas/planejamento-sucessorio/hero-isometrico.png",
+    heroImageAlt:
+      "Família de três gerações reunida com uma advogada, com uma casa e caixas de arquivo ao fundo.",
     heroMicrocopy: "Atendimento em Juiz de Fora e online.",
     problemsTitle: "Quando procurar orientação",
     problems: [
@@ -632,6 +665,9 @@ export const areas: Record<string, Area> = {
     h1: "Orientação jurídica para quem teve prejuízo como consumidor",
     subtitle:
       "Problemas de consumo costumam começar pequenos e virar desgaste. Entender o que a lei garante é o primeiro passo para decidir o que fazer.",
+    heroImage: "/imagens-areas/direito-do-consumidor/hero-isometrico.png",
+    heroImageAlt:
+      "Cliente e advogada examinam uma caixa de produto aberta, com um balcão de loja ao fundo.",
     heroMicrocopy: "Atendimento em Juiz de Fora e online.",
     intro:
       "O Código de Defesa do Consumidor parte de um reconhecimento simples: quem compra está em posição mais frágil que quem vende. Daí decorrem prazos, garantias e responsabilidades que nem sempre são informados no momento da compra — e que continuam valendo mesmo quando a empresa afirma o contrário.",
@@ -757,6 +793,9 @@ export const areas: Record<string, Area> = {
     h1: "Direito de Família com clareza, sigilo e estratégia.",
     subtitle:
       "Orientação jurídica em divórcio, guarda, pensão, união estável e partilha de bens.",
+    heroImage: "/imagens-areas/direito-de-familia/hero-isometrico.png",
+    heroImageAlt:
+      "Caminho que se bifurca entre duas casas, com uma advogada, um pai e uma criança ao centro.",
     heroMicrocopy: "Atendimento sigiloso em Juiz de Fora e online.",
     intro:
       "Atuação em conflitos familiares com sigilo, estratégia e busca por soluções viáveis, sempre com atenção aos aspectos humanos de cada caso.",
@@ -820,6 +859,9 @@ export const areas: Record<string, Area> = {
     h1: "Atendimento jurídico humanizado para mulheres.",
     subtitle:
       "Um espaço seguro para orientação e defesa dos seus direitos. Orientação jurídica com acolhimento, respeito e segurança para questões familiares, patrimoniais, sucessórias, de proteção de direitos e enfrentamento à discriminação.",
+    heroImage: "/imagens-areas/direito-da-mulher/hero-isometrico.png",
+    heroImageAlt:
+      "Duas mulheres conversam em uma sala reservada de porta fechada, ao lado de um escudo sobre um pedestal.",
     ctaLabel: "Falar com uma advogada",
     heroMicrocopy:
       "Atendimento realizado com absoluto sigilo, respeito à sua história e atenção às particularidades de cada caso.",
@@ -898,6 +940,9 @@ export const areas: Record<string, Area> = {
     h1: "Atendimento jurídico respeitoso para pessoas e famílias LGBTQIAPN+.",
     subtitle:
       "Orientação em família, sucessões, união estável, planejamento patrimonial, discriminação e direitos civis, com confidencialidade e linguagem clara.",
+    heroImage: "/imagens-areas/direitos-lgbtqia/hero-isometrico.png",
+    heroImageAlt:
+      "Advogada entrega um documento a um casal, com um cartório ao fundo.",
     heroMicrocopy: "Atendimento confidencial em Juiz de Fora e online.",
     intro:
       "Atuação respeitosa, confidencial e tecnicamente sólida em demandas sensíveis. No primeiro contato pedimos apenas o essencial — você não precisa compartilhar detalhes íntimos.",

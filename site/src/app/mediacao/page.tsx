@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { HeartHandshake, Wallet, Clock, Users, HeartPulse, ShoppingBag, ScrollText, Building2 } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
@@ -66,33 +67,62 @@ export default function MediacaoPage() {
     <>
       <SchemaMarkup schema={[faqSchema(faqs), breadcrumbSchema(crumbs)]} />
 
-      {/* HERO */}
-      <section className="bg-navy text-white">
-        <div className="container-site py-5">
-          <div className="[&_a]:text-white/60 [&_span]:text-white">
-            <Breadcrumbs items={crumbs} />
-          </div>
+      {/* HERO — mesmo comportamento do template de /areas/[slug] */}
+      <section className="relative overflow-hidden bg-navy text-white">
+        <div className="absolute inset-0 hidden lg:block">
+          <Image
+            src="/imagens-areas/mediacao/hero-isometrico.png"
+            alt="Três pessoas sentadas a uma mesa redonda, com documentos distribuídos entre elas."
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: "64% center" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy from-30% via-navy/70 via-55% to-transparent to-78%" />
         </div>
-        <div className="container-site pb-20 pt-4">
-          <span className="eyebrow bg-white/10 text-brand-gold">
-            Mediação de conflitos
-          </span>
-          <h1 className="mt-6 max-w-3xl text-4xl font-bold text-white sm:text-5xl">
-            Resolver sem judicializar, sempre que possível.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-            Nem todo conflito precisa terminar em um processo judicial. Por meio da
-            mediação, método moderno e eficiente de resolução de conflitos, ajudamos
-            as partes a construírem soluções consensuais, reduzindo custos, tempo e
-            desgaste emocional.
-          </p>
-          <div className="mt-9">
-            <WhatsAppButton
-              context="mediacao"
-              label="Falar sobre mediação"
-              ctaPosition="hero"
-              practiceArea="mediacao"
-              pageType="mediacao"
+
+        <div className="relative z-10">
+          <div className="container-site py-5">
+            <div className="[&_a]:text-white/60 [&_span]:text-white">
+              <Breadcrumbs items={crumbs} />
+            </div>
+          </div>
+          <div className="container-site pb-14 pt-4 lg:min-h-[560px] lg:pb-20">
+            <div className="lg:max-w-[46%]">
+              <span className="eyebrow bg-white/10 text-brand-gold">
+                Mediação de conflitos
+              </span>
+              <h1 className="mt-6 max-w-3xl text-4xl font-bold text-white sm:text-5xl">
+                Resolver sem judicializar, sempre que possível.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+                Nem todo conflito precisa terminar em um processo judicial. Por meio da
+                mediação, método moderno e eficiente de resolução de conflitos, ajudamos
+                as partes a construírem soluções consensuais, reduzindo custos, tempo e
+                desgaste emocional.
+              </p>
+              <div className="mt-9">
+                <WhatsAppButton
+                  context="mediacao"
+                  label="Falar sobre mediação"
+                  ctaPosition="hero"
+                  practiceArea="mediacao"
+                  pageType="mediacao"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-[4/3] w-full lg:hidden">
+            <Image
+              src="/imagens-areas/mediacao/hero-isometrico.png"
+              alt="Três pessoas sentadas a uma mesa redonda, com documentos distribuídos entre elas."
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: "72% center" }}
             />
           </div>
         </div>

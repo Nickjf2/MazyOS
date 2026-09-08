@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { areas, areaList, getArea, type ThemeKey } from "@/content/areas";
@@ -13,6 +14,7 @@ import { DocumentChecklist } from "@/components/ui/DocumentChecklist";
 import { TeamCard } from "@/components/ui/TeamCard";
 import { CTABand } from "@/components/ui/CTABand";
 import { team } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 // Mapa de classes por tema (Tailwind precisa de classes estáticas).
 const themeStyles: Record<ThemeKey, { soft: string; eyebrow: string }> = {
@@ -67,34 +69,82 @@ export default async function AreaPage({
       />
 
       {/* HERO */}
-      <section className="bg-navy text-white">
-        <div className="container-site py-5">
-          <div className="[&_a]:text-white/60 [&_span]:text-white">
-            <Breadcrumbs items={crumbs} />
+      <section className="relative overflow-hidden bg-navy text-white">
+        {/* Ilustração no desktop: preenche o hero, com o texto por cima.
+            O fundo azul da arte continua o azul da seção, então não há emenda
+            visível. O gradiente escurece só a faixa esquerda, onde fica o
+            texto — a cena da direita permanece limpa. */}
+        {area.heroImage && (
+          <div className="absolute inset-0 hidden lg:block">
+            <Image
+              src={area.heroImage}
+              alt={area.heroImageAlt ?? ""}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: area.heroObjectPosition ?? "64% center" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy from-30% via-navy/70 via-55% to-transparent to-78%" />
           </div>
-        </div>
-        <div className="container-site grid gap-8 pb-20 pt-4 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <span className="eyebrow bg-white/10 text-brand-gold">{area.badge}</span>
-            <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
-              {area.h1}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-              {area.subtitle}
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <WhatsAppButton
-                context={area.slug}
-                label={area.ctaLabel ?? "Falar com a equipe"}
-                ctaPosition="hero"
-                practiceArea={area.slug}
-                pageType="landing_page"
+        )}
+
+        <div className="relative z-10">
+          <div className="container-site py-5">
+            <div className="[&_a]:text-white/60 [&_span]:text-white">
+              <Breadcrumbs items={crumbs} />
+            </div>
+          </div>
+          <div
+            className={cn(
+              "container-site grid gap-8 pt-4 lg:grid-cols-12",
+              // Com ilustração o hero ganha altura fixa, para as 12 páginas
+              // terminarem na mesma linha, e o texto fica na metade esquerda.
+              area.heroImage ? "pb-14 lg:min-h-[560px] lg:pb-20" : "pb-20",
+            )}
+          >
+            <div className={area.heroImage ? "lg:col-span-6" : "lg:col-span-8"}>
+              <span className="eyebrow bg-white/10 text-brand-gold">
+                {area.badge}
+              </span>
+              <h1 className="mt-6 text-4xl font-bold text-white sm:text-5xl">
+                {area.h1}
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+                {area.subtitle}
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <WhatsAppButton
+                  context={area.slug}
+                  label={area.ctaLabel ?? "Falar com a equipe"}
+                  ctaPosition="hero"
+                  practiceArea={area.slug}
+                  pageType="landing_page"
+                />
+              </div>
+              {area.heroMicrocopy && (
+                <p className="mt-4 text-sm text-white/60">{area.heroMicrocopy}</p>
+              )}
+            </div>
+          </div>
+
+          {/* No celular a ilustração não fica atrás do texto: entra abaixo do
+              CTA, em 4:3, com o enquadramento puxado para a cena. */}
+          {area.heroImage && (
+            <div className="relative aspect-[4/3] w-full lg:hidden">
+              <Image
+                src={area.heroImage}
+                alt={area.heroImageAlt ?? ""}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+                style={{
+                  objectPosition: area.heroObjectPosition ?? "72% center",
+                }}
               />
             </div>
-            {area.heroMicrocopy && (
-              <p className="mt-4 text-sm text-white/60">{area.heroMicrocopy}</p>
-            )}
-          </div>
+          )}
         </div>
       </section>
 
