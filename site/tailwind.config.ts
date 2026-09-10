@@ -38,8 +38,14 @@ const config: Config = {
         consumer: { soft: "#E9F1EF", accent: "#2F6B5E" },
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-display)", "Georgia", "Times New Roman", "serif"],
+        sans: [
+          "var(--font-body)",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "sans-serif",
+        ],
       },
       borderRadius: {
         card: "16px",

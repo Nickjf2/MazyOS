@@ -22,11 +22,17 @@
 
 ## Tipografia
 
-- **Títulos e destaques:** Fonte serifada elegante (ex: Playfair Display, Merriweather, ou similar) — transmite tradição e autoridade
-- **Corpo, subtítulos e botões:** Fonte sem serifa limpa (ex: Inter, DM Sans, ou similar) — legibilidade e modernidade
+- **Títulos e destaques:** Lora (serifada) — contraste moderado entre traço fino e grosso, então funciona tanto num título de 60px quanto num rótulo de cartão de 18px
+- **Corpo, subtítulos e botões:** Inter (sem serifa) — legibilidade alta em tela e em tamanho pequeno
 - **Peso do título:** Bold / SemiBold para hierarquia clara
 
-> ⚠️ Tipografia definitiva pendente — decidir após referências de sites jurídicos aprovadas.
+> Definido em 10/09/2026. Antes era Playfair Display, trocada por ter contraste
+> alto demais: as hastes finas sumiam nos títulos menores e o resultado lia mais
+> como marca de moda que como escritório de advocacia.
+>
+> As duas fontes entram por variável CSS (`--font-display` e `--font-body`) em
+> `site/src/app/layout.tsx`. As variáveis não citam o nome da fonte, então trocar
+> a face no futuro não exige mexer no Tailwind nem no CSS.
 
 ---
 

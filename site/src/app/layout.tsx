@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Lora, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -11,17 +11,23 @@ import { CookieConsent } from "@/components/tracking/CookieConsent";
 import { legalServiceSchema, localBusinessSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
-const playfair = Playfair_Display({
+// Títulos. Lora tem contraste moderado entre traço fino e grosso, então
+// aguenta tanto um h1 de 60px quanto um título de cartão de 18px sem que as
+// hastes finas sumam — que era o problema da Playfair Display nos tamanhos
+// menores. As variáveis não citam o nome da fonte de propósito: trocar a face
+// no futuro não deve exigir mexer no Tailwind nem no CSS.
+const fonteTitulos = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-playfair",
+  variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+// Corpo, botões e interface.
+const fonteCorpo = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -50,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`${fonteTitulos.variable} ${fonteCorpo.variable}`}>
       <body>
         <Analytics />
         <SchemaMarkup schema={[legalServiceSchema(), localBusinessSchema()]} />
