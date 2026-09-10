@@ -56,9 +56,17 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        // Anel do botão flutuante de WhatsApp: expande e some, chamando
+        // atenção sem piscar de forma agressiva.
+        "ping-lento": {
+          "0%": { transform: "scale(1)", opacity: "0.55" },
+          "70%": { transform: "scale(1.55)", opacity: "0" },
+          "100%": { transform: "scale(1.55)", opacity: "0" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
+        "ping-lento": "ping-lento 2.4s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
     },
   },
