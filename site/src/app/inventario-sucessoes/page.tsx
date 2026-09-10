@@ -16,6 +16,9 @@ import {
   ShieldCheck,
   TrendingUp,
   Users,
+  FolderOpen,
+  Split,
+  HeartHandshake,
 } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { faqSchema, breadcrumbSchema, legalServiceSchema } from "@/lib/schema";
@@ -60,42 +63,33 @@ const crumbs = [
  */
 const gruposSituacoes = [
   {
-    titulo: "Inventário",
+    titulo: "Inventário e partilha",
     itens: [
-      "Falecimento recente e ninguém sabe por onde começar",
-      "Inventário atrasado ou paralisado há tempo",
-      "Imóvel ainda no nome de quem faleceu",
-      "Conta bancária bloqueada após o falecimento",
-      "Bens rurais, empresa ou participações no espólio",
-      "Dúvida entre o caminho judicial e o cartório",
+      "Alguém da família faleceu e os bens ainda não foram regularizados",
+      "Os herdeiros não conseguem chegar a um acordo sobre a divisão dos bens",
+      "Existem imóveis, contas, veículos ou outros patrimônios a serem partilhados",
+      "O inventário está parado ou se prolongando mais do que deveria",
+      "Surgiu um bem ou uma questão que não foi resolvida no inventário",
     ],
   },
   {
-    titulo: "Partilha",
+    titulo: "Testamento e sucessão",
     itens: [
-      "Herdeiros não chegam a acordo sobre a divisão",
-      "Imóvel que não dá para dividir entre todos",
-      "Um herdeiro ocupa o bem sozinho",
-      "Partilha combinada, mas nunca formalizada",
-      "Apareceu um bem depois de encerrado o inventário",
-    ],
-  },
-  {
-    titulo: "Testamento",
-    itens: [
-      "Existe testamento e a família não sabe como proceder",
-      "Vontade de deixar a sucessão organizada em vida",
-      "Dúvida sobre a validade de um testamento existente",
-      "Necessidade de entender os limites que a lei impõe",
+      "Existe um testamento, mas a família não sabe como proceder",
+      "Há dúvidas sobre a validade ou os efeitos de um testamento",
+      "Você quer organizar a sucessão e definir como seu patrimônio será transmitido",
+      "Existem dúvidas sobre os direitos dos herdeiros e os limites para dispor dos bens",
+      "A família precisa entender o que acontece com o patrimônio após o falecimento",
     ],
   },
   {
     titulo: "Planejamento sucessório",
     itens: [
-      "Organizar o patrimônio antes que o problema apareça",
-      "Sucessão de empresa ou negócio familiar",
-      "Prevenir conflito entre herdeiros",
-      "Entender quais caminhos existem para o seu caso",
+      "Você quer organizar seu patrimônio ainda em vida",
+      "Existe uma empresa ou negócio familiar que precisa ser planejado para a sucessão",
+      "Você quer evitar conflitos entre os herdeiros no futuro",
+      "Há patrimônio relevante e dúvidas sobre a melhor forma de organizá-lo",
+      "Você quer transmitir seus bens de forma planejada, dentro dos limites da lei",
     ],
   },
 ];
@@ -109,141 +103,177 @@ const comoAjuda = [
   },
   {
     icon: FileText,
-    title: "Levantamento de bens e dívidas",
-    text: "Mapeamento do patrimônio deixado, das obrigações e das pendências do espólio.",
+    title: "Levantamento dos bens e dívidas",
+    text: "Mapeamento de imóveis, veículos, contas, empresas, dentre outros, bem como das obrigações e das pendências do espólio.",
   },
   {
-    icon: ScrollText,
+    icon: FolderOpen,
     title: "Organização documental",
     text: "Orientação sobre certidões, escrituras, extratos e demais documentos necessários.",
   },
   {
     icon: Scale,
     title: "Definição do caminho adequado",
-    text: "Avaliação sobre a viabilidade do inventário em cartório ou pela via judicial.",
+    text: "Avaliamos se o caso pode ser resolvido em cartório ou se será necessário o inventário judicial, considerando as particularidades da família.",
   },
   {
     icon: Landmark,
-    title: "Análise do ITCD",
-    text: "Apuração do imposto estadual, declaração dos bens e emissão da certidão fiscal.",
+    title: "Questões tributárias",
+    text: "Orientação sobre o ITCD e demais aspectos tributários.",
   },
   {
-    icon: CheckCircle2,
-    title: "Elaboração da partilha",
-    text: "Estruturação da divisão dos bens conforme a lei e a realidade da família.",
+    icon: Split,
+    title: "Partilha dos bens",
+    text: "Estruturação da divisão conforme a lei e a realidade da família.",
   },
   {
-    icon: Building2,
-    title: "Regularização de imóveis",
-    text: "Acompanhamento até o registro, para que os bens possam ser transferidos ou vendidos.",
+    icon: Home,
+    title: "Regularização dos imóveis",
+    text: "Acompanhamento das providências necessárias para transferência dos bens.",
   },
   {
-    icon: ShieldCheck,
+    icon: HeartHandshake,
     title: "Conflitos entre herdeiros",
     text: "Atuação técnica quando há desacordo, uso exclusivo de bens ou falta de prestação de contas.",
   },
   {
     icon: TrendingUp,
-    title: "Sobrepartilha e planejamento",
-    text: "Inclusão de bens descobertos depois e organização preventiva do patrimônio familiar.",
+    title: "Sobrepartilha",
+    text: "Atuação para inclusão de bens descobertos após a finalização do inventário.",
   },
 ];
 
 /** Seção 5 — a herança não é só imóvel */
 const bens = [
-  { icon: Home, title: "Imóveis urbanos" },
-  { icon: Landmark, title: "Imóveis rurais" },
-  { icon: Banknote, title: "Contas bancárias" },
-  { icon: TrendingUp, title: "Investimentos" },
-  { icon: Building2, title: "Empresas e participações" },
-  { icon: Car, title: "Veículos" },
-  { icon: Coins, title: "Créditos e direitos" },
-  { icon: Gem, title: "Joias e outros bens" },
+  {
+    icon: Home,
+    title: "Imóveis",
+    text: "Casas, apartamentos, terrenos, imóveis rurais e outros bens.",
+  },
+  {
+    icon: Banknote,
+    title: "Contas e aplicações",
+    text: "Saldos bancários, investimentos, aplicações financeiras e outros ativos.",
+  },
+  {
+    icon: Building2,
+    title: "Empresas e participações",
+    text: "Quotas societárias, participação em empresas e negócios familiares.",
+  },
+  {
+    icon: Car,
+    title: "Veículos",
+    text: "Carros, motos e outros veículos registrados em nome do falecido.",
+  },
+  {
+    icon: Coins,
+    title: "Créditos e direitos",
+    text: "Valores a receber, direitos decorrentes de contratos e outros créditos.",
+  },
+  {
+    icon: Gem,
+    title: "Bens de valor",
+    text: "Joias, obras de arte e outros bens que integrem o patrimônio.",
+  },
 ];
 
 /** Seção 6 — etapas do atendimento */
 const etapas = [
-  "Entendimento do caso e da situação da família",
-  "Levantamento de herdeiros, bens e dívidas",
-  "Organização da documentação necessária",
-  "Definição da modalidade adequada",
-  "Condução do procedimento, em cartório ou judicial",
-  "Partilha e regularização dos bens",
+  {
+    titulo: "Entendemos o seu caso",
+    texto:
+      "Você nos conta o que aconteceu e quais são as principais dúvidas ou dificuldades da família.",
+  },
+  {
+    titulo: "Analisamos herdeiros e patrimônio",
+    texto:
+      "Identificamos os herdeiros, os bens, direitos e eventuais dívidas que precisam ser considerados.",
+  },
+  {
+    titulo: "Definimos o caminho adequado",
+    texto:
+      "Avaliamos a documentação e as particularidades do caso para definir a forma mais adequada de conduzir a sucessão.",
+  },
+  {
+    titulo: "Conduzimos o procedimento",
+    texto:
+      "Acompanhamos o inventário, a partilha e as providências necessárias até a regularização dos bens.",
+  },
 ];
 
 /** Seção 7 — dúvidas que surgem depois de um falecimento */
 const faqs = [
   {
     q: "Preciso fazer inventário mesmo se houver apenas um imóvel?",
-    a: "Em regra, é necessário regularizar a transmissão dos bens deixados, mesmo quando existe apenas um imóvel ou um único herdeiro. A forma adequada depende da composição patrimonial e das circunstâncias do caso.",
+    a: "Sim. A existência de apenas um imóvel não dispensa, por si só, a necessidade de regularizar a sucessão. O inventário é o procedimento utilizado para identificar os herdeiros, levantar o patrimônio e formalizar a transmissão dos bens. A forma de realização — judicial ou extrajudicial — dependerá das características do caso.",
   },
   {
     q: "Qual é o prazo para começar?",
-    a: "A legislação estabelece prazo para a abertura do inventário. Além disso, aspectos tributários podem ser afetados pelo momento em que as providências são tomadas, por isso é importante buscar orientação assim que possível.",
+    a: "O Código de Processo Civil estabelece que o inventário deve ser instaurado em até 2 meses a partir do falecimento. O atraso não significa que a família perdeu o direito de fazer o inventário, mas pode gerar consequências, especialmente de natureza tributária. Em Minas Gerais, por exemplo, o ITCD está sujeito a regras próprias de prazo, multa e juros.",
   },
   {
     q: "O inventário está atrasado. Ainda pode ser feito?",
-    a: "Sim. O atraso não impede a regularização. É necessário analisar os impactos tributários, documentais e patrimoniais para definir o melhor caminho.",
+    a: "Sim. Mesmo que tenham passado meses ou anos desde o falecimento, a sucessão pode ser regularizada. O tempo decorrido, porém, pode trazer consequências tributárias e outras questões que precisam ser analisadas antes da definição da estratégia adequada.",
   },
   {
     q: "Todos os herdeiros precisam concordar?",
-    a: "O consenso facilita o inventário em cartório. Quando há desacordo, o procedimento pode seguir pela via judicial, com acompanhamento técnico para proteger os direitos dos envolvidos.",
+    a: "Depende da modalidade do inventário. Para a realização consensual em cartório, é necessário que os interessados estejam de acordo e atendam aos requisitos legais. Se houver divergência que impeça a solução extrajudicial, o inventário poderá precisar ser conduzido judicialmente.",
   },
   {
     q: "Posso fazer o inventário em cartório?",
-    a: "Depende da situação dos herdeiros, dos bens, do consenso, da existência de testamento e do cumprimento dos requisitos legais. A análise jurídica define se essa modalidade é possível no caso concreto.",
+    a: "Em muitos casos, sim. O inventário extrajudicial pode ser uma alternativa quando estão presentes os requisitos legais. A análise deve considerar, entre outros aspectos, a situação dos herdeiros, a existência de consenso, eventual testamento e a composição da herança. Hoje, inclusive, existem hipóteses específicas em que a escritura pode ser realizada mesmo havendo menor ou incapaz.",
   },
   {
     q: "É obrigatório contratar advogado?",
-    a: "Sim. A assistência de advogado é obrigatória tanto no inventário judicial quanto no inventário realizado em cartório.",
+    a: "Sim. No inventário judicial, as partes precisam estar representadas por advogado ou defensor público. No inventário extrajudicial, a assistência de advogado também é obrigatória, com sua qualificação e assinatura na escritura.",
   },
   {
     q: "Há menor de idade. O inventário precisa ser judicial?",
-    a: "Não necessariamente. A presença de menor ou incapaz exige análise cuidadosa e, em alguns casos, a solução extrajudicial pode ser possível, desde que todos os requisitos legais sejam atendidos e os direitos sejam integralmente protegidos.",
+    a: "Não necessariamente. A regra foi ampliada pelo CNJ. Atualmente, em determinadas situações, o inventário pode ser feito por escritura pública mesmo com interessado menor ou incapaz, desde que sejam observados requisitos específicos, inclusive a manifestação favorável do Ministério Público. Por isso, a situação precisa ser analisada individualmente.",
   },
   {
     q: "Existe testamento. Pode ser feito em cartório?",
-    a: "A existência de testamento não impede automaticamente o inventário em cartório. A possibilidade depende da análise do caso e do cumprimento dos requisitos legais aplicáveis.",
+    a: "Pode, em determinadas situações. A existência de testamento não significa automaticamente que todo o inventário deverá ser judicial. A regulamentação do CNJ admite a via extrajudicial em hipóteses específicas, desde que cumpridos os requisitos previstos e, quando necessário, haja autorização judicial prévia para o cumprimento do testamento.",
   },
   {
     q: "O que acontece com as dívidas do falecido?",
-    a: "As dívidas precisam ser identificadas e analisadas dentro do espólio. Em regra, os herdeiros não respondem com patrimônio próprio além dos limites da herança recebida.",
+    a: "As dívidas não desaparecem com o falecimento. Em regra, o espólio responde pelas obrigações deixadas pelo falecido, observados os limites da herança. Os herdeiros não respondem pessoalmente por dívidas além das forças da herança. A existência de dívidas, portanto, também precisa ser considerada no inventário.",
   },
   {
     q: "É possível vender um imóvel durante o inventário?",
-    a: "Depende da modalidade, da concordância dos interessados e, em alguns casos, de autorização judicial. Cada situação precisa ser avaliada individualmente.",
+    a: "Em determinadas situações, sim. A venda pode ser admitida durante o inventário, mas depende das circunstâncias e do cumprimento dos requisitos legais. Atualmente, inclusive, a regulamentação do CNJ permite, em determinadas hipóteses, a alienação de bens do espólio por escritura pública, sem autorização judicial, desde que sejam observadas condições específicas.",
   },
   {
     q: "Um dos herdeiros mora longe. Isso impede o procedimento?",
-    a: "Não. Diversos atos podem ser realizados por procuração, assinatura eletrônica e atendimento remoto, inclusive para herdeiros em outros estados.",
+    a: "Não. A distância, por si só, não impede a realização do inventário. Existem mecanismos de representação por procuração e, conforme o procedimento e o caso concreto, outras formas de participação à distância. O importante é organizar corretamente a representação e a documentação necessária.",
   },
   {
     q: "Descobrimos outro bem depois. É necessário começar tudo novamente?",
-    a: "Em muitos casos, o bem encontrado posteriormente pode ser incluído por meio de sobrepartilha, sem refazer todo o procedimento.",
+    a: "Não. Quando surgem bens ou direitos que não foram incluídos na partilha, pode ser necessária a realização de uma sobrepartilha. Não significa simplesmente começar todo o inventário novamente; é preciso analisar como o novo patrimônio deverá ser incorporado à sucessão.",
   },
   {
     q: "Quanto custa um inventário?",
-    a: "Os custos dependem do patrimônio, da modalidade escolhida, dos impostos, das certidões, das custas, dos registros e da complexidade do caso. A análise inicial permite estimar esses valores com mais clareza.",
+    a: "Não existe um valor único. O custo depende de fatores como o patrimônio envolvido, a quantidade de herdeiros, a existência de conflitos, a modalidade do inventário, os impostos, os emolumentos e os honorários advocatícios. Por isso, o ideal é analisar o caso e o patrimônio antes de estimar os custos.",
   },
   {
     q: "Um herdeiro está usando o imóvel sozinho. O que fazer?",
-    a: "A situação deve ser analisada considerando a posse, a administração do espólio, as despesas, eventuais aluguéis e os direitos dos demais herdeiros.",
+    a: "Essa situação precisa ser analisada com cuidado. O uso exclusivo de um bem da herança por apenas um dos herdeiros pode gerar consequências patrimoniais, especialmente quando impede ou prejudica o exercício dos direitos dos demais. Dependendo do caso, podem ser discutidas medidas relacionadas ao uso do imóvel, à administração do bem e até à eventual compensação pelo uso exclusivo.",
   },
   {
     q: "O testamento evita o inventário?",
-    a: "Não. Mesmo havendo testamento, o inventário continua necessário para transferir os bens aos herdeiros. O testamento orienta como a divisão deve ser feita, dentro dos limites que a lei estabelece.",
+    a: "Não. O testamento serve para registrar a vontade do testador dentro dos limites estabelecidos pela lei, mas não substitui, por si só, o procedimento necessário para a transmissão e regularização dos bens após o falecimento. O testamento deverá ser analisado e cumprido dentro do procedimento sucessório adequado.",
   },
   {
     q: "Posso deixar meus bens para quem eu quiser?",
-    a: "Em parte. A legislação reserva uma parcela da herança aos herdeiros necessários, e a outra parcela pode ser destinada livremente. A análise da composição familiar e patrimonial indica qual é essa margem em cada caso.",
+    a: "Depende da existência de herdeiros necessários. Havendo herdeiros necessários, a lei protege a chamada legítima, correspondente a metade da herança. A outra metade é a parcela disponível, sobre a qual o testador possui maior liberdade de disposição. Por isso, antes de fazer um testamento, é importante analisar a composição familiar e patrimonial.",
   },
   {
     q: "É possível organizar a sucessão antes do falecimento?",
-    a: "Sim. Existem caminhos como doação com reserva de usufruto, testamento e ajustes societários em empresas familiares. Cada um tem efeitos próprios, inclusive tributários, e a escolha depende da situação concreta — não há solução única.",
+    a: "Sim. A sucessão pode ser planejada em vida por diferentes instrumentos, conforme o patrimônio, a composição familiar e os objetivos envolvidos. Testamento, doações, usufruto e estruturas societárias são alguns dos mecanismos que podem ser avaliados. Não existe uma solução única para todas as famílias.",
   },
   {
     q: "Não temos dinheiro para pagar o imposto. Existe solução?",
-    a: "É necessário analisar a composição do patrimônio, as regras tributárias e as possibilidades jurídicas aplicáveis ao caso. Existem caminhos que podem ser avaliados conforme a situação.",
+    a: "É possível analisar alternativas. Em Minas Gerais, existem regras que permitem o parcelamento do ITCD, observadas as condições estabelecidas pela legislação estadual. Além disso, a falta de recursos para o pagamento imediato do imposto não significa, por si só, que a família não possa buscar orientação e avaliar o caminho adequado para a sucessão.",
   },
 ];
 
@@ -259,7 +289,8 @@ export default function InventarioSucessoesPage() {
         <div className="container-site flex h-[68px] items-center justify-between gap-4">
           <BrandLogo src={site.logo} variant="dark" imgClassName="h-9 sm:h-11" />
           <div className="flex items-center gap-3">
-            {/* No celular o destaque é ligar; no desktop, o WhatsApp */}
+            {/* Os dois canais ficam visíveis no celular: antes o WhatsApp só
+                aparecia a partir do desktop, e ele é o mais usado. */}
             <PhoneButton
               variant="plain"
               label="Ligar"
@@ -267,6 +298,14 @@ export default function InventarioSucessoesPage() {
               practiceArea={AREA}
               pageType={PAGE_TYPE}
               className="sm:hidden"
+            />
+            <WhatsAppButton
+              context={AREA}
+              label="WhatsApp"
+              ctaPosition="topo"
+              practiceArea={AREA}
+              pageType={PAGE_TYPE}
+              className="px-4 py-2.5 text-sm sm:hidden"
             />
             <div className="hidden sm:block">
               <WhatsAppButton
@@ -292,19 +331,25 @@ export default function InventarioSucessoesPage() {
               Inventário, Partilha e Testamento
             </p>
             <h1 className="mt-5 text-4xl font-bold text-white sm:text-5xl">
-              Precisa resolver inventário, partilha ou testamento?
+              Perdeu um familiar e não sabe por onde começar?
             </h1>
-            <p className="mt-5 font-serif text-2xl text-brand-gold sm:text-3xl">
-              Nós podemos te ajudar.
+            <div className="mt-6 max-w-2xl space-y-2.5 text-lg leading-relaxed text-white/85">
+              <p>
+                Está diante de um inventário, mas existem conflitos entre os
+                herdeiros?
+              </p>
+              <p>
+                Tem dúvidas sobre testamento, doação, partilha ou direitos do
+                cônjuge?
+              </p>
+            </div>
+            <p className="mt-6 font-serif text-2xl text-brand-gold sm:text-3xl">
+              Cada família tem uma história. Cada sucessão exige uma estratégia.
             </p>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-              O escritório atua em inventários judiciais e em cartório, partilha de
-              bens, testamentos e planejamento sucessório, com atendimento em Juiz
-              de Fora e também online.
-            </p>
-            <p className="mt-4 max-w-2xl leading-relaxed text-white/65">
-              Organizamos documentos, herdeiros e bens para conduzir a regularização
-              de forma tranquila e transparente.
+            <p className="mt-6 max-w-2xl leading-relaxed text-white/75">
+              Atuamos na condução de inventários judiciais e extrajudiciais,
+              partilhas e testamentos, buscando tornar o processo mais claro,
+              organizado e seguro para todos os envolvidos.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -372,7 +417,7 @@ export default function InventarioSucessoesPage() {
           <SectionHeader
             eyebrow="Talvez você se reconheça aqui"
             title="Qual destas situações se aproxima do seu caso?"
-            subtitle="São as circunstâncias mais comuns entre as famílias que procuram o escritório. Se alguma delas parece com a sua, há um caminho jurídico possível."
+            subtitle="Cada família enfrenta a sucessão de uma forma diferente. Identifique abaixo o que está acontecendo e entenda como a orientação jurídica pode ajudar."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {gruposSituacoes.map((grupo) => (
@@ -411,19 +456,28 @@ export default function InventarioSucessoesPage() {
       <section className="section bg-succession-soft">
         <div className="container-site mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold">
-            Prazo e imposto
+            Prazo e regularização
           </p>
-          <h2 className="mt-3 text-3xl">Por que começar o quanto antes ajuda</h2>
+          <h2 className="mt-3 text-3xl">
+            O tempo passa, mas a situação dos bens continua precisando ser
+            resolvida
+          </h2>
           <div className="gold-rule mx-auto mt-5" />
           <p className="lede mt-5">
-            O inventário deve ser iniciado dentro do prazo legal. Além disso, em
-            Minas Gerais, algumas providências tomadas nos primeiros meses podem
-            influenciar aspectos tributários do procedimento, especialmente na
-            apuração do ITCD.
+            Quando um inventário é adiado, podem surgir novas dificuldades:
+            documentos que precisam ser localizados, bens que permanecem sem
+            regularização, mudanças na situação dos herdeiros e possíveis
+            consequências tributárias.
           </p>
           <p className="mt-4 leading-relaxed text-muted">
-            Mesmo quando o falecimento aconteceu há muitos anos, a regularização
-            continua sendo possível. O que muda são os impactos a serem analisados.
+            Por isso, quanto antes a situação for analisada, mais fácil será
+            identificar o caminho adequado para regularizar o patrimônio.
+          </p>
+          <p className="mt-4 leading-relaxed text-muted">
+            E se o falecimento aconteceu há muitos anos, não significa que seja
+            tarde demais. É possível regularizar a sucessão — mas o caso precisa ser
+            analisado considerando o tempo decorrido e suas consequências jurídicas
+            e tributárias.
           </p>
         </div>
       </section>
@@ -433,19 +487,22 @@ export default function InventarioSucessoesPage() {
         <div className="container-site grid items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold">
-              Fale com a equipe
+              Converse com a nossa equipe
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl">
-              Prefere que a gente entre em contato?
+              Não sabe por onde começar?
             </h2>
             <div className="gold-rule mt-5" />
             <p className="lede mt-5">
-              Deixe seu nome e WhatsApp com um resumo da situação. A equipe retorna
-              para entender o caso e indicar os próximos passos.
+              Conte o que está acontecendo. Te orientamos sobre os próximos passos.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
-              Você não precisa reunir documentos nem saber termos jurídicos para
-              esse primeiro contato.
+              Inventário e sucessão envolvem documentos, patrimônio, herdeiros e
+              decisões importantes. É normal ter dúvidas sobre o que fazer primeiro.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted">
+              Você não precisa reunir todos os documentos nem conhecer os termos
+              jurídicos para fazer o primeiro contato.
             </p>
           </div>
           <LeadForm
@@ -463,8 +520,8 @@ export default function InventarioSucessoesPage() {
         <div className="container-site">
           <SectionHeader
             eyebrow="Como podemos ajudar"
-            title="O que o escritório conduz no seu inventário"
-            subtitle="Da primeira análise à regularização final dos bens, com acompanhamento em cada etapa."
+            title="Do primeiro atendimento à regularização dos bens"
+            subtitle="Antes de qualquer medida, analisamos a situação da família, os bens existentes e os documentos disponíveis para definir o caminho mais adequado e acompanhar cada etapa do processo."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {comoAjuda.map(({ icon: Icon, title, text }) => (
@@ -485,9 +542,9 @@ export default function InventarioSucessoesPage() {
         <div className="container-site">
           <SectionHeader
             inverted
-            eyebrow="Qual caminho seguir"
-            title="Inventário em cartório ou judicial?"
-            subtitle="Não existe uma resposta única. A modalidade adequada depende do consenso entre os herdeiros, dos bens envolvidos e do cumprimento dos requisitos legais."
+            eyebrow="Qual caminho é o mais adequado?"
+            title="Inventário extrajudicial ou judicial?"
+            subtitle="Não existe uma modalidade melhor para todos os casos. A escolha depende das características da sucessão, da existência de consenso entre os herdeiros e do preenchimento dos requisitos legais."
           />
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             <div className="rounded-card border border-line bg-white p-7 shadow-card">
@@ -555,8 +612,8 @@ export default function InventarioSucessoesPage() {
         <div className="container-site">
           <SectionHeader
             eyebrow="Composição do patrimônio"
-            title="O inventário não envolve apenas imóveis"
-            subtitle="A herança pode ser formada por diferentes tipos de bens e direitos, e todos precisam ser identificados no procedimento."
+            title="O que precisa entrar no inventário?"
+            subtitle="A herança pode envolver muito mais do que uma casa ou um apartamento. Bens, direitos e participações precisam ser identificados para que o patrimônio seja corretamente regularizado e partilhado."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {bens.map(({ icon: Icon, title }) => (
@@ -575,16 +632,19 @@ export default function InventarioSucessoesPage() {
       <section className="section">
         <div className="container-site">
           <SectionHeader
-            eyebrow="Organizar em vida"
+            eyebrow="Cuidar de quem fica"
             title="Testamento e planejamento sucessório"
-            subtitle="Nem toda sucessão começa depois de um falecimento. Parte das famílias procura o escritório para deixar as coisas organizadas antes."
+            subtitle="Organizar o patrimônio também é uma forma de cuidar de quem fica. A sucessão pode ser planejada em vida, trazendo mais segurança para você e para a sua família."
           />
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             <div className="card flex flex-col">
               <ScrollText className="h-7 w-7 text-brand-gold" aria-hidden />
               <h3 className="mt-4 font-serif text-2xl text-navy">Testamento</h3>
               <div className="gold-rule mt-3" />
-              <p className="mt-5 leading-relaxed text-muted">
+              <p className="mt-5 font-medium leading-relaxed text-navy">
+                Deixe sua vontade registrada dentro dos limites da lei.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted">
                 O testamento é a forma de registrar como a pessoa deseja que seu
                 patrimônio seja destinado. Ele não afasta o inventário, que continua
                 necessário — o que ele faz é orientar a divisão dentro do que a lei
@@ -607,7 +667,10 @@ export default function InventarioSucessoesPage() {
                 Planejamento sucessório
               </h3>
               <div className="gold-rule mt-3" />
-              <p className="mt-5 leading-relaxed text-muted">
+              <p className="mt-5 font-medium leading-relaxed text-navy">
+                Organize hoje o patrimônio que será transmitido amanhã.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted">
                 Planejar a sucessão é organizar, em vida, como o patrimônio será
                 transmitido. O objetivo é reduzir a chance de conflito entre quem
                 fica e evitar que a família precise decidir tudo no pior momento.
@@ -632,8 +695,8 @@ export default function InventarioSucessoesPage() {
         <div className="container-site">
           <SectionHeader
             eyebrow="Passo a passo"
-            title="Como funciona o atendimento"
-            subtitle="Um processo organizado em etapas claras, para transformar a burocracia em passos possíveis."
+            title="Como será o seu atendimento"
+            subtitle="Você não precisa saber por onde começar. Primeiro entendemos a situação da sua família; depois, definimos o caminho adequado e acompanhamos as etapas necessárias para regularizar o patrimônio."
           />
           <HowItWorksSteps
             steps={etapas}
@@ -663,7 +726,7 @@ export default function InventarioSucessoesPage() {
         <div className="container-site">
           <SectionHeader
             eyebrow="Dúvidas frequentes"
-            title="Perguntas que normalmente surgem depois de um falecimento"
+            title="Perguntas que costumam surgir após um falecimento"
           />
           <FAQAccordion items={faqs} practiceArea={AREA} />
         </div>
@@ -730,12 +793,12 @@ export default function InventarioSucessoesPage() {
 
       {/* SEÇÃO 9 — CTA FINAL */}
       <CTABand
-        title="Cada inventário tem uma história, um patrimônio e uma família diferente."
-        text="Uma análise inicial ajuda a identificar documentos, riscos, custos e o caminho jurídico mais adequado para o seu caso."
+        title="Resolver o inventário também é cuidar do que fica."
+        text="Cada família tem suas particularidades, seus bens e suas próprias questões. Conte brevemente o que aconteceu e nossa equipe orientará você sobre os próximos passos."
         context="inventario-atrasado"
         practiceArea={AREA}
         pageType={PAGE_TYPE}
-        ctaLabel="Conversar com a equipe"
+        ctaLabel="Conversar com a advogada"
       />
     </>
   );
