@@ -336,16 +336,18 @@ export default function InventarioSucessoesPage() {
       {/* SEÇÃO 1 — HERO */}
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-gold/10 blur-3xl" />
-        <div className="container-site relative grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
+        <div className="container-site relative grid items-stretch gap-10 py-14 sm:gap-12 lg:grid-cols-12 lg:py-20">
           <div className="lg:col-span-6">
             <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               <span className="h-px w-8 bg-brand-gold/50" aria-hidden />
               Inventário, Partilha e Testamento
             </p>
-            <h1 className="mt-5 text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="mt-5 text-[2rem] font-bold leading-[1.12] text-white text-balance sm:text-[2.75rem] lg:text-5xl">
               Perdeu um familiar e não sabe por onde começar?
             </h1>
-            <div className="mt-6 max-w-2xl space-y-2.5 text-lg leading-relaxed text-white/85">
+            {/* As duas perguntas se agrupam atrás de um filete dourado: lidas
+                como situações a reconhecer, não como mais um parágrafo. */}
+            <div className="mt-7 max-w-[46ch] space-y-3 border-l-2 border-brand-gold/40 pl-5 text-[17px] leading-relaxed text-white/85 text-pretty sm:text-lg">
               <p>
                 Está diante de um inventário, mas existem conflitos entre os
                 herdeiros?
@@ -355,10 +357,10 @@ export default function InventarioSucessoesPage() {
                 cônjuge?
               </p>
             </div>
-            <p className="mt-6 font-serif text-2xl text-brand-gold sm:text-3xl">
+            <p className="mt-8 max-w-[24ch] font-serif text-[1.6rem] leading-snug text-brand-gold text-balance sm:text-3xl">
               Cada família tem uma história. Cada sucessão exige uma estratégia.
             </p>
-            <p className="mt-6 max-w-2xl leading-relaxed text-white/75">
+            <p className="mt-6 max-w-[52ch] leading-relaxed text-white/75 text-pretty">
               Atuamos na condução de inventários judiciais e extrajudiciais,
               partilhas e testamentos, buscando tornar o processo mais claro,
               organizado e seguro para todos os envolvidos.
@@ -396,22 +398,24 @@ export default function InventarioSucessoesPage() {
               O fundo azul do estúdio é praticamente o mesmo azul da seção, então
               a foto é enquadrada em retrato: cabe mais das advogadas e menos
               parede, sem emenda visível com o fundo. */}
-          <div className="self-center lg:col-span-6">
-            <div className="relative mx-auto max-w-xl lg:max-w-none">
+          <div className="lg:col-span-6">
+            <div className="relative mx-auto h-full max-w-xl lg:max-w-none">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
 
-              <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
+              {/* No desktop a foto ocupa a altura inteira da linha, então começa
+                  na mesma altura do título e termina junto com a microcopy. No
+                  celular volta a ter proporção fixa, para não virar uma tira. */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15 sm:aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[34rem]">
                 <Image
                   src="/equipe/congresso-tratadas/equipe-duas-congresso.jpg"
                   alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
-                  width={1500}
-                  height={1000}
+                  fill
                   priority
                   sizes="(min-width: 1024px) 46vw, 92vw"
-                  className="aspect-[4/3] h-full w-full object-cover object-[36%_center] sm:aspect-[5/4]"
+                  className="object-cover object-[44%_center]"
                 />
               </div>
-              <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-line bg-white/95 px-5 py-3.5 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)]">
+              <div className="absolute -bottom-5 left-3 right-3 rounded-2xl border border-line bg-white/95 px-4 py-3 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)] sm:px-5 sm:py-3.5">
                 <p className="font-serif text-lg leading-tight text-navy">
                   Dra. Flávia e Dra. Marina
                 </p>
