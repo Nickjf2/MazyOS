@@ -19,6 +19,8 @@ import {
   FolderOpen,
   Split,
   HeartHandshake,
+  Receipt,
+  Wallet,
 } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { faqSchema, breadcrumbSchema, legalServiceSchema } from "@/lib/schema";
@@ -175,6 +177,16 @@ const bens = [
     title: "Bens de valor",
     text: "Joias, obras de arte e outros bens que integrem o patrimônio.",
   },
+  {
+    icon: Receipt,
+    title: "Dívidas e obrigações",
+    text: "O espólio responde pelas dívidas deixadas, nos limites da herança. Elas também precisam ser levantadas.",
+  },
+  {
+    icon: Wallet,
+    title: "Bens digitais",
+    text: "Criptoativos, contas em plataformas e outros ativos digitais com valor patrimonial.",
+  },
 ];
 
 /** Seção 6 — etapas do atendimento */
@@ -325,7 +337,7 @@ export default function InventarioSucessoesPage() {
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-gold/10 blur-3xl" />
         <div className="container-site relative grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               <span className="h-px w-8 bg-brand-gold/50" aria-hidden />
               Inventário, Partilha e Testamento
@@ -380,19 +392,23 @@ export default function InventarioSucessoesPage() {
             </p>
           </div>
 
-          {/* Retrato da equipe — rosto e confiança logo no hero */}
-          <div className="self-center lg:col-span-5">
+          {/* Retrato da equipe — rosto e confiança logo no hero.
+              O fundo azul do estúdio é praticamente o mesmo azul da seção, então
+              a foto é enquadrada em retrato: cabe mais das advogadas e menos
+              parede, sem emenda visível com o fundo. */}
+          <div className="self-center lg:col-span-6">
             <div className="relative mx-auto max-w-xl lg:max-w-none">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
 
               <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
                 <Image
-                  src="/equipe/equipe-duas.jpg"
+                  src="/equipe/congresso-tratadas/equipe-duas-congresso.jpg"
                   alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
                   width={1500}
-                  height={1001}
+                  height={1000}
                   priority
-                  className="aspect-[3/2] h-full w-full object-cover object-center"
+                  sizes="(min-width: 1024px) 46vw, 92vw"
+                  className="aspect-[4/3] h-full w-full object-cover object-[36%_center] sm:aspect-[5/4]"
                 />
               </div>
               <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-line bg-white/95 px-5 py-3.5 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)]">
@@ -419,7 +435,7 @@ export default function InventarioSucessoesPage() {
             title="Qual destas situações se aproxima do seu caso?"
             subtitle="Cada família enfrenta a sucessão de uma forma diferente. Identifique abaixo o que está acontecendo e entenda como a orientação jurídica pode ajudar."
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
             {gruposSituacoes.map((grupo) => (
               <div key={grupo.titulo} className="card flex flex-col">
                 <h3 className="font-serif text-xl text-navy">{grupo.titulo}</h3>
@@ -616,10 +632,13 @@ export default function InventarioSucessoesPage() {
             subtitle="A herança pode envolver muito mais do que uma casa ou um apartamento. Bens, direitos e participações precisam ser identificados para que o patrimônio seja corretamente regularizado e partilhado."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {bens.map(({ icon: Icon, title }) => (
-              <div key={title} className="card flex items-center gap-3">
-                <Icon className="h-6 w-6 shrink-0 text-brand-gold" aria-hidden />
-                <span className="font-medium text-navy">{title}</span>
+            {bens.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="card flex flex-col">
+                <Icon className="h-6 w-6 text-brand-gold" aria-hidden />
+                <span className="mt-3 font-medium text-navy">{title}</span>
+                <span className="mt-1.5 text-sm leading-relaxed text-muted">
+                  {text}
+                </span>
               </div>
             ))}
           </div>
