@@ -210,26 +210,26 @@ export default function DireitoDoConsumidorPage() {
             </p>
           </div>
 
-          {/* Retrato da equipe */}
+          {/* Retrato da Dra. Flávia, vindo de team[0].photo como na home. */}
           <div className="self-center lg:col-span-5">
-            <div className="relative mx-auto max-w-xl lg:max-w-none">
+            <div className="relative mx-auto max-w-md">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
               <div className="overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15">
                 <Image
-                  src="/equipe/equipe-duas.jpg"
-                  alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
-                  width={1500}
-                  height={1001}
+                  src={team[0].photo}
+                  alt={`Foto de ${team[0].name}`}
+                  width={800}
+                  height={1200}
                   priority
-                  className="aspect-[3/2] h-full w-full object-cover object-center"
+                  className="aspect-[4/5] h-full w-full object-cover object-top"
                 />
               </div>
               <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-line bg-white/95 px-5 py-3.5 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)]">
                 <p className="font-serif text-lg leading-tight text-navy">
-                  Dra. Flávia e Dra. Marina
+                  Dra. Flávia Vieira Machado
                 </p>
                 <p className="mt-0.5 text-xs text-muted">
-                  Flávia Machado Advocacia · {site.city}
+                  {team[0].oab} · {site.city}
                 </p>
               </div>
             </div>
