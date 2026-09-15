@@ -80,8 +80,8 @@ export const site = {
 } as const;
 
 // Para exibir as fotos: coloque os arquivos em /public/equipe/ e preencha "photo".
-//   - Dra. Flávia (loira):  /public/equipe/flavia.jpg
-//   - Dra. Marina (morena): /public/equipe/marina-vermelho.jpg
+//   - Dra. Flávia (loira):  /public/equipe/flavia-2.jpg
+//   - Dra. Marina (morena): /public/equipe/marina-vermelho-2.jpg
 // Enquanto "photo" estiver vazio, o card mostra um avatar elegante de fallback.
 export const team = [
   {
@@ -89,7 +89,7 @@ export const team = [
     oab: "OAB/MG 57.701",
     experience: "Mais de 30 anos de atuação",
     bio: "Advogada com ampla experiência em demandas sensíveis, Direito da Saúde, Família, Sucessões, Direito da Mulher e causas de repercussão pública.",
-    photo: "/equipe/flavia.jpg", // Dra. Flávia (loira)
+    photo: "/equipe/flavia-2.jpg", // Dra. Flávia (loira)
   },
   {
     name: "Dra. Marina de Assis Siqueira Brinati",
