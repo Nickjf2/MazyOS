@@ -117,10 +117,10 @@ export default function HomePage() {
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
               <div className="overflow-hidden rounded-[22px] ring-1 ring-line shadow-xl">
                 <Image
-                  src="/equipe/equipe-duas.jpg"
+                  src="/equipe/congresso-tratadas/equipe-duas-congresso.jpg"
                   alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
-                  width={1500}
-                  height={1001}
+                  width={1536}
+                  height={1024}
                   priority
                   className="aspect-[3/2] h-full w-full object-cover object-center"
                 />
