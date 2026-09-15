@@ -394,34 +394,33 @@ export default function InventarioSucessoesPage() {
             </p>
           </div>
 
-          {/* Retrato da Dra. Flávia — rosto e confiança logo no hero.
+          {/* Retrato da equipe — rosto e confiança logo no hero.
               O fundo azul do estúdio é praticamente o mesmo azul da seção, então
-              a foto é enquadrada em retrato: cabe mais dela e menos parede, sem
-              emenda visível com o fundo. Vem de team[0].photo, a mesma fonte do
-              card da equipe. */}
+              a foto é enquadrada em retrato: cabe mais das advogadas e menos
+              parede, sem emenda visível com o fundo. */}
           <div className="lg:col-span-6">
-            <div className="relative mx-auto h-full max-w-md lg:max-w-none">
+            <div className="relative mx-auto h-full max-w-xl lg:max-w-none">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
 
               {/* No desktop a foto ocupa a altura inteira da linha, então começa
                   na mesma altura do título e termina junto com a microcopy. No
                   celular volta a ter proporção fixa, para não virar uma tira. */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15 lg:aspect-auto lg:h-full lg:min-h-[34rem]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[22px] shadow-xl ring-1 ring-white/15 sm:aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[34rem]">
                 <Image
-                  src={team[0].photo}
-                  alt={`Foto de ${team[0].name}`}
+                  src="/equipe/congresso-tratadas/equipe-duas-congresso.jpg"
+                  alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
                   fill
                   priority
                   sizes="(min-width: 1024px) 46vw, 92vw"
-                  className="object-cover object-top"
+                  className="object-cover object-[44%_center]"
                 />
               </div>
               <div className="absolute -bottom-5 left-3 right-3 rounded-2xl border border-line bg-white/95 px-4 py-3 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:w-[20.5rem] sm:max-w-[calc(100%-3rem)] sm:px-5 sm:py-3.5">
                 <p className="font-serif text-lg leading-tight text-navy">
-                  Dra. Flávia Vieira Machado
+                  Dra. Flávia e Dra. Marina
                 </p>
                 <p className="mt-0.5 text-xs text-muted">
-                  {team[0].oab} · {site.city}
+                  Flávia Machado Advocacia · {site.city}
                 </p>
               </div>
             </div>

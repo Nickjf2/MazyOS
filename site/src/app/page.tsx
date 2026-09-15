@@ -111,28 +111,26 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Retrato da Dra. Flávia.
-              A foto vem de team[0].photo, a mesma que alimenta o card da equipe,
-              para que trocar o retrato seja uma alteração só, em site.ts. */}
+          {/* Retrato da equipe */}
           <div className="self-center lg:col-span-6">
-            <div className="relative mx-auto max-w-md">
+            <div className="relative mx-auto max-w-2xl lg:max-w-none">
               <div className="pointer-events-none absolute -right-4 -top-4 h-24 w-24 rounded-full bg-brand-gold/20 blur-2xl" />
               <div className="overflow-hidden rounded-[22px] ring-1 ring-line shadow-xl">
                 <Image
-                  src={team[0].photo}
-                  alt={`Foto de ${team[0].name}`}
-                  width={800}
-                  height={1200}
+                  src="/equipe/equipe-duas.jpg"
+                  alt="Dra. Flávia Vieira Machado e Dra. Marina de Assis Siqueira Brinati"
+                  width={1500}
+                  height={1001}
                   priority
-                  className="aspect-[4/5] h-full w-full object-cover object-top"
+                  className="aspect-[3/2] h-full w-full object-cover object-center"
                 />
               </div>
               <div className="absolute -bottom-5 left-4 right-4 rounded-2xl border border-line bg-white/95 px-5 py-3 shadow-lg backdrop-blur sm:left-auto sm:right-6 sm:max-w-[16rem]">
                 <p className="font-serif text-lg leading-tight text-navy">
-                  Dra. Flávia Vieira Machado
+                  Dra. Flávia e Dra. Marina
                 </p>
                 <p className="mt-0.5 text-xs text-muted">
-                  {team[0].oab} · Juiz de Fora
+                  Flávia Machado Advocacia · Juiz de Fora
                 </p>
               </div>
             </div>
