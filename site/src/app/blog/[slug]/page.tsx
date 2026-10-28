@@ -5,11 +5,14 @@ import { ArrowRight } from "lucide-react";
 import { posts, getPost } from "@/content/posts";
 import { getArea } from "@/content/areas";
 import { pageMeta } from "@/lib/seo";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { SchemaMarkup } from "@/components/tracking/SchemaMarkup";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { PostBody } from "@/components/ui/PostBody";
+import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { formatarDataPost } from "@/lib/utils";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -27,14 +30,6 @@ export async function generateMetadata({
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-  });
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
   });
 }
 
@@ -67,7 +62,15 @@ export default async function PostPage({
 
   return (
     <>
-      <SchemaMarkup schema={[articleSchema, breadcrumbSchema(crumbs)]} />
+      <SchemaMarkup
+        schema={[
+          articleSchema,
+          breadcrumbSchema(crumbs),
+          // Artigo com perguntas frequentes vira FAQPage também: é o que pode
+          // render o bloco de perguntas direto no resultado de busca.
+          ...(post.faqs?.length ? [faqSchema(post.faqs)] : []),
+        ]}
+      />
 
       <article className="section">
         <div className="container-site mx-auto max-w-3xl">
@@ -77,15 +80,45 @@ export default async function PostPage({
           </span>
           <h1 className="mt-3 text-4xl font-bold sm:text-[2.75rem]">{post.title}</h1>
           <time className="mt-4 block text-sm text-muted" dateTime={post.date}>
-            {formatDate(post.date)}
+            {formatarDataPost(post.date)}
           </time>
           <div className="gold-rule mt-6" />
 
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted">
-            {post.body.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+          <div className="mt-8 space-y-5 text-[17px] leading-relaxed text-muted sm:text-lg">
+            <PostBody body={post.body} />
           </div>
+
+          {post.faqs && post.faqs.length > 0 && (
+            <section className="mt-14">
+              <h2 className="font-serif text-2xl text-navy sm:text-3xl">
+                Perguntas frequentes
+              </h2>
+              <div className="gold-rule mt-4" />
+              <div className="mt-6">
+                <FAQAccordion items={post.faqs} practiceArea={post.relatedArea} />
+              </div>
+            </section>
+          )}
+
+          {post.referencias && post.referencias.length > 0 && (
+            <section className="mt-12 rounded-card border border-line bg-soft p-6">
+              <h2 className="font-serif text-lg text-navy">Fontes oficiais</h2>
+              <ul className="mt-3 flex flex-col gap-2 text-[15px]">
+                {post.referencias.map((r) => (
+                  <li key={r.url}>
+                    <a
+                      href={r.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-navy underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                    >
+                      {r.titulo}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <div className="mt-10 rounded-card border border-line bg-soft p-7 text-center">
             <p className="font-serif text-xl text-navy">

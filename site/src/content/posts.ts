@@ -1,6 +1,25 @@
 // Posts do blog (MASTER §19). Conteúdo informativo, sóbrio, sem promessa de resultado.
 // Estrutura simples e tipada — pode migrar para MDX depois.
 
+/**
+ * Bloco de conteúdo de um artigo.
+ *
+ * String continua valendo como parágrafo, então os artigos antigos seguem
+ * funcionando sem mudança. Os blocos nomeados existem para artigos com
+ * estrutura de verdade — título de seção conta como sinal de busca e sem eles
+ * o texto longo vira um paredão.
+ *
+ * Dentro de parágrafos e itens de lista vale a sintaxe [texto](/caminho) para
+ * link. Caminho começando com "/" vira navegação interna; com "http", link
+ * externo que abre em outra aba.
+ */
+export type Bloco =
+  | string
+  | { h2: string }
+  | { h3: string }
+  | { lista: string[] }
+  | { destaque: string };
+
 export interface Post {
   slug: string;
   title: string;
@@ -8,10 +27,130 @@ export interface Post {
   date: string; // ISO
   excerpt: string;
   relatedArea?: string; // slug em /areas
-  body: string[]; // parágrafos
+  body: Bloco[];
+  /** Perguntas frequentes do artigo. Geram o FAQPage no JSON-LD. */
+  faqs?: { q: string; a: string }[];
+  /** Fontes oficiais citadas, exibidas no fim do artigo. */
+  referencias?: { titulo: string; url: string }[];
 }
 
 export const posts: Post[] = [
+  {
+    slug: "divorcio-em-cartorio-com-filhos-menores",
+    title: "Divórcio em cartório com filhos menores: é possível?",
+    category: "Direito de Família",
+    date: "2026-10-28",
+    excerpt:
+      "Saiba quando é possível fazer divórcio em cartório com filhos menores, quais são os requisitos e o que precisa ser resolvido judicialmente.",
+    relatedArea: "direito-de-familia",
+    body: [
+      "O fim de um casamento costuma trazer diversas dúvidas. Além das questões emocionais, o casal precisa decidir como organizar a divisão dos bens, a guarda dos filhos, a pensão alimentícia e a convivência familiar.",
+      "Uma das perguntas mais frequentes nesse momento é: quem tem filhos menores de idade pode fazer o divórcio diretamente em cartório?",
+      {
+        destaque:
+          "A resposta é sim, em determinadas circunstâncias. Desde a Resolução nº 571/2024 do Conselho Nacional de Justiça, tornou-se possível realizar o divórcio consensual em cartório mesmo quando o casal possui filhos menores ou incapazes.",
+      },
+      "Entretanto, existem requisitos importantes. As questões relacionadas à guarda, à convivência familiar e à pensão alimentícia dos filhos precisam ter sido previamente resolvidas judicialmente.",
+      { h2: "O que é o divórcio extrajudicial?" },
+      "O divórcio extrajudicial é aquele realizado diretamente em um Tabelionato de Notas, mediante escritura pública. Diferentemente do divórcio judicial, esse procedimento não exige que o próprio divórcio seja decretado por um juiz.",
+      "Ele é utilizado quando existe consenso entre os cônjuges e os demais requisitos legais estão presentes. Em geral, o divórcio em cartório pode oferecer algumas vantagens, como menor burocracia e maior previsibilidade do procedimento.",
+      "Contudo, isso não significa que seja adequado para todas as famílias. A existência de conflitos patrimoniais, divergências sobre os filhos ou situações de vulnerabilidade pode exigir uma abordagem diferente.",
+      "É importante destacar que a participação de advogado ou defensor público é obrigatória, mesmo quando os cônjuges estão completamente de acordo. Essa exigência está prevista no artigo 733, § 2º, do Código de Processo Civil.",
+      { h2: "Quem tem filhos menores pode se divorciar em cartório?" },
+      "Sim. A possibilidade foi ampliada pela Resolução CNJ nº 571/2024, que alterou a Resolução nº 35/2007. Anteriormente, a existência de filhos menores ou incapazes impedia, como regra, a realização do divórcio extrajudicial.",
+      "Com a alteração, o artigo 34, § 2º, da Resolução nº 35/2007 passou a admitir a escritura pública de divórcio mesmo nessas situações. Entretanto, existe uma condição fundamental: as questões referentes à guarda, à convivência e aos alimentos dos filhos menores ou incapazes devem estar previamente resolvidas judicialmente.",
+      "Isso significa que o cartório não substitui o Poder Judiciário na definição dessas questões. O casal pode formalizar o divórcio por escritura pública, mas precisa comprovar que os direitos dos filhos já foram tratados judicialmente.",
+      "A mudança procura simplificar a dissolução do casamento sem afastar a proteção jurídica de crianças e adolescentes.",
+      { h2: "Quais são os requisitos para realizar o divórcio em cartório?" },
+      { h3: "1. O divórcio deve ser consensual" },
+      "Os cônjuges precisam concordar com a realização do divórcio e com os termos que serão formalizados na escritura. Se uma das partes não concordar com a solução proposta, será necessário avaliar a via judicial. O consenso também precisa ser livre, sem coação ou constrangimento.",
+      { h3: "2. As questões dos filhos devem estar resolvidas judicialmente" },
+      "Quando existem filhos menores ou incapazes, é necessário comprovar a prévia resolução judicial das questões relacionadas a:",
+      {
+        lista: [
+          "Guarda dos filhos",
+          "Convivência familiar e visitas",
+          "Pensão alimentícia",
+        ],
+      },
+      "O acordo judicial deve contemplar as necessidades dos filhos e observar seus direitos. A simples existência de um acordo verbal entre os pais não substitui essa exigência.",
+      { h3: "3. É obrigatória a assistência jurídica" },
+      "O procedimento exige acompanhamento de advogado ou defensor público. Dependendo das circunstâncias, os cônjuges podem ser assistidos pelo mesmo profissional ou por profissionais diferentes.",
+      "A assistência jurídica é importante para verificar as consequências da separação, especialmente quando existem imóveis, dívidas, empresas ou outras questões patrimoniais.",
+      { h3: "4. Devem ser observadas as demais exigências legais" },
+      "O tabelião verificará os documentos e os requisitos necessários à lavratura da escritura. Situações envolvendo gravidez, dúvidas sobre a vontade das partes ou outras particularidades familiares exigem avaliação específica. A escritura não deve ser utilizada para contornar a necessidade de proteção judicial de pessoas vulneráveis.",
+      { h2: "Como funciona o divórcio em cartório com filhos menores?" },
+      "Imagine um casal de Juiz de Fora que decidiu encerrar o casamento de maneira amigável. Eles possuem dois filhos, de 8 e 12 anos, e já chegaram a um entendimento sobre a guarda compartilhada, a convivência familiar e a pensão alimentícia. Nesse cenário, o procedimento pode ser organizado em etapas.",
+      { h3: "Primeiro passo: resolver judicialmente as questões dos filhos" },
+      "O acordo sobre guarda, convivência e alimentos deve ser submetido ao Poder Judiciário. Essa etapa permite que os interesses das crianças sejam examinados conforme as exigências legais. Após a resolução judicial dessas questões, o casal poderá avaliar a possibilidade de realizar o divórcio em cartório.",
+      { h3: "Segundo passo: organizar os documentos" },
+      "Será necessário reunir a documentação pessoal e familiar, além dos documentos relativos ao patrimônio, quando houver. Também será preciso apresentar a comprovação da resolução judicial das questões dos filhos.",
+      { h3: "Terceiro passo: preparar os termos do divórcio" },
+      "Com assistência jurídica, os cônjuges poderão organizar os termos da escritura, incluindo as disposições patrimoniais pertinentes. A partilha de bens deve observar o regime matrimonial e os direitos de cada parte.",
+      { h3: "Quarto passo: formalizar a escritura pública" },
+      "Cumpridos os requisitos, o divórcio poderá ser formalizado no Tabelionato de Notas. A escritura pública não depende de homologação judicial. Depois, deverá ser providenciada a averbação do divórcio no registro civil competente. Quando houver partilha de imóveis ou outros bens sujeitos a registro, também poderão ser necessários procedimentos adicionais.",
+      { h2: "É possível fazer o divórcio sem dividir os bens imediatamente?" },
+      "Sim. O divórcio e a partilha patrimonial são questões relacionadas, mas não precisam necessariamente ser concluídas no mesmo momento. O artigo 1.581 do Código Civil estabelece que o divórcio pode ser concedido sem prévia partilha de bens.",
+      "Isso pode ser relevante quando o casal deseja formalizar o encerramento do casamento, mas ainda precisa avaliar imóveis, investimentos, dívidas ou outros elementos patrimoniais. Por exemplo, dois cônjuges podem concordar com o divórcio, mas ainda não ter definido como será feita a divisão de um imóvel financiado.",
+      "Nesse caso, a possibilidade de deixar a partilha para momento posterior deve ser analisada juridicamente, considerando as consequências patrimoniais e tributárias. A ausência de partilha imediata não elimina os direitos de cada cônjuge sobre o patrimônio.",
+      { h2: "Quanto custa fazer um divórcio em cartório?" },
+      "O custo depende das características do procedimento. Entre os fatores que podem influenciar o valor estão os emolumentos cartorários, os honorários advocatícios e os eventuais tributos relacionados à transferência patrimonial. Também podem existir despesas com certidões, registros e averbações.",
+      "Em Minas Gerais, os emolumentos são disciplinados por normas estaduais e tabelas aplicáveis aos serviços notariais e registrais. Por isso, não existe um valor único que possa ser indicado para todos os divórcios. A análise do patrimônio e dos documentos permite identificar quais despesas podem estar envolvidas.",
+      { h2: "Quando o divórcio judicial continua sendo necessário?" },
+      "Embora a via extrajudicial tenha sido ampliada, o divórcio judicial continua sendo importante em diversas situações. Ele pode ser necessário quando não existe consenso, quando as questões dos filhos ainda precisam ser resolvidas ou quando as circunstâncias exigem intervenção judicial.",
+      "Também merece atenção especial a existência de violência doméstica, ameaças, dependência econômica ou possíveis situações de coação. Nesses casos, a prioridade deve ser a proteção dos direitos envolvidos e a avaliação de medidas juridicamente adequadas. A tentativa de acordo não deve comprometer a segurança de qualquer integrante da família.",
+      "Para conhecer outras questões relacionadas à separação, guarda e pensão, consulte a página de [Direito de Família](/areas/direito-de-familia) do escritório.",
+      { h2: "A mediação pode ajudar durante o divórcio?" },
+      "A mediação é um método de resolução de conflitos que busca facilitar o diálogo entre as partes. Em determinadas situações, pode contribuir para a construção de acordos sobre questões patrimoniais e familiares.",
+      "Entretanto, o mediador não substitui a atuação judicial necessária para proteger os direitos dos filhos menores. Além disso, a mediação deve ser avaliada com cautela quando existem violência, intimidação ou desequilíbrio significativo entre as partes.",
+      "O escritório também disponibiliza informações sobre [mediação de conflitos em Juiz de Fora](/mediacao).",
+      { h2: "Conclusão" },
+      "O divórcio em cartório com filhos menores é possível no Brasil, desde que sejam observadas as condições estabelecidas pelo Conselho Nacional de Justiça. A principal exigência é que as questões relativas à guarda, à convivência familiar e à pensão alimentícia estejam previamente resolvidas judicialmente.",
+      "A mudança representa uma alternativa para casais que desejam formalizar consensualmente o encerramento do casamento, preservando a proteção jurídica dos filhos.",
+      "Entretanto, cada família possui particularidades. A escolha entre o procedimento judicial e o extrajudicial deve considerar os direitos das partes, a situação patrimonial e, principalmente, os interesses das crianças e adolescentes envolvidos.",
+      "Se precisa compreender quais procedimentos são aplicáveis à sua situação, o escritório atua em Direito de Família com atendimento presencial em Juiz de Fora e online. Conheça os canais na [página de contato](/contato).",
+    ],
+    faqs: [
+      {
+        q: "Posso me divorciar em cartório se tiver um filho de 5 anos?",
+        a: "Sim, desde que o divórcio seja consensual, as questões de guarda, convivência e alimentos estejam previamente resolvidas judicialmente e os demais requisitos sejam cumpridos.",
+      },
+      {
+        q: "Preciso contratar um advogado para fazer o divórcio em cartório?",
+        a: "Sim. A legislação exige assistência de advogado ou defensor público, mesmo quando os cônjuges estão de acordo.",
+      },
+      {
+        q: "Meu cônjuge não quer se divorciar. O que fazer?",
+        a: "A falta de concordância não impede que o divórcio seja solicitado judicialmente. A via extrajudicial consensual, porém, não é adequada nessa situação.",
+      },
+      {
+        q: "É obrigatório dividir todos os bens no momento do divórcio?",
+        a: "Não necessariamente. A legislação permite que o divórcio seja realizado antes da partilha patrimonial, conforme o artigo 1.581 do Código Civil.",
+      },
+      {
+        q: "Posso fazer o divórcio em cartório em Juiz de Fora?",
+        a: "Sim, desde que estejam presentes os requisitos legais. A escolha do tabelião de notas é livre, conforme a regulamentação nacional aplicável.",
+      },
+    ],
+    referencias: [
+      {
+        titulo: "Resolução CNJ nº 571/2024",
+        url: "https://atos.cnj.jus.br/atos/detalhar/5496",
+      },
+      {
+        titulo: "Resolução CNJ nº 35/2007",
+        url: "https://atos.cnj.jus.br/atos/detalhar/179",
+      },
+      {
+        titulo: "Código de Processo Civil, Lei nº 13.105/2015",
+        url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm",
+      },
+      {
+        titulo: "Código Civil, Lei nº 10.406/2002",
+        url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",
+      },
+    ],
+  },
   {
     slug: "plano-negou-medicamento-de-alto-custo",
     title: "Plano negou medicamento de alto custo: por onde começar",
