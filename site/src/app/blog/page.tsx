@@ -5,6 +5,7 @@ import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { CTABand } from "@/components/ui/CTABand";
 import { posts } from "@/content/posts";
+import { formatarDataPost } from "@/lib/utils";
 
 export const metadata: Metadata = pageMeta({
   title: "Blog e Conteúdo Jurídico",
@@ -12,14 +13,6 @@ export const metadata: Metadata = pageMeta({
     "Artigos e orientações sobre plano de saúde, inventário, família, direito da mulher e direitos LGBTQIAPN+. Conteúdo informativo do escritório Flávia Machado.",
   path: "/blog",
 });
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-}
 
 export default function BlogPage() {
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
@@ -62,7 +55,7 @@ export default function BlogPage() {
               <p className="mt-3 flex-1 text-muted">{post.excerpt}</p>
               <div className="mt-4 flex items-center justify-between text-sm">
                 <time className="text-muted" dateTime={post.date}>
-                  {formatDate(post.date)}
+                  {formatarDataPost(post.date)}
                 </time>
                 <span className="inline-flex items-center gap-1.5 font-semibold text-navy group-hover:text-brand-gold">
                   Ler <ArrowRight className="h-4 w-4" />
