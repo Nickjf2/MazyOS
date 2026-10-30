@@ -101,6 +101,16 @@ export const posts: Post[] = [
       { h2: "Quanto custa fazer um divórcio em cartório?" },
       "O custo depende das características do procedimento. Entre os fatores que podem influenciar o valor estão os emolumentos cartorários, os honorários advocatícios e os eventuais tributos relacionados à transferência patrimonial. Também podem existir despesas com certidões, registros e averbações.",
       "Em Minas Gerais, os emolumentos são disciplinados por normas estaduais e tabelas aplicáveis aos serviços notariais e registrais. Por isso, não existe um valor único que possa ser indicado para todos os divórcios. A análise do patrimônio e dos documentos permite identificar quais despesas podem estar envolvidas.",
+      { h2: "Por que alguns cartórios ainda têm dúvida sobre esse procedimento?" },
+      "Vale conhecer um ponto em discussão, porque ele pode aparecer na prática.",
+      "O artigo 733 do Código de Processo Civil, que é lei federal, prevê o divórcio por escritura pública \"não havendo nascituro ou filhos incapazes\". A Resolução nº 571/2024, por sua vez, é um ato do Conselho Nacional de Justiça — editada a partir de decisão do plenário do CNJ em pedido apresentado pelo Instituto Brasileiro de Direito de Família — e passou a admitir a escritura justamente nas situações em que há filhos menores ou incapazes.",
+      "Parte da doutrina questiona se uma resolução pode ampliar hipótese que a lei restringe. O próprio Colégio Notarial do Brasil publicou análise levantando a discussão sobre a constitucionalidade da norma, ao entender que o CNJ teria inovado em matéria reservada ao legislador, em vez de apenas regulamentar.",
+      "Outra corrente sustenta que a resolução não contraria a lei, porque não dispensa a proteção judicial: as questões sensíveis dos filhos continuam sendo decididas pelo juiz, e ao cartório cabe apenas formalizar o divórcio depois disso.",
+      {
+        destaque:
+          "Na prática, o que isso significa para quem vai se divorciar: a resolução está em vigor e é aplicada, mas a interpretação ainda está se assentando. Um tabelião pode entender que falta algum requisito e recusar a lavratura, e o próprio § 3º do artigo 34 prevê que a dúvida seja levada ao juiz.",
+      },
+      "Por isso a análise prévia dos documentos e da decisão judicial existente faz diferença: ela indica se o caso reúne com segurança os requisitos da via extrajudicial ou se o caminho judicial tende a ser mais previsível.",
       { h2: "Quando o divórcio judicial continua sendo necessário?" },
       "Embora a via extrajudicial tenha sido ampliada, o divórcio judicial continua sendo importante em diversas situações. Ele pode ser necessário quando não existe consenso, quando as questões dos filhos ainda precisam ser resolvidas ou quando as circunstâncias exigem intervenção judicial.",
       "Também merece atenção especial a existência de violência doméstica, ameaças, dependência econômica ou possíveis situações de coação. Nesses casos, a prioridade deve ser a proteção dos direitos envolvidos e a avaliação de medidas juridicamente adequadas. A tentativa de acordo não deve comprometer a segurança de qualquer integrante da família.",
@@ -149,6 +159,11 @@ export const posts: Post[] = [
       {
         titulo: "Resolução CNJ nº 35/2007",
         url: "https://atos.cnj.jus.br/atos/detalhar/179",
+      },
+      {
+        titulo:
+          "Colégio Notarial do Brasil — análise da Resolução 571/24",
+        url: "https://www.notariado.org.br/resolucao-571-24-cnj-inventario-extrajudicial-envolvendo-menores-e-incapazes/",
       },
       {
         titulo: "Código de Processo Civil, Lei nº 13.105/2015",
