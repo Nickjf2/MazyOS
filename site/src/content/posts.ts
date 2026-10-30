@@ -58,9 +58,9 @@ export const posts: Post[] = [
       "É importante destacar que a participação de advogado ou defensor público é obrigatória, mesmo quando os cônjuges estão completamente de acordo. Essa exigência está prevista no artigo 733, § 2º, do Código de Processo Civil.",
       { h2: "Quem tem filhos menores pode se divorciar em cartório?" },
       "Sim. A possibilidade foi ampliada pela Resolução CNJ nº 571/2024, que alterou a Resolução nº 35/2007. Anteriormente, a existência de filhos menores ou incapazes impedia, como regra, a realização do divórcio extrajudicial.",
-      "Com a alteração, o artigo 34, § 2º, da Resolução nº 35/2007 passou a admitir a escritura pública de divórcio mesmo nessas situações. Entretanto, existe uma condição fundamental: as questões referentes à guarda, à convivência e aos alimentos dos filhos menores ou incapazes devem estar previamente resolvidas judicialmente.",
+      "Com a alteração, o artigo 34, § 2º, da Resolução nº 35/2007 passou a admitir a escritura pública de divórcio mesmo nessas situações. Entretanto, existe uma condição fundamental: é preciso comprovar a prévia resolução judicial de todas as questões referentes à guarda, à visitação e aos alimentos dos filhos menores ou incapazes — e isso deve ficar consignado no corpo da escritura, não apenas apresentado ao tabelião.",
       "Isso significa que o cartório não substitui o Poder Judiciário na definição dessas questões. O casal pode formalizar o divórcio por escritura pública, mas precisa comprovar que os direitos dos filhos já foram tratados judicialmente.",
-      "A mudança procura simplificar a dissolução do casamento sem afastar a proteção jurídica de crianças e adolescentes.",
+      "A mudança procura simplificar a dissolução do casamento sem afastar a proteção jurídica de crianças e adolescentes. Tanto é assim que o § 3º do mesmo artigo determina que, havendo dúvida quanto às questões de interesse do menor ou do incapaz, o tabelião submeta o caso à apreciação do juiz que proferiu a decisão.",
       { h2: "Quais são os requisitos para realizar o divórcio em cartório?" },
       { h3: "1. O divórcio deve ser consensual" },
       "Os cônjuges precisam concordar com a realização do divórcio e com os termos que serão formalizados na escritura. Se uma das partes não concordar com a solução proposta, será necessário avaliar a via judicial. O consenso também precisa ser livre, sem coação ou constrangimento.",
@@ -78,7 +78,12 @@ export const posts: Post[] = [
       "O procedimento exige acompanhamento de advogado ou defensor público. Dependendo das circunstâncias, os cônjuges podem ser assistidos pelo mesmo profissional ou por profissionais diferentes.",
       "A assistência jurídica é importante para verificar as consequências da separação, especialmente quando existem imóveis, dívidas, empresas ou outras questões patrimoniais.",
       { h3: "4. Devem ser observadas as demais exigências legais" },
-      "O tabelião verificará os documentos e os requisitos necessários à lavratura da escritura. Situações envolvendo gravidez, dúvidas sobre a vontade das partes ou outras particularidades familiares exigem avaliação específica. A escritura não deve ser utilizada para contornar a necessidade de proteção judicial de pessoas vulneráveis.",
+      "O tabelião verificará os documentos e os requisitos necessários à lavratura da escritura.",
+      {
+        destaque:
+          "Há uma vedação expressa que permanece: o artigo 733 do Código de Processo Civil condiciona o divórcio por escritura pública à inexistência de nascituro. Havendo gravidez, a via extrajudicial não é admitida, e o divórcio deve seguir pelo Poder Judiciário.",
+      },
+      "Dúvidas sobre a vontade das partes ou outras particularidades familiares também exigem avaliação específica. A escritura não deve ser utilizada para contornar a necessidade de proteção judicial de pessoas vulneráveis.",
       { h2: "Como funciona o divórcio em cartório com filhos menores?" },
       "Imagine um casal de Juiz de Fora que decidiu encerrar o casamento de maneira amigável. Eles possuem dois filhos, de 8 e 12 anos, e já chegaram a um entendimento sobre a guarda compartilhada, a convivência familiar e a pensão alimentícia. Nesse cenário, o procedimento pode ser organizado em etapas.",
       { h3: "Primeiro passo: resolver judicialmente as questões dos filhos" },
@@ -126,6 +131,10 @@ export const posts: Post[] = [
       {
         q: "É obrigatório dividir todos os bens no momento do divórcio?",
         a: "Não necessariamente. A legislação permite que o divórcio seja realizado antes da partilha patrimonial, conforme o artigo 1.581 do Código Civil.",
+      },
+      {
+        q: "Estou grávida. Posso fazer o divórcio em cartório?",
+        a: "Não. O artigo 733 do Código de Processo Civil condiciona o divórcio por escritura pública à inexistência de nascituro. Durante a gravidez, o divórcio deve ser conduzido pela via judicial.",
       },
       {
         q: "Posso fazer o divórcio em cartório em Juiz de Fora?",
