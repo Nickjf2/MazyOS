@@ -22,10 +22,15 @@ const nextConfig = {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       // As fontes são servidas pelo próprio site (next/font).
       "font-src 'self' data: https://fonts.gstatic.com",
-      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.google.com.br https://googleads.g.doubleclick.net https://maps.gstatic.com https://*.googleapis.com",
+      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.google.com.br https://*.doubleclick.net https://*.googlesyndication.com https://*.googleadservices.com https://maps.gstatic.com https://*.googleapis.com",
       // O GA4 alterna entre vários hosts de coleta conforme a região e a versão
       // do gtag. Faltando um deles, a medição some sem erro visível.
-      "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://www.google.com.br https://*.g.doubleclick.net",
+      // O Ads mede conversão por vários hosts além do principal: ccm/collect
+      // sai por pagead2.googlesyndication.com e ad.doubleclick.net. O curinga
+      // *.g.doubleclick.net não cobria ad.doubleclick.net, e googlesyndication
+      // não estava na lista — as duas chamadas vinham sendo recusadas em
+      // produção, sem erro visível na página.
+      "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://www.google.com.br https://*.doubleclick.net https://*.googlesyndication.com https://*.googleadservices.com",
       // Mapa do escritório na página de contato.
       "frame-src https://maps.google.com https://www.google.com https://td.doubleclick.net",
       "frame-ancestors 'self'",
