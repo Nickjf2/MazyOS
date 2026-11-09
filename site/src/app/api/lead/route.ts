@@ -103,6 +103,10 @@ export async function POST(request: Request) {
     cidade: limpar(corpo.cidade, 120),
     area: limpar(corpo.area, 120),
     mensagem: limpar(corpo.mensagem, 2000),
+    // Campos usados pela landing de brasileiros no exterior. Chegam vazios
+    // nos demais formulários, que não os coletam.
+    email: limpar(corpo.email, 160),
+    pais: limpar(corpo.pais, 80),
     origem: limpar(corpo.origem, 120) || "site",
     enviadoEm: new Date().toISOString(),
   };

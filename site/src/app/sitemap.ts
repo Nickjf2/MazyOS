@@ -11,6 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/equipe",
     "/areas-de-atuacao",
     "/mediacao",
+    // Landing indexável: diferente das de campanha, nenhuma página do site
+    // cobre este público, então não há canibalização.
+    "/brasileiros-no-exterior",
     "/blog",
     "/contato",
     "/politica-de-privacidade",

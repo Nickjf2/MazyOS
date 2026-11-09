@@ -46,6 +46,8 @@ const messages: Record<string, string> = {
     "Olá! Tive um problema com voo atrasado, cancelado ou bagagem extraviada e gostaria de orientação.",
   "direito-do-consumidor":
     "Olá, vim pelo site do escritório, na área de Direito do Consumidor, e gostaria de orientação inicial.",
+  "brasileiros-no-exterior":
+    "Olá! Moro fora do Brasil e gostaria de orientação sobre uma questão jurídica brasileira.",
   "planejamento-sucessorio":
     "Olá, vim pelo site do escritório, na área de Planejamento Sucessório, e gostaria de orientação inicial.",
   "direito-de-familia":
