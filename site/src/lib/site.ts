@@ -100,14 +100,19 @@ export const team = [
   },
 ] as const;
 
+// Menu principal.
+//
+// Antes eram nove itens, cinco deles áreas soltas — e justamente cinco das
+// doze, escolhidas sem critério. O índice /areas-de-atuacao, que lista as doze,
+// não aparecia em lugar nenhum.
+//
+// Consolidar as áreas num item só abriu espaço para a página de brasileiros no
+// exterior e, de quebra, passou a expor as sete áreas que o menu escondia.
+// "Início" saiu porque a logo já leva para a home.
 export const mainNav = [
-  { label: "Início", href: "/" },
-  { label: "Saúde", href: "/areas/direito-da-saude" },
-  { label: "Família", href: "/areas/direito-de-familia" },
-  { label: "Sucessões", href: "/areas/inventario" },
-  { label: "Mulher", href: "/areas/direito-da-mulher" },
-  { label: "LGBTQIAPN+", href: "/areas/direitos-lgbtqia" },
+  { label: "Áreas de atuação", href: "/areas-de-atuacao" },
   { label: "Mediação", href: "/mediacao" },
+  { label: "Brasileiros no exterior", href: "/brasileiros-no-exterior" },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contato" },
 ] as const;

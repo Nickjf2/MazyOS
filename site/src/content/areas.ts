@@ -27,6 +27,12 @@ export interface Area {
   heroImage?: string;
   heroImageAlt?: string;
   /**
+   * Chamada para a página de brasileiros no exterior. Só preencher nas áreas
+   * em que morar fora muda o procedimento — herdeiro ou cônjuge no exterior
+   * precisa de representação, e é a dúvida que trava o caso.
+   */
+  chamadaExterior?: string;
+  /**
    * Enquadramento da ilustração (object-position). Só preencher quando a
    * composição fugir do padrão — as imagens em geral têm o vazio à esquerda e
    * a cena à direita, e o default já cuida disso.
@@ -520,6 +526,8 @@ export const areas: Record<string, Area> = {
 
   inventario: {
     slug: "inventario",
+    chamadaExterior:
+      "Algum herdeiro mora fora do Brasil? O inventário pode ser conduzido com representação, sem que a pessoa precise viajar — desde que a procuração seja organizada corretamente.",
     theme: "succession",
     badge: "Inventário e Sucessões",
     metaTitle: "Advogado para Inventário em Juiz de Fora | Flávia Machado Advogados",
@@ -590,6 +598,8 @@ export const areas: Record<string, Area> = {
 
   "planejamento-sucessorio": {
     slug: "planejamento-sucessorio",
+    chamadaExterior:
+      "Tem patrimônio no Brasil e família morando fora? O planejamento sucessório pode ser organizado a distância, considerando a residência de cada herdeiro.",
     theme: "succession",
     badge: "Planejamento Sucessório",
     metaTitle: "Planejamento Sucessório em Juiz de Fora | Flávia Machado Advogados",
@@ -785,6 +795,8 @@ export const areas: Record<string, Area> = {
 
   "direito-de-familia": {
     slug: "direito-de-familia",
+    chamadaExterior:
+      "Você ou seu cônjuge moram fora do Brasil? O divórcio e as questões de guarda e alimentos podem ser conduzidos aqui, com representação, sem viagem na maior parte dos casos.",
     theme: "family",
     badge: "Direito de Família",
     metaTitle: "Advogado de Família em Juiz de Fora | Flávia Machado Advogados",

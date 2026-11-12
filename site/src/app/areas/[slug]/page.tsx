@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { areas, areaList, getArea, type ThemeKey } from "@/content/areas";
@@ -269,6 +270,30 @@ export default async function AreaPage({
           </div>
         </div>
       </section>
+
+      {/* MORA FORA DO BRASIL — só nas áreas em que isso muda o procedimento */}
+      {area.chamadaExterior && (
+        <section className="section pt-0">
+          <div className="container-site">
+            <div className="mx-auto flex max-w-4xl flex-col gap-5 rounded-card border border-line bg-soft p-7 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+              <div>
+                <p className="font-serif text-xl text-navy">
+                  Mora fora do Brasil?
+                </p>
+                <p className="mt-2 max-w-[58ch] leading-relaxed text-muted">
+                  {area.chamadaExterior}
+                </p>
+              </div>
+              <Link
+                href="/brasileiros-no-exterior"
+                className="btn-outline shrink-0 whitespace-nowrap"
+              >
+                Ver como funciona
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQ */}
       <section className="section bg-soft">
